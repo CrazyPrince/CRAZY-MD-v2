@@ -6,7 +6,7 @@
                "type": "commonjs",
                "license": "GPL-3.0",
    "scripts": {
-                "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --attach --max-memory-restart 490M",
+                "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
                 "stop": "pm2 stop crazy"
                 },
                "author": "CrazyPrince",

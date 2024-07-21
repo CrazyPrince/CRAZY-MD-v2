@@ -55,14 +55,19 @@
 <a href='https://dashboard.render.com/select-repo?type=web' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=render' width="96.35" height="28"/></a></p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO HEROKU 
+#### DEPLOY TO KOYEB 
 
-1. If You don't have a account in Heroku. Create a account.
+1. If You don't have a account in koyeb. Create a account.
     <br>
-<a href='https://signup.heroku.com/' target="_blank"><img alt='Heroku' src='https://img.shields.io/badge/-Create-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+<a href='https://app.koyeb.com/auth/signup' target="_blank"><img alt='koyeb' src='https://img.shields.io/badge/-Create-black?style=for-the-badge&logo=koyeb&logoColor=white'/></a>
+
+3. Get [DATABASE_URL](https://github.com/A-d-i-t-h-y-a-n/hermit-md/wiki/DATABASE_URL) and copy it
+
+4. Get [Koyeb api key](https://app.koyeb.com/account/api)
 
 2. Now Deploy
-    <a href='https://dashboard.heroku.com/new?template=https://github.com/Anonphoenix007/MAKINO-MD-V2' target="_blank"><img alt='DEPLOY Heroku' src='https://img.shields.io/badge/-Deploy-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+    <br>
+<a href='https://hermit.koyeb.app/deploy-koyeb' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb&logoColor=white'/></a>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 #### DEPLOY TO CODESPACE
@@ -109,3 +114,12 @@
     <br>
 <a href='https://coolify.io/' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=C' width="96.35" height="28"/></a></p>
 
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+#### DEPLOY TO HEROKU 
+
+1. If You don't have a account in Heroku. Create a account.
+    <br>
+<a href='https://signup.heroku.com/' target="_blank"><img alt='Heroku' src='https://img.shields.io/badge/-Create-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+
+2. Now Deploy
+    <a href='https://dashboard.heroku.com/new?template=https://github.com/Anonphoenix007/MAKINO-MD-V2' target="_blank"><img alt='DEPLOY Heroku' src='https://img.shields.io/badge/-Deploy-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>

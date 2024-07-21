@@ -55,7 +55,7 @@ Secktor.cmd({
                 let total = await sck1.countDocuments()
                 let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
                 str +=
-                    '```' + `┃✯ │ ╭────────────────────◆
+                    '```' + `┃✯  ╭────────────────────◆
 ┃✯ │  
 ┃✯ │ *Theme:* ${tlang().title}
 ┃✯ │ *Prefix:* [ ${prefix} ]

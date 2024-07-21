@@ -49,30 +49,30 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Asia/KOLKATA')
+                moment.tz.setDefault('Etc/GMT')
                     .locale('id')
-                const date = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const date = moment.tz('Afica/Douala').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙═══⊷❍\n`
+                let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
                 str +=
-                    '```' + `┃✵ ╭────────────◆
+                    '```\n' + `┃✵ ╭────────────────────◆
 ┃✯ │  
-┃✯ │  Theme:- ${tlang().title}
-┃✯ │  Prefix:- [ ${prefix} ]
-┃✯ │  Owner:- ${Config.ownername}
-┃✯ │  Plugins:- ${commands.length}
-┃✯ │  Users:- ${total}
-┃✯ │  Uptime:- ${runtime(process.uptime())}
-┃✯ │  Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃✯ │  Time:- ${time}
-┃✯ │  Date:- ${date}
+┃✯ │ *Theme:* ${tlang().title}
+┃✯ │ *Prefix:* [ ${prefix} ]
+┃✯ │ *Owner:* ${Config.ownername}
+┃✯ │ *Plugins:* ${commands.length}
+┃✯ │ *Users:* ${total}
+┃✯ │ *Uptime:* ${runtime(process.uptime())}
+┃✯ │ *Mem:* ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+┃✯ │ *Time:* ${time}
+┃✯ │ *Date:* ${date}
 ┃✯ │
-┃✯ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃✯ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
+┃✯ │    ▎▍▌▌▉▏▎▌▉▐▏▌▎
+┃✯ │    ▎▍▌▌▉▏▎▌▉▐▏▌▎
 ┃✯ │ 
-┃✯ ╰────────────◆
-╰═════════════⊷\n
-🌚✌🏽Hey, ${citel.pushName}` + '```'
+┃✯ ╰────────────────────◆
+╰═══════════════════════⊷\n
+🌚✌🏽Hey, ${citel.pushName}\n` + '```'
                 for (const category in cmds) 
                 {
                    str += `╭════〘 *${tiny(category)}* 〙════⊷❍\n┃✯╭───────❍\n` ;

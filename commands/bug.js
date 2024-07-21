@@ -12,7 +12,7 @@ const LENGTH = 5; // Nombre de fois que le texte est dupliqué
 const FORCE = 3;  // Nombre de fois que le message est envoyé
 const predefinedText = "Pour définir les valeurs de length et force directement dans le fichier de commande sans utiliser de variables de configuration ou d’environnement, vous pouvez simplement les définir comme des constantes au début de votre fichier. Voici comment vous pouvez structurer cela";
 
-Secktor.cmd({
+cmd({
         pattern: "bug",
         desc: "Sends a travas bug message",
         category: "Travas",

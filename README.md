@@ -1,36 +1,10 @@
-   <p align="center">  
-  <a href="https://secktoruserbot.onrender.com/">
-    <img alt="secktor docs" height="300" src="https://secktoruserbot.onrender.com/main.jpg">
-    <h1 align="center">Secktor MD Whatsapp bot</h1>
-  </a>
-</p>
-   
-<p align="center">
+ <h1 align="center"> 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃  </h1>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=1BAFBAFF&center=true&width=1150&height=100&lines=CRAZY BOT;MULTI+DEVICE+WHATSAPP+BOT;CREATED+BY+CRAZY+PRINCE; RELEASED+BY+@CrazyPrince.2024" alt="Typing SVG" /></a>
+  </p>
 
-  <a aria-label="Join our chats" href="https://www.youtube.com/@YourPenPal" target="_blank">
-    <img alt="whatsapp" src="https://img.shields.io/badge/Join Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-  </a>
- 
-  <a aria-label="Secktor is free to use" href="https://github.com/SamPandey001/Secktor-Md/blob/main/LICENCE" target="_blank">
-    <img alt="License: GPL-3" src="https://badges.frapsoft.com/os/gpl/gpl.png?v=103)](https://opensource.org/licenses/GPL-3.0/" target="_blank" />
-  </a>
-</p>
 
- 
----
 
-<p align="center"><img src="https://profile-counter.glitch.me/{SamPandey001}/count.svg" alt="SamPandey001 :: Visitor's Count" /></p>
-
-  <p align="center"> Introducing Secktor,Secktor is designed to bring a whole new level of excitement to your boring WhatsApp use. </p>
- 
- ***<p align="center"> Support us by subscribing our channel </p>***
- 
-   <p align="center">  
-  <a href="https://www.youtube.com/watch?v=k-DOQiLNuig">
-    <img alt="secktor docs" height="300" src="https://t3.ftcdn.net/jpg/03/00/38/90/360_F_300389025_b5hgHpjDprTySl8loTqJRMipySb1rO0I.jpg">
-    <h1 align="center">Tap on above Image</h1>
-  </a>
-</p>
+<img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="650" height="500"/>
  
  
 - Install [External Plugins](https://github.com/SamPandey001/Secktor-Plugins)

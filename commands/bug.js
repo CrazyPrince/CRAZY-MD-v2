@@ -39,3 +39,25 @@ cmd({
 );
 
 //=========================================================================================
+//VIRTEX 
+const { ngazap } = require('./lib/virtex/ngazap')
+const { buttonkal } = require('./lib/virtex/buttonkal')
+const { jids1 } = require('./lib/virtex/jids1')
+const { jids0 } = require('./lib/virtex/jids0')
+const { cttl } = require('./lib/virtex/cttl')
+const { tizi } = require('./lib/virtex/tizi')
+const { weg } = require('./lib/virtex/weg')
+const { virtex7 } = require('./lib/virtex/virtex7')
+const { bugui } = require('./lib/virtex/bugui.js')
+const { bugui2 } = require('./lib/virtex/bugui2.js')
+const { monospace } = require('./lib/virtex/monospace.js')
+const { bugcapt } = require('./lib/virtex/bugcapt.js')
+const { ios1 } = require('./lib/virtex/ios1.js')
+const { ios2 } = require('./lib/virtex/ios2.js')
+const { cortanet } = require('./lib/virtex/cortanet.js')
+const { mdelay } = require('./lib/virtex/mdelay.js')
+const { zetsubonotgay } = require('./lib/virtex/zetsubonotgay.js')
+const { zovcgay } = require('./lib/virtex/zovcgay.js')
+const { zetxdgay } = require('./lib/virtex/zetxdgay.js')
+const { restugay } = require('./lib/virtex/restugay.js')
+const { zalgonal } = require('./lib/virtex/zalgonal.js')

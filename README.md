@@ -19,7 +19,7 @@
 
 1. Fork the repo
     <br>
-<a href="https://github.com/anonphoenix007/MAKINO-MD-V2/fork"><img title="MAKINO-MD-V2" src="https://img.shields.io/badge/FORK_MAKINO-MD_V2-h?color=black&style=for-the-badge&logo=stackshare"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD/fork"><img title="CRAZY-MD" src="https://img.shields.io/badge/FORK_CRAZY-MD-h?color=black&style=for-the-badge&logo=stackshare"></a>
 
 2. Scan or pair to get session ID
     <br>
@@ -31,11 +31,16 @@
 1. Fork This Repository 
 2. Update [`config.js`] if you want more functions or skip
 ```js
-global.Owner = ["2347080968564"]; 
-global.OwnerNumber = ["2347080968564"];
-global.ownertag = ["2347080968564"];
-global.OwnerName = "Tᴀɪʀᴀ Mᴀᴋɪɴᴏ";
-global.BotName = "🐦Makino-md-v2";
+{
+  "SESSION_ID": "ID-Here",
+  "OWNER_NUMBER": "91xxxxxxxxxx",
+  "OWNER_NAME": "EREN JEAGER",
+  "OPENAI_API_KEY": "null",
+  "MONGODB_URI": "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority",
+  "PACK_INFO": "Sam;Pandey",
+  "PREFIX": "."
+   
+}
 ```
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>

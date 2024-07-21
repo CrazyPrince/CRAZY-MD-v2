@@ -55,22 +55,22 @@ Secktor.cmd({
                 let total = await sck1.countDocuments()
                 let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙═══⊷❍\n`
                 str +=
-                    '```' + `┃✵  ╭────────────◆
-┃✵ │  
-┃✵ │  Theme:- ${tlang().title}
-┃✵ │  Prefix:- [ ${prefix} ]
-┃✵ │  Owner:- ${Config.ownername}
-┃✵ │  Plugins:- ${commands.length}
-┃✵ │  Users:- ${total}
-┃✵ │  Uptime:- ${runtime(process.uptime())}
-┃✵ │  Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃✵ │  Time:- ${time}
-┃✵ │  Date:- ${date}
-┃✵ │
-┃✵ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃✵ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃✵ │ 
-┃✵ ╰────────────◆
+                    '```' + `┃✵ ╭────────────◆
+┃✯ │  
+┃✯ │  Theme:- ${tlang().title}
+┃✯ │  Prefix:- [ ${prefix} ]
+┃✯ │  Owner:- ${Config.ownername}
+┃✯ │  Plugins:- ${commands.length}
+┃✯ │  Users:- ${total}
+┃✯ │  Uptime:- ${runtime(process.uptime())}
+┃✯ │  Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+┃✯ │  Time:- ${time}
+┃✯ │  Date:- ${date}
+┃✯ │
+┃✯ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
+┃✯ │   ▎▍▌▌▉▏▎▌▉▐▏▌▎
+┃✯ │ 
+┃✯ ╰────────────◆
 ╰═════════════⊷\n
 🌚✌🏽Hey, ${citel.pushName}` + '```'
                 for (const category in cmds) 
@@ -81,7 +81,7 @@ Secktor.cmd({
                         str += `┃✯╰───────❍\n╰════════════⊷❍\n`  ;
                         break ;
                    }
-                   else { for (const plugins of cmds[category]) { str += `│ ${fancytext(plugins,1)}\n` ; }
+                   else { for (const plugins of cmds[category]) { str += `┃✯ ${fancytext(plugins,1)}\n` ; }
                          str += `┃✯╰───────❍\n╰════════════⊷❍\n`  ; 
                    }
   

@@ -8,6 +8,7 @@
 <div align="center">
     <img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="500" height="400" />
 </div>
+
 <p align="center">
-<a href="#"><img title="Dev" src="https://img.shields.io/badge/Dev-@CrazyPrince-red.svg?style=for-the-badge&logo=github"></a>
+<a href="#"><img title="Dev" src="https://img.shields.io/badge/Dev-CrazyPrince-red.svg?style=for-the-badge&logo=github"></a>
 </p>

@@ -32,12 +32,12 @@
 2. Update [`config.js`] if you want more functions or skip
 ```js
 {
-  "SESSION_ID": "ID-Here",
-  "OWNER_NUMBER": "91xxxxxxxxxx",
-  "OWNER_NAME": "EREN JEAGER",
+  "SESSION_ID": "your session id here",
+  "OWNER_NUMBER": "237620xxxxxx",
+  "OWNER_NAME": "CRAZY PRINCE",
   "OPENAI_API_KEY": "null",
-  "MONGODB_URI": "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority",
-  "PACK_INFO": "Sam;Pandey",
+  "MONGODB_URI": "mongodb+srv://rahul:rahulkr@cluster0.szdpcp6.mongodb.net/?retryWrites=true&w=majority",
+  "PACK_INFO": "👑;CrazyPrince",
   "PREFIX": "."
    
 }

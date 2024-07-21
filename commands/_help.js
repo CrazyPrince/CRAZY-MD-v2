@@ -57,21 +57,21 @@ Secktor.cmd({
                 str +=
                     '```' + `┃✯  ╭────────────────────◆
 ┃✯ │  
-┃✯ │ *Theme:* ${tlang().title}
-┃✯ │ *Prefix:* [ ${prefix} ]
-┃✯ │ *Owner:* ${Config.ownername}
-┃✯ │ *Plugins:* ${commands.length}
-┃✯ │ *Users:* ${total}
-┃✯ │ *Uptime:* ${runtime(process.uptime())}
-┃✯ │ *Mem:* ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃✯ │ *Time:* ${time}
-┃✯ │ *Date:* ${date}
+┃✯ │ Theme: ${tlang().title}
+┃✯ │ Prefix: [ ${prefix} ]
+┃✯ │ Owner: ${Config.ownername}
+┃✯ │ Plugins: ${commands.length}
+┃✯ │ Users: ${total}
+┃✯ │ Uptime: ${runtime(process.uptime())}
+┃✯ │ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+┃✯ │ Time: ${time}
+┃✯ │ Date: ${date}
 ┃✯ │
 ┃✯ │    ▎▍▌▌▉▏▎▌▉▐▏▌▎
 ┃✯ │    ▎▍▌▌▉▏▎▌▉▐▏▌▎
 ┃✯ │ 
 ┃✯ ╰────────────────────◆
-╰═══════════════════════⊷\n
+╰════════════════════════⊷❍\n
 🌚✌🏽Hey, ${citel.pushName}\n` + '```'
                 for (const category in cmds) 
                 {

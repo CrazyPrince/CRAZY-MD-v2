@@ -2,11 +2,29 @@
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=50&pause=1000&color=1BAFBAFF&center=true&width=1150&height=100&lines=CRAZY BOT;MULTI+DEVICE+WHATSAPP+BOT;CREATED+BY+CRAZY+PRINCE; RELEASED+BY+@CrazyPrince.2024" alt="Typing SVG" /></a>
   </p>
 
+ <div align="center">
+
+<img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="500" height="350"/>
 
 
-<div style="text-align: center;">
-    <img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="500" height="350"/>
-</div>
+<a href="https://baileys-qr.vercel.app/api"><img align="center" src="/language/replit-scan.png" alt="Scan QR" height="112" width="300" /></a>
+<br>
+<div>
+<br>
+  
+<a href="https://raganork-api.vercel.app/api/deploy" target="blank"><img align="center" src="/language/Deploy.png" alt="Deploy bot" height="112" width="310" /></a>
+  <div>
+<br>
+<a href="https://github.com/sou6av/raganork-deployer/fork"><img align="center" src="/language/repo.png" alt="Fork and deploy" height="112" width="300" /></a>
+   <br>
+<div>
+
+<br>
+<br>
+
+<div>
+  
+<a href="https://bit.ly/Raganork"><img src="/language/web.png" alt="Visit Website" height="112" width="300" border="0"></a>
  
  
 - Install [External Plugins](https://github.com/SamPandey001/Secktor-Plugins)

@@ -6,5 +6,5 @@
 </p>
 
 <div align="center">
-    <img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="450" height="400" />
+    <img src="https://telegra.ph/file/20cad2459f6d1ef9a7f8b.jpg" width="500" height="400" />
 </div>

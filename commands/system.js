@@ -48,7 +48,7 @@ cmd({
                 headerType: 4,
                 contextInfo: {
                     externalAdReply: {
-                        title: 'Secktor Session',
+                        title: 'Crazy Session',
                         body: 'Get you Session ID',
                         thumbnail: log0,
                         mediaType: 2,
@@ -77,10 +77,10 @@ cmd({
             desc: "Unbans banned user (from using bot)."
         },
         async(Void, citel, text,{ isCreator }) => {
-            if (!isCreator) return citel.reply("This command is onlt for my Owner")
+            if (!isCreator) return citel.reply("𝓣𝓱𝓲𝓼 𝓬𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝓽 𝓯𝓸𝓻 𝓶𝔂 𝓞𝔀𝓷𝓮𝓻")
             try {
                 let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
-                if (!users) return citel.reply("Please mention any user.❌")
+                if (!users) return citel.reply("𝓟𝓵𝓮𝓪𝓼𝓮 𝓶𝓮𝓷𝓽𝓲𝓸𝓷 𝓪𝓷𝔂 𝓾𝓼𝓮𝓻.❌")
                 let pushnamer = Void.getName(users);
                 sck1.findOne({ id: users }).then(async(usr) => {
                     if (!usr) {
@@ -94,7 +94,7 @@ cmd({
                     }
                 })
             } catch {
-                return citel.reply("Please mention any user.❌")
+                return citel.reply("𝓟𝓵𝓮𝓪𝓼𝓮 𝓶𝓮𝓷𝓽𝓲𝓸𝓷 𝓪𝓷𝔂 𝓾𝓼𝓮𝓻.❌")
             }
 
 
@@ -114,7 +114,7 @@ cmd({
         if(mime !='videoMessage' && mime !='imageMessage' ) return await citel.reply("Uhh Please, Reply To An Image/Video")
         let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
         let anu = await TelegraPh(media);
-        await citel.reply('*Here is URL of your media.\n'+util.format(anu));
+        await citel.reply('*𝓗𝓮𝓻𝓮 𝓲𝓼 𝓤𝓡𝓛 𝓸𝓯 𝔂𝓸𝓾𝓻 𝓶𝓮𝓭𝓲𝓪.*\n'+util.format(anu));
         return await fs.unlinkSync(media);
     })
 
@@ -134,7 +134,7 @@ async(Void, citel, text) => {
     if (!citel.quoted)  { text = text.replace( lang , "");  }
     else { text = citel.quoted.text; }
     var whole = await translatte(text, { from:"auto",  to: lang , });
-    if ("text" in whole) { return await citel.reply('*Translated text:*\n'+whole.text); }
+    if ("text" in whole) { return await citel.reply('*𝓣𝓻𝓪𝓷𝓼𝓵𝓪𝓽𝓮𝓭 𝓽𝓮𝔁𝓽:*\n'+whole.text); }
 }
 )
     //---------------------------------------------------------------------------
@@ -215,7 +215,7 @@ cmd({
             if (!isCreator) return citel.reply(tlang().owner)
             try {
                 let users = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
-                if (!users) return citel.reply(`❌ Please mention any user ${tlang().greet}.`)
+                if (!users) return citel.reply(`❌ 𝓟𝓵𝓮𝓪𝓼𝓮 𝓶𝓮𝓷𝓽𝓲𝓸𝓷 𝓪𝓷𝔂 𝓾𝓼𝓮𝓻 ${tlang().greet}.`)
                 let pushnamer = Void.getName(users);
                 sck1.findOne({ id: users }).then(async(usr) => {
                     if (!usr) {
@@ -224,12 +224,12 @@ cmd({
                     } else {
                         if (usr.ban == "true") return citel.reply(`${pushnamer} is already Banned from Using Commands`)
                         await sck1.updateOne({ id: users }, { ban: "true" })
-                        return citel.reply(`_Successfully Banned ${usr.name} from Using Commands._`)
+                        return citel.reply(`_𝓢𝓾𝓬𝓬𝓮𝓼𝓼𝓯𝓾𝓵𝓵𝔂 𝓑𝓪𝓷𝓷𝓮𝓭 ${usr.name} 𝓯𝓻𝓸𝓶 𝓤𝓼𝓲𝓷𝓰 𝓒𝓸𝓶𝓶𝓪𝓷𝓭𝓼._`)
                     }
                 })
             } catch (e) {
                 console.log(e)
-                return citel.reply("Please mention any user.❌ ")
+                return citel.reply("𝓟𝓵𝓮𝓪𝓼𝓮 𝓶𝓮𝓷𝓽𝓲𝓸𝓷 𝓪𝓷𝔂 𝓾𝓼𝓮𝓻.❌ ")
             }
 
 
@@ -243,7 +243,7 @@ cmd({
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-            let alivemessage = Config.ALIVE_MESSAGE || `*A bot developed by SamPandey001.*`
+            let alivemessage = Config.ALIVE_MESSAGE || `*𝓐 𝓫𝓸𝓽 𝓭𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝓒𝓻𝓪𝔃𝔂𝓟𝓻𝓲𝓷𝓬𝓮.*`
             const alivtxt = `
 *Hello, ${citel.pushName},*
 _This is  ${tlang().title}._
@@ -256,7 +256,7 @@ ${alivemessage}
 
 _Type ${prefix}menu for my command list._
 
-_Powered by ${Config.ownername}_
+_𝓐 𝓫𝓸𝓽 𝓭𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂 𝓒𝓻𝓪𝔃𝔂𝓟𝓻𝓲𝓷𝓬𝓮._
 `;
             let aliveMessage = {
                 image: {

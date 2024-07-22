@@ -60,7 +60,7 @@ async(Void, citel, text,{ isCreator }) => {
          },
          async(Void, citel, text) => {
 let a = await getBuffer(`https://citel-x.herokuapp.com/attp/${text}`)
- return citel.reply(a,{packname:'Secktor',author:'ATTP'},"sticker") 
+ return citel.reply(a,{packname:'Crazy',author:'ATTP'},"sticker") 
          }
      )
  cmd({
@@ -71,7 +71,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/attp/${text}`)
          },
          async(Void, citel, text) => {
 let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
- return citel.reply(a,{packname:'Secktor',author:'TTP'},"sticker") 
+ return citel.reply(a,{packname:'Crazy',author:'TTP'},"sticker") 
          }
      )
      //---------------------------------------------------------------------------
@@ -341,7 +341,7 @@ let a = await getBuffer(`https://citel-x.herokuapp.com/ttp/${text}`)
                              },
                          ];
                          let chatbott= await chatbot.findOne({ id: 'chatbot' })
-                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'Secktor-Md', citel);
+                         await Void.sendButtonText(citel.chat, buttons, `Chatbot Status: ${chatbott.worktype} `, 'Crazy-Md', citel);
                         citel.reply(`Chatbot Status: ${chatbott.worktype} \n*Use:* ${prefix}chatbot on\n${prefix}chatbot off`)
                         }
              }
@@ -491,12 +491,12 @@ let buttons = [{
     async(Void, citel, text) => {
 let limit = 5;
 try {
-if (!text) return citel.reply("```Uhh Please, Give me Url!```");
+if (!text) return citel.reply("```𝓤𝓱𝓱 𝓟𝓵𝓮𝓪𝓼𝓮, 𝓖𝓲𝓿𝓮 𝓶𝓮 𝓤𝓻𝓵!```");
 let urll = `https://s.vercel.app/api?url=${text.match(/\bhttps?:\/\/\S+/gi)[0]}&width=1280&height=720`
 let media  = await getBuffer(urll)
 return await Void.sendMessage(citel.chat ,{image : media } , {quoted:citel} )
 }
-catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
+catch (err) { return citel.reply("```𝓔𝓻𝓻𝓸𝓻 𝓦𝓱𝓲𝓵𝓮 𝓕𝓮𝓽𝓬𝓱𝓲𝓷𝓰 𝓢𝓷𝓪𝓹𝓼𝓱𝓸𝓽```")}
     }
 )
 
@@ -504,7 +504,7 @@ catch (err) { return citel.reply("```Error While Fetching Snapshot```")}
      //---------------------------------------------------------------------------
  cmd({ on: "body" }, async(Void, citel) => {
      if (Config.autoreaction === 'true' && citel.text.startsWith(prefix)) {
-         const emojis = ['❤', '💕', '😻', '🧡', '💛', '💚', '💙', '💜', '🖤', '❣', '💞', '💓', '💗', '💖', '💘', '💝', '💟', '♥', '💌', '🙂', '🤗', '😌', '😉', '🤗', '😊', '🎊', '🎉', '🎁', '🎈', '👋']
+         const emojis = ['❤', '💕', '🖖🏽', '👍', '👀', '💚', '💙', '💜', '🖤', '❣', '💞', '💓', '💗', '💖', '💘', '💝', '💟', '♥', '💌', '🙂', '🤗', '😌', '😉', '🤗', '😊', '🎊', '🎉', '🎁', '🎈', '👋']
          const emokis = emojis[Math.floor(Math.random() * (emojis.length))]
          Void.sendMessage(citel.chat, {
              react: {

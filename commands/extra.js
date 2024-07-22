@@ -21,8 +21,8 @@ cmd({
         filename: __filename,
     },
     async(Void, citel) => {
-        if(!citel.quoted) return citel.reply('Please quote any text to get link.')
-        let data = await pastebin.createPaste(citel.quoted.text, "Secktor-Pastebin")
+        if(!citel.quoted) return citel.reply('𝓟𝓵𝓮𝓪𝓼𝓮 𝓺𝓾𝓸𝓽𝓮 𝓪𝓷𝔂 𝓽𝓮𝔁𝓽 𝓽𝓸 𝓰𝓮𝓽 𝓵𝓲𝓷𝓴.')
+        let data = await pastebin.createPaste(citel.quoted.text, "Crazy-Pastebin")
         citel.reply('_Here is your link._\n'+data)
     }
 );

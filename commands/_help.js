@@ -106,6 +106,17 @@ const ranfancy = getRandomStyle();
                     headerType: 4
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged);
+                const buttons = [
+    { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
+    { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
+];
+const buttonMessage = {
+    text: 'Click a button!\n gufucxdrwcucvivuvycct',
+    footer: 'Footer text',
+    buttons: buttons,
+    headerType: 1
+};
+await Void.sendMessage(citel.chat, buttonMessage);
             }
         }
     )

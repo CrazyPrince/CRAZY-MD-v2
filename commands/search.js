@@ -257,7 +257,7 @@ cmd({
                 if (anu1 == '401' || anu1.status.length == 0) {
                     nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
                 } else {
-                    text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+                    text += `🧐 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n ✨*Bio :* ${anu1.status}\n🍁*Last update :* ${moment(anu1.setAt).tz('Etc/GMT').format('HH:mm:ss DD/MM/YYYY')}\n\n`
                 }
             } catch {
                 nowhatsapp += `${number0}${i}${number1}\n`

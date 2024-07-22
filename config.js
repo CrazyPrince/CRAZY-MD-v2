@@ -46,7 +46,8 @@ module.exports = {
 },
   VERSION: process.env.VERSION === undefined ? 'v.0.0.1' : process.env.VERSION,
   LANG: process.env.THEME|| 'CRAZY',
-  WORKTYPE: process.env.WORKTYPE === undefined ? 'public' : process.env.WORKTYPE
+  WORKTYPE: process.env.WORKTYPE === undefined ? 'public' : process.env.WORKTYPE,
+  LG: process.env.LG === undefined ? 'true' : process.env.LG
 };
 
 

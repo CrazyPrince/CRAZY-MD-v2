@@ -51,7 +51,7 @@ Secktor.cmd({
                     .format('HH:mm:ss')
                 moment.tz.setDefault('Etc/GMT')
                     .locale('id')
-                const date = moment.tz('Afica/Douala').format('DD/MM/YYYY')
+                const date = moment.tz('Etc/GMT').format('DD/MM/YYYY')
                 // Fonction pour obtenir un style aléatoire
 function getRandomStyle() {
     const styles = [1, 52, 23, 37, 56];

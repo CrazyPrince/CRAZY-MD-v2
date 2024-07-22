@@ -64,7 +64,8 @@ const ranfancy = getRandomStyle();
 
 // Créez les boutons
 const buttons = [
-    { buttonId: 'button1', buttonText: { displayText: 'OWNER 🌟' }, type: ButtonType.RESPONSE },
+    { buttonId: 'button1', buttonText: { displayText: 'OWNER 🌟' }, type: ButtonType.RESPONSE }
+    ];
 
                 let total = await sck1.countDocuments()
                 let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`

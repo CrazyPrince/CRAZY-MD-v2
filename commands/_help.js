@@ -62,10 +62,6 @@ function getRandomStyle() {
 // Créer une constante pour le style aléatoire
 const ranfancy = getRandomStyle();
 
-// Créez les boutons
-const buttons = [
-    { buttonId: 'button1', buttonText: { displayText: 'OWNER 🌟' }, type: ButtonType.RESPONSE }
-    ];
 
                 let total = await sck1.countDocuments()
                 let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
@@ -105,7 +101,7 @@ const buttons = [
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str,
-                    buttons: buttons,
+                    
                     footer: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷'
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged);

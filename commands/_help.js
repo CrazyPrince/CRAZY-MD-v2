@@ -52,6 +52,16 @@ Secktor.cmd({
                 moment.tz.setDefault('Etc/GMT')
                     .locale('id')
                 const date = moment.tz('Afica/Douala').format('DD/MM/YYYY')
+                // Fonction pour obtenir un style aléatoire
+function getRandomStyle() {
+    const styles = [1, 52, 23, 37, 56];
+    const randomIndex = Math.floor(Math.random() * styles.length);
+    return styles[randomIndex];
+}
+
+// Créer une constante pour le style aléatoire
+const ranfancy = getRandomStyle();
+
                 let total = await sck1.countDocuments()
                 let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
                 str +=
@@ -77,11 +87,11 @@ Secktor.cmd({
                 {
                    str += `╭════〘 *${tiny(category)}* 〙════⊷❍\n┃✯╭───────❍\n` ;
                    if(text.toLowerCase() == category.toLowerCase()){ str = `╭════〘 *${tiny(category)}* 〙════⊷❍\n┃✯╭───────❍\n` ;      
-                        for (const plugins of cmds[category]) { str += `┃✯│ ${fancytext(plugins,1)}\n` ; }
+                        for (const plugins of cmds[category]) { str += `┃✯│ ${fancytext(plugins,ranfancy)}\n` ; }
                         str += `┃✯╰───────❍\n╰════════════⊷❍\n`  ;
                         break ;
                    }
-                   else { for (const plugins of cmds[category]) { str += `┃✯ ${fancytext(plugins,1)}\n` ; }
+                   else { for (const plugins of cmds[category]) { str += `┃✯ ${fancytext(plugins,ranfancy)}\n` ; }
                          str += `┃✯╰───────❍\n╰════════════⊷❍\n`  ; 
                    }
   
@@ -104,7 +114,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙━━──⊷`
+╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], ranfancy) + ` 〙━━──⊷`
             str += `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ User: ${citel.pushName}
@@ -120,9 +130,9 @@ Secktor.cmd({
 for (let i = 0; i < commands.length; i++) 
 {
      if(commands[i].pattern==undefined) continue
-     str +=       `╭ ${i+1} *${fancytext(commands[i].pattern,1)}*\n` 
+     str +=       `╭ ${i+1} *${fancytext(commands[i].pattern,ranfancy)}*\n` 
      if(commands[i].desc=undefined) commands[i].desc=""
-     str += `╰➛ ${fancytext(commands[i].desc,1)}\n`
+     str += `╰➛ ${fancytext(commands[i].desc,ranfancy)}\n`
 }
             return await Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str })
         }

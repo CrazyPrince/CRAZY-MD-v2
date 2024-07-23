@@ -55,6 +55,7 @@ cmd({
          desc: "Flips given text.",
          category: "misc",
          use: '<query>',
+         react: "👀",
          filename: __filename
      },
      async(Void, citel, text) => {
@@ -76,14 +77,14 @@ if(quot.message.videoMessage)
 }
  
 }
-//else citel.reply("```This is Not A ViewOnce Message```") 
+//else citel.reply("```𝓣𝓱𝓲𝓼 𝓲𝓼 𝓝𝓸𝓽 𝓐 𝓥𝓲𝓮𝔀𝓞𝓷𝓬𝓮 𝓜𝓮𝓼𝓼𝓪𝓰𝓮```") 
        
 }  
      
 catch(e) {  console.log("error" , e ) }     
 
        
-if(!citel.quoted) return citel.reply("```Uh Please Reply A ViewOnce Message```")           
+if(!citel.quoted) return citel.reply("```𝓤𝓱 𝓟𝓵𝓮𝓪𝓼𝓮 𝓡𝓮𝓹𝓵𝔂 𝓐 𝓥𝓲𝓮𝔀𝓞𝓷𝓬𝓮 𝓜𝓮𝓼𝓼𝓪𝓰𝓮```")           
 if(citel.quoted.mtype === "viewOnceMessage")
 { console.log("ViewOnce Entered") 
  if(citel.quoted.message.imageMessage )
@@ -100,7 +101,7 @@ else if(citel.quoted.message.videoMessage )
 }
 
 }
-else return citel.reply("```This is Not A ViewOnce Message```")
+else return citel.reply("```𝓣𝓱𝓲𝓼 𝓲𝓼 𝓝𝓸𝓽 𝓐 𝓥𝓲𝓮𝔀𝓞𝓷𝓬𝓮 𝓜𝓮𝓼𝓼𝓪𝓰𝓮```")
 
 })    //---------------------------------------------------------------------------
 cmd({

@@ -54,7 +54,7 @@ Secktor.cmd({
                 const date = moment.tz('Etc/GMT').format('DD/MM/YYYY')
                 // Fonction pour obtenir un style aléatoire
 function getRandomStyle() {
-    const styles = [1, 52, 23, 37, 56];
+    const styles = [56, 52, 1, 37, 23];
     const randomIndex = Math.floor(Math.random() * styles.length);
     return styles[randomIndex];
 }

@@ -100,14 +100,12 @@ const ranfancy = getRandomStyle();
                 str+= `*🀄️𝑇𝑦𝑝𝑒:* _${prefix}help 𝑐𝑚𝑑_ 𝑛𝑎𝑚𝑒 𝑡𝑜 𝑘𝑛𝑜𝑤 𝑚𝑜𝑟𝑒 𝑎𝑏𝑜𝑢𝑡 𝑠𝑝𝑒𝑐𝑖𝑓𝑖𝑐 𝑐𝑜𝑚𝑚𝑎𝑛𝑑.\n*𝐸𝑔:* _${prefix}𝑓𝑎𝑛𝑐𝑦 52 𝑂𝑚𝑎ℎ 𝑙𝑎𝑦_\n*𝑀𝑎𝑑𝑒 𝑤𝑖𝑡ℎ 💜 𝑏𝑦 𝐶𝑟𝑎𝑧𝑦𝑃𝑟𝑖𝑛𝑐𝑒*`
                 let buttonMessaged = {
                     image: { url: await botpic() },
-                    caption: str,
-                    
-                    footer: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
-                    headerType: 4
+                    caption: str         
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged,
+                return await Void.sendMessage(citel.chat, {
+                    text: buttonMessaged,
                     contextInfo: {
-                            externalAdReply: {
+                                externalAdReply: {
                                 title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
                                 body: '(ᴄʟɪᴄᴋ ʜᴇʀᴇ)',
                                 thumbnailUrl: 'https://telegra.ph/file/dc763694500d96c593fef.jpg',
@@ -116,7 +114,7 @@ const ranfancy = getRandomStyle();
                                 renderLargerThumbnail: true
                             }
                             }
-                    );
+                    });
                 
             }
         }

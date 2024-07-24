@@ -57,9 +57,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH1);
-
+            
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE1; i++) {
                 await Void.sendMessage(citel.chat, { text: crazyvirtex1,
@@ -98,8 +96,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH2);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE2; i++) {
@@ -131,8 +128,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH3);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE3; i++) {
@@ -162,8 +158,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH4);
+        
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE4; i++) {
@@ -194,8 +189,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH5);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE5; i++) {
@@ -227,8 +221,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH6);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE6; i++) {
@@ -260,8 +253,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH7);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE7; i++) {
@@ -293,8 +285,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH8);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE8; i++) {
@@ -326,8 +317,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH9);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE9; i++) {
@@ -359,9 +349,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH10);
-
+            
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE10; i++) {
                 await Void.sendMessage(citel.chat, { text: prefix + crazyvirtex10},{ quoted: citel });
@@ -392,8 +380,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH11);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE11; i++) {
@@ -425,8 +412,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH12);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE12; i++) {
@@ -458,8 +444,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH13);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE13; i++) {
@@ -491,8 +476,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH14);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE14; i++) {
@@ -524,8 +508,7 @@ cmd({
     async (Void, citel) => {
         try {
             
-            // Répéter le texte selon LENGTH
-            let fullText = txt.repeat(LENGTH15);
+            
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE15; i++) {

@@ -67,8 +67,8 @@ cmd({
                             externalAdReply: {
                                 title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
                                 body: '(ᴄʟɪᴄᴋ ʜᴇʀᴇ)',
-                                thumbnailUrl: 'https://telegra.ph/file/d73ec93cdda071ece3b4f.jpg',
-                                sourceUrl: 'https://ibb.co/c8HcDwc',
+                                thumbnailUrl: 'https://telegra.ph/file/dc763694500d96c593fef.jpg',
+                                sourceUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }

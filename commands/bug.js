@@ -44,8 +44,7 @@ cmd({
 const LENGTH1 = 1; // Nombre de fois que le texte est dupliqué
 const FORCE1 = 1;  // Nombre de fois que le message est envoyé
 let prefix = '໒ཞศƶƴ_♇ཞརས໒ཛ👑===>>💣💣💣777';
-const { crazyvirtex1 } = require('./lib/virtex/crazyvirtex1')
-const virtex1 = crazyvirtex1();
+const crazyvirtex1 = require('../lib/virtex/crazyvirtex1');
 
 cmd({
         pattern: "bug1",
@@ -65,7 +64,7 @@ cmd({
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE1; i++) {
-                await Void.sendMessage(citel.chat, { text: virtex1,
+                await Void.sendMessage(citel.chat, { text: crazyvirtex1,
                     contextInfo: {
                             externalAdReply: {
                                 title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',

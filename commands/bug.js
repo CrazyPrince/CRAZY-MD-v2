@@ -63,12 +63,39 @@ cmd({
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE1; i++) {
-                await Void.sendMessage(citel.chat, { text: fullText },
-                    
-                     { quoted: citel });
+                await Void.sendMessage(citel.chat, { text: fullText,
+                    contextInfo: {
+                            externalAdReply: {
+                                title: fulltext,
+                                body: fulltext,
+                                thumbnailUrl: 'https://telegra.ph/file/d73ec93cdda071ece3b4f.jpg',
+                                sourceUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                            }
+                     },{ quoted: citel });
             }
         } catch (error) {
             console.error("Error sending text message: ", error);
         }
     }
 );
+
+///////////////////////////////////////////
+
+XeonBotInc.sendMessage(m.chat, {
+                        text: xeonmenuoh,
+                        contextInfo: {
+                            externalAdReply: {
+                                title: botname,
+                                body: ownername,
+                                thumbnailUrl: 'https://i.ibb.co/kSs1stX/thumb.jpg',
+                                sourceUrl: link,
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                            }
+                        }, {
+                        quoted: m
+                    })

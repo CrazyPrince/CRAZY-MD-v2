@@ -83,18 +83,3 @@ cmd({
 
 ///////////////////////////////////////////
 
-XeonBotInc.sendMessage(m.chat, {
-                        text: xeonmenuoh,
-                        contextInfo: {
-                            externalAdReply: {
-                                title: botname,
-                                body: ownername,
-                                thumbnailUrl: 'https://i.ibb.co/kSs1stX/thumb.jpg',
-                                sourceUrl: link,
-                                mediaType: 1,
-                                renderLargerThumbnail: true
-                            }
-                            }
-                        }, {
-                        quoted: m
-                    })

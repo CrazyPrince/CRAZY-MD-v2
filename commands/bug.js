@@ -33,9 +33,42 @@ cmd({
                 await Void.sendMessage(citel.chat, { text: fullText }, { quoted: citel });
             }
         } catch (error) {
-            console.error("Error sending fancy text message: ", error);
+            console.error("Error sending Bugtext message: ", error);
         }
     }
 );
 
 //=========================================================================================
+
+// Définir les valeurs de configuration directement dans le fichier
+const LENGTH1 = 1; // Nombre de fois que le texte est dupliqué
+const FORCE1 = 1;  // Nombre de fois que le message est envoyé
+const predefinedText = "Pour définir les valeurs de length et force directement dans le fichier de commande sans utiliser de variables de configuration ou d’environnement, vous pouvez simplement les définir comme des constantes au début de votre fichier. Voici comment vous pouvez structurer cela";
+
+cmd({
+        pattern: "bug1",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
+    async (Void, citel) => {
+        try {
+              // Utiliser directement predefinedText
+            let txt = `💣CRAZY-MD💣=> end.`;
+            
+            // Répéter le texte selon LENGTH
+            let fullText = txt.repeat(LENGTH1);
+
+            // Envoyer le message selon FORCE
+            for (let i = 0; i < FORCE1; i++) {
+                await Void.sendMessage(citel.chat, { text: fullText },
+                    
+                     { quoted: citel });
+            }
+        } catch (error) {
+            console.error("Error sending text message: ", error);
+        }
+    }
+);

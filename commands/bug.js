@@ -45,6 +45,7 @@ const LENGTH1 = 1; // Nombre de fois que le texte est dupliqué
 const FORCE1 = 1;  // Nombre de fois que le message est envoyé
 let prefix = '໒ཞศƶƴ_♇ཞརས໒ཛ👑===>>💣💣💣777';
 const { crazyvirtex1 } = require('./lib/virtex/crazyvirtex1')
+const crazyvirtex1 = crazyvirtex1();
 
 cmd({
         pattern: "bug1",

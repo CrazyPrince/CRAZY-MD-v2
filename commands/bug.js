@@ -100,7 +100,7 @@ cmd({
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE2; i++) {
-                await Void.sendMessage(citel.chat, { text: prefix + crazyvirtex2},{ quoted: citel });
+                await Void.sendMessage(citel.chat, { text: crazyvirtex2},{ quoted: citel });
             }
         } catch (error) {
             console.error("Error sending text message: ", error);
@@ -128,11 +128,12 @@ cmd({
     async (Void, citel) => {
         try {
             
-            
+                        // Convertir crazyvirtex3 en chaîne si ce n'est pas déjà le cas
+            const messageText3 = String(crazyvirtex3);
 
             // Envoyer le message selon FORCE
             for (let i = 0; i < FORCE3; i++) {
-                await Void.sendMessage(citel.chat, { text: prefix + crazyvirtex3},{ quoted: citel });
+                await Void.sendMessage(citel.chat, { text: prefix + messageText3},{ quoted: citel });
             }
         } catch (error) {
             console.error("Error sending text message: ", error);

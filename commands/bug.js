@@ -43,7 +43,6 @@ cmd({
 // Définir les valeurs de configuration directement dans le fichier
 const LENGTH1 = 1; // Nombre de fois que le texte est dupliqué
 const FORCE1 = 1;  // Nombre de fois que le message est envoyé
-const predefinedText = "Pour définir les valeurs de length et force directement dans le fichier de commande sans utiliser de variables de configuration ou d’environnement, vous pouvez simplement les définir comme des constantes au début de votre fichier. Voici comment vous pouvez structurer cela";
 
 cmd({
         pattern: "bug1",

@@ -65,8 +65,8 @@ cmd({
                 await Void.sendMessage(citel.chat, { text: fullText,
                     contextInfo: {
                             externalAdReply: {
-                                title: fulltext,
-                                body: fulltext,
+                                title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
+                                body: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
                                 thumbnailUrl: 'https://telegra.ph/file/d73ec93cdda071ece3b4f.jpg',
                                 sourceUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
                                 mediaType: 1,

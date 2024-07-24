@@ -105,7 +105,18 @@ const ranfancy = getRandomStyle();
                     footer: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
                     headerType: 4
                 };
-                return await Void.sendMessage(citel.chat, buttonMessaged);
+                return await Void.sendMessage(citel.chat, buttonMessaged,
+                    contextInfo: {
+                            externalAdReply: {
+                                title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
+                                body: '(ᴄʟɪᴄᴋ ʜᴇʀᴇ)',
+                                thumbnailUrl: 'https://telegra.ph/file/dc763694500d96c593fef.jpg',
+                                sourceUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                            }
+                    );
                 
             }
         }

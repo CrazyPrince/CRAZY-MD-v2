@@ -66,9 +66,9 @@ cmd({
                     contextInfo: {
                             externalAdReply: {
                                 title: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
-                                body: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
+                                body: '(ᴄʟɪᴄᴋ ʜᴇʀᴇ)',
                                 thumbnailUrl: 'https://telegra.ph/file/d73ec93cdda071ece3b4f.jpg',
-                                sourceUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
+                                sourceUrl: 'https://ibb.co/c8HcDwc',
                                 mediaType: 1,
                                 renderLargerThumbnail: true
                             }

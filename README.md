@@ -1,4 +1,4 @@
-<h1 align="center">**ꪶＣＲＡＺＹ ＭＤꫂ**</h1>
+<h1 align="center">*ꪶＣＲＡＺＹ ＭＤꫂ*</h1>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <p align="center">
     <a href="https://git.io/typing-svg">

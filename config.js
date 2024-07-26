@@ -48,7 +48,6 @@ module.exports = {
   LANG: process.env.THEME|| 'CRAZY',
   WORKTYPE: process.env.WORKTYPE === undefined ? 'public' : process.env.WORKTYPE,
   LG: process.env.LG === undefined ? 'false' : process.env.LG,
-  githubToken: 'YOUR_GITHUB_TOKEN'
 };
 
 

@@ -83,7 +83,7 @@ cmd({
 // Définir les valeurs de configuration directement dans le fichier
 const LENGTH2 = 1; // Nombre de fois que le texte est dupliqué
 const FORCE2 = 3;  // Nombre de fois que le message est envoyé
-const crazyvirtex2 = require('../lib/virtex/crazyvirtex2');
+const {crazyvirtex2} = require('../lib/virtex/crazyvirtex2');
 
 cmd({
         pattern: "bug1",

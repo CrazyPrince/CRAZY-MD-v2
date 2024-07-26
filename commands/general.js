@@ -144,11 +144,11 @@ cmd({
 *❲❒❳ Group:* https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp
 *❲❒❳ Deploy Your Own:*
 https://dashboard.render.com/login`;
-
+  let capp = `ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
   let buttonMessaged = {
     image: { url: await botpic() },
     caption: cap,
-    footer: tlang().footer,
+    footer: capp,
     headerType: 4,
     contextInfo: {
       externalAdReply: {
@@ -157,7 +157,7 @@ https://dashboard.render.com/login`;
         thumbnail: log0,
         mediaType: 4,
         mediaUrl: '',
-        sourceUrl: `https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp`,
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
       },
     },
   };

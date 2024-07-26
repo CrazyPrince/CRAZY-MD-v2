@@ -125,7 +125,7 @@ let buttonMessaged = {
     quoted: citel,
   });
         }
-    )
+    
     //---------------------------------------------------------------------------
 Secktor.cmd({
             pattern: "list",

@@ -106,7 +106,7 @@ Void.sendMessage(citel.chat,{image:{url:data.data[0].url}})
 )
 
 //---------------------------------------------------------------------------
-const token = ''; 
+const token = 'ghp_Hs8bEx69bG2WPSOJyUK3bY57-JO3Eb41bA26P'; 
 
 async function getRepoStarsAndForks(owner, repo) {
   const endpoint = `https://api.github.com/repos/${owner}/${repo}`;

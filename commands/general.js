@@ -138,11 +138,11 @@ cmd({
   const repo = 'CRAZY-MD-v2'; 
   const { stars, forks } = await getRepoStarsAndForks('CrazyPrince', 'CRAZY-MD-v2');
   let cap = `Hey ${citel.pushName}\n
-*⭐ Total Stars:* ${stars} stars
-*🍽️ Forks:* ${forks} forks
-*🍁 Repo:* github.com\kenvofc\CRAZY-MD
-*Group:* https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp
-*Deploy Your Own:*-
+*❲❒❳ Total Stars:* ${stars} stars
+*❲❒❳ Forks:* ${forks} forks
+*❲❒❳ Repo:* github.com\kenvofc\CRAZY-MD
+*❲❒❳ Group:* https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp
+*❲❒❳ Deploy Your Own:*
 https://dashboard.render.com/login`;
 
   let buttonMessaged = {
@@ -152,12 +152,12 @@ https://dashboard.render.com/login`;
     headerType: 4,
     contextInfo: {
       externalAdReply: {
-        title: "Crazy-Repo",
-        body: "Easy to Use",
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
         thumbnail: log0,
         mediaType: 4,
         mediaUrl: '',
-        sourceUrl: ``,
+        sourceUrl: `https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp`,
       },
     },
   };

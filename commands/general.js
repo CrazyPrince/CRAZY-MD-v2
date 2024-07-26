@@ -106,44 +106,65 @@ Void.sendMessage(citel.chat,{image:{url:data.data[0].url}})
 )
 
 //---------------------------------------------------------------------------
-cmd({
-        pattern: "repo",
-        alias: ["git", "sc", "script"],
-        desc: "Sends info about repo.",
-        category: "general",
-        filename: __filename,
-    },
-    async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/SamPandey001/Secktor-Md')
-        let cap = `Hey ${citel.pushName}\n
-*⭐ Total Stars:* ${data.stargazers_count} stars
-*🍽️ Forks:* ${data.forks_count} forks
-*🍁 Repo:* citel-x.herokuapp.com/repo
-*Group:* citel-x.herokuapp.com/support
-*Deploy Your Own:*-
-citel-x.herokuapp.com`
-        let buttonMessaged = {
-            image: { url: await botpic() },
-            caption: cap,
-            footer: tlang().footer,
-            headerType: 4,
-            contextInfo: {
-                externalAdReply: {
-                    title: "Crazy-Repo",
-                    body: "Easy to Use",
-                    thumbnail: log0,
-                    mediaType: 4,
-                    mediaUrl: '',
-                    sourceUrl: ``,
-                },
-            },
-        };
-        return await Void.sendMessage(citel.chat, buttonMessaged, {
-            quoted: citel,
-        });
+const token = ''; 
 
-    }
-)
+async function getRepoStarsAndForks(owner, repo) {
+  const endpoint = `https://api.github.com/repos/${owner}/${repo}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  try {
+    const response = await axios.get(endpoint, { headers });
+    const data = response.data;
+    return {
+      stars: data.stargazers_count,
+      forks: data.forks_count,
+    };
+  } catch (error) {
+    console.error('Erreur lors de la récupération des informations du dépôt :', error.message);
+    return { stars: 0, forks: 0 }; // Valeurs par défaut en cas d'erreur
+  }
+}
+
+cmd({
+  pattern: "repo",
+  alias: ["git", "sc", "script"],
+  desc: "Sends info about repo.",
+  category: "general",
+  filename: __filename,
+}, async (Void, citel) => {
+  const owner = 'CrazyPrince'; 
+  const repo = 'CRAZY-MD-v2'; 
+  const { stars, forks } = await getRepoStarsAndForks('CrazyPrince', 'CRAZY-MD-v2');
+  let cap = `Hey ${citel.pushName}\n
+*⭐ Total Stars:* ${stars} stars
+*🍽️ Forks:* ${forks} forks
+*🍁 Repo:* github.com\kenvofc\CRAZY-MD
+*Group:* https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp
+*Deploy Your Own:*-
+https://dashboard.render.com/login`;
+
+  let buttonMessaged = {
+    image: { url: await botpic() },
+    caption: cap,
+    footer: tlang().footer,
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "Crazy-Repo",
+        body: "Easy to Use",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: ``,
+      },
+    },
+  };
+  return await Void.sendMessage(citel.chat, buttonMessaged, {
+    quoted: citel,
+  });
+});
 //---------------------------------------------------------------------------
 cmd({
         pattern: "status",

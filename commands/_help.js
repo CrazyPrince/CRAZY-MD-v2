@@ -124,7 +124,8 @@ let buttonMessaged = {
   return await Void.sendMessage(citel.chat, buttonMessaged, {
     quoted: citel,
   });
-        }
+        }}
+)
     
     //---------------------------------------------------------------------------
 Secktor.cmd({

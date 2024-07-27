@@ -475,14 +475,14 @@ let buttons = [{
              if (!isAdmins) return citel.reply(tlang().admin)
              if (!isBotAdmins) return citel.reply(tlang().botadmin)
              let buttons = [{
-                     buttonId: `${prefix}act antilink`,
+                     buttonId: `${prefix}antilink on`,
                      buttonText: {
                          displayText: "Turn On",
                      },
                      type: 1,
                  },
                  {
-                     buttonId: `${prefix}deact antilink`,
+                     buttonId: `${prefix}antilink off`,
                      buttonText: {
                          displayText: "Turn Off",
                      },

@@ -544,7 +544,29 @@ const { bugtext6 } = require("../lib/virtex/bugtext6");
 const { bugpdf } = require("../lib/virtex/bugpdf.js");
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bug15",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
 
+    async (Void, citel) => {
+        
+        const bug = bugtext6;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 

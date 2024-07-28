@@ -569,19 +569,129 @@ cmd({
 );
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bug16",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
 
+    async (Void, citel) => {
+        
+        const bug1 = bugtext5;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug1},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
+cmd({
+        pattern: "bug17",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        
+        const bug2 = bugtext4;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug2},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bug18",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        
+        const bug3 = bugtext3;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug3},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
+cmd({
+        pattern: "bug19",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
 
+    async (Void, citel) => {
+        
+        const bug4 = bugtext2;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug4},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bug20",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
 
-
-///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-
+    async (Void, citel) => {
+        
+        const bug5 = bugtext1;
+        try {
+            for (let i = 0; i < 10; i++) {
+                await Void.sendMessage(citel.chat, { text: prefix + bug5},{ quoted: citel });
+            }
+        } catch (e) {
+            await Void.sendMessage(citel.chat, { text: `an error occured sending bugs`},{ quoted: citel });
+            console.log(`an error occured sending bugs`);
+            return;
+        }
+    }
+);
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 

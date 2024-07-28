@@ -767,3 +767,23 @@ cmd({
         await Void.sendMessage(citel.chat, { react: { text: "💥", key: ms.key } });
     }
 );
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+        pattern: "invite",
+        desc: "to ask group invite code",
+        category: "group",
+        use: '',
+        react: "🔗",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        
+         var code = await Void.groupInviteCode(citel.chat)
+         var linkgc = `https://chat.whatsapp.com/${code}`;
+         let mess = `- *Here is your group invite link:* \n\n ${linkgc}`
+console.log("group code: " + linkgc)
+        await Void.sendMessage(citel.chat, { text: mess},{ quoted: citel });
+    }
+);

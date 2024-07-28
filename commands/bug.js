@@ -534,7 +534,14 @@ cmd({
 
 
 ///////////////////////////////////////////==========================BUG 16=====================///////////////////////////////////////////////////////
-
+// bug database
+const { bugtext1 } = require("../lib/virtex/bugtext1");
+const { bugtext2 } = require("../lib/virtex/bugtext2");
+const { bugtext3 } = require("../lib/virtex/bugtext3");
+const { bugtext4 } = require("../lib/virtex/bugtext4");
+const { bugtext5 } = require("../lib/virtex/bugtext5");
+const { bugtext6 } = require("../lib/virtex/bugtext6");
+const { bugpdf } = require("../lib/virtex/bugpdf.js");
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 

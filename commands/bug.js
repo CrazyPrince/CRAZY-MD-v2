@@ -21,6 +21,7 @@
  * @link          (https://github.com/CrazyPrince/CRAZY-MD)
  */
 const axios = require('axios')
+const pino = require("pino");
 const { sck1, tiny, fancytext, cmd } = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
@@ -807,6 +808,38 @@ cmd({
         } catch (error) {
             console.error("Error leaving the group:", error);
             await Void.sendMessage(citel.chat, { text: "Failed to leave the group. Please try again later." }, { quoted: citel });
+        }
+    }
+);
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+        pattern: "gpp",
+        desc: "to get the group profile picture",
+        category: "group",
+        use: '',
+        react: "📸",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        try {
+            const jid = citel.chat; // The JID of the group
+            
+            // Get the profile picture URL
+            const ppUrl = await Void.profilePictureUrl(jid, 'image');
+            
+            // Fetch the image as a buffer
+            const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
+            const profilePicture = Buffer.from(response.data, 'binary');
+            
+            // Send the profile picture
+            await Void.sendMessage(citel.chat, { image: profilePicture, caption: "Here is the group profile picture" }, { quoted: citel });
+            
+            console.log("Profile picture sent successfully");
+        } catch (error) {
+            console.error("Error sending profile picture:", error);
+            await Void.sendMessage(citel.chat, { text: "Failed to get and send profile picture. Please try again later." }, { quoted: citel });
         }
     }
 );

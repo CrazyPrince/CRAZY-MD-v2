@@ -787,3 +787,26 @@ console.log("group code: " + linkgc)
         await Void.sendMessage(citel.chat, { text: mess},{ quoted: citel });
     }
 );
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "leave",
+        desc: "to leave the group",
+        category: "group",
+        use: '',
+        react: "🏃‍♂️‍➡️",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        try {
+            // Envoyer un message d'adieu avant de quitter le groupe
+            await Void.sendMessage(citel.chat, { text: `bye bye🏃‍➡️` }, { quoted: citel });
+            
+            // Quitter le groupe
+            await Void.groupLeave(citel.chat);
+        } catch (error) {
+            console.error("Error leaving the group:", error);
+            await Void.sendMessage(citel.chat, { text: "Failed to leave the group. Please try again later." }, { quoted: citel });
+        }
+    }
+);

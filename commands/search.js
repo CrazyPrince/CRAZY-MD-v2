@@ -152,7 +152,7 @@ cmd({
         filename: __filename,
     },
     async(Void, citel, text) => {
-        if (!text) return citel.reply(`give me a query\n*Example : .google Who is Suhail Tech.*`);
+        if (!text) return citel.reply(`give me a query\n*Example : .google Who is Damso.*`);
         let google = require('google-it');
         google({ 'query': text}).then(res => {
             let msg= `Google Search From : ${text} \n\n`;
@@ -189,7 +189,7 @@ cmd({
                         image: {
                             url: images,
                         },
-                        caption: `_Sector Image Search_\n*${name1}*`,
+                        caption: `_CrazyMd Image Downloader_\n*${name1}*`,
                         headerType: 4,
                     };
                     Void.sendMessage(citel.chat, buttonMessage, {
@@ -217,12 +217,12 @@ cmd({
         pattern: "iswa",
         category: "search",
         desc: "Searches in given rage about given number.",
-        use: '9112345678xx',
+        use: '2376201140xx',
         filename: __filename,
     },
     async(Void, citel, text) => {
         var inputnumber = text.split(" ")[0]
-        if (!inputnumber.includes('x')) return citel.reply('You did not add x\nExample: iswa 9196285162xx')
+        if (!inputnumber.includes('x')) return citel.reply('You did not add x\nExample: iswa 2376201140xx')
         citel.reply(`Searching for WhatsApp account in given range...`)
 
         function countInstances(string, word) {

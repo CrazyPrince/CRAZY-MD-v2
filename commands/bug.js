@@ -862,7 +862,7 @@ async (Void, citel) => {
     
 
     try {
-        const ppUrl = await Void.profilePictureUrl(anu.id, 'image');
+        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
 

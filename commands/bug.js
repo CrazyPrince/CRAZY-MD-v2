@@ -843,3 +843,40 @@ cmd({
         }
     }
 );
+
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+    pattern: "pp",
+    desc: "Fetch and send profile picture of mentioned or quoted user",
+    category: "info",
+    use: '',
+    react: "🖼️",
+    filename: __filename
+},
+
+async (Void, citel) => {
+    let jid;
+    if (citel.quoted) {
+        jid = citel.quoted.participant || citel.quoted.sender;
+    } else if (citel.mentionedJid && citel.mentionedJid.length > 0) {
+        jid = citel.mentionedJid[0];
+    }
+
+    if (!jid) {
+        await Void.sendMessage(citel.chat, { text: "No user mentioned or quoted." }, { quoted: citel });
+        return;
+    }
+
+    try {
+        const ppUrl = await Void.profilePictureUrl(jid, 'image');
+        const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
+        const buffer = Buffer.from(response.data, 'binary');
+
+        await Void.sendMessage(citel.chat, { image: buffer, caption: "Here is the profile picture" }, { quoted: citel });
+    } catch (error) {
+        console.error('Error fetching profile picture:', error);
+        await Void.sendMessage(citel.chat, { text: "Unable to fetch profile picture." }, { quoted: citel });
+    }
+});
+

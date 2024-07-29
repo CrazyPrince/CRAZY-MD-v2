@@ -24,6 +24,7 @@ function _0x1364(_0x108e43,_0x3a900c){var _0x9255bf=_0x25fb();return _0x1364=fun
 
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+const axios = require('axios')
 cmd({
         pattern: "invite",
         desc: "to ask group invite code",

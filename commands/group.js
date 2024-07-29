@@ -140,9 +140,9 @@ cmd({
 }, async (Void, citel) => {
   try {
     const group = await Void.groupCreate("New Group by Crazy", []);
-    console.log("created group with id: " + (link unavailable));
-    await Void.sendMessage((link unavailable), { text: 'Hello there' });
-    await Void.sendMessage(citel.chat, { text: `Groupe créé avec succès: ${(link unavailable)}` }, { quoted: citel });
+    console.log("created new group");
+    await Void.sendMessage(citel.chat, { text: 'Hello there' });
+    await Void.sendMessage(citel.chat, { text: `Groupe créé avec succès: lien introuvable}` }, { quoted: citel });
   } catch (error) {
     console.error('Erreur lors de la création du groupe:', error);
     await Void.sendMessage(citel.chat, { text: "Erreur lors de la création du groupe." }, { quoted: citel });

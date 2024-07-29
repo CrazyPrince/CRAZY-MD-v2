@@ -6,9 +6,10 @@
                "type": "commonjs",
                "license": "GPL-3.0",
    "scripts": {
-                "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
-                "stop": "pm2 stop crazy"
-                },
+  "python": "python",
+  "start": "YOUTUBE_DL_SKIP_PYTHON_CHECK=1 pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
+  "stop": "pm2 stop crazy"
+},
                "author": "CrazyPrince",
               "dependencies": {
                        "@sampandey001/baileys": "latest", 

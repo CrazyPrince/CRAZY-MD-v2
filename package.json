@@ -56,7 +56,7 @@
                        "util": "^0.12.4",           
                        "secktor-pack": "latest",
                        "ytdl-secktor": "latest",
-                       "youtube-dl-exec": "^3.0.7",   // Utilisez la version actuelle disponible sur npm
+                       "youtube-dl-exec": "^3.0.7",
                        "pastebin-js": "latest",
                        "fb-info-video":"^1.0.2",
                        "wa-sticker-formatter": "^4.3.2"

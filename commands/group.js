@@ -130,3 +130,21 @@ async (Void, citel) => {
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
+cmd({
+  pattern: "newgp",
+  desc: "Créer un nouveau groupe",
+  category: "group",
+  use: '',
+  react: "👥",
+  filename: __filename
+}, async (Void, citel) => {
+  try {
+    const group = await waSocket.groupCreate("New Group by Crazy", []);
+    console.log("created group with id: " + (link unavailable));
+    await waSocket.sendMessage((link unavailable), { text: 'Hello there' });
+    await Void.sendMessage(citel.chat, { text: `Groupe créé avec succès: ${(link unavailable)}` }, { quoted: citel });
+  } catch (error) {
+    console.error('Erreur lors de la création du groupe:', error);
+    await Void.sendMessage(citel.chat, { text: "Erreur lors de la création du groupe." }, { quoted: citel });
+  }
+});

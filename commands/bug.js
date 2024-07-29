@@ -856,20 +856,13 @@ cmd({
 },
 
 async (Void, citel) => {
-    let jid;
-    if (citel.quoted) {
-        jid = citel.quoted.participant || citel.quoted.sender;
-    } else if (citel.mentionedJid && citel.mentionedJid.length > 0) {
-        jid = citel.mentionedJid[0];
-    }
-
-    if (!jid) {
-        await Void.sendMessage(citel.chat, { text: "Aucun utilisateur mentionné ou cité." }, { quoted: citel });
+    
+        await Void.sendMessage(citel.chat, { text: "processing your request" }, { quoted: citel });
         return;
-    }
+    
 
     try {
-        const ppUrl = await Void.profilePictureUrl(jid, 'image');
+        const ppUrl = await Void.profilePictureUrl(citel.quoted, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
 

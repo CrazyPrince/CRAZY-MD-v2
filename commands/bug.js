@@ -876,45 +876,28 @@ async (Void, citel) => {
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
 const youtubedl = require('youtube-dl-exec');
+const path = require('path');
 
 
-cmd({
-    pattern: "dl",
-    desc: "Télécharge et envoie une vidéo YouTube",
-    category: "downloader",
-    use: '',
-    react: "⬇️",
-    filename: __filename
-},
-
-async (Void, citel, args) => {
-    const url = args[0];
-    if (!url) {
-        await Void.sendMessage(citel.chat, { text: "Veuillez fournir un lien YouTube." }, { quoted: citel });
-        return;
+cmd({ pattern: "dl ?(.*)", desc: "Télécharge et envoie une vidéo YouTube", category: "downloader", use: '', react: "⬇️", filename: __filename }, async (Void, citel, match) => {
+  const url = match[1];
+  if (!url) {
+    await Void.sendMessage(citel.chat, { text: "Veuillez fournir un lien YouTube." }, { quoted: citel });
+    return;
+  }
+  await Void.sendMessage(citel.chat, { text: "Téléchargement en cours..." }, { quoted: citel });
+  try {
+    const outputDir = path.join(__dirname, 'downloads');
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir);
     }
-
-    await Void.sendMessage(citel.chat, { text: "Téléchargement en cours..." }, { quoted: citel });
-
-    try {
-        const outputDir = path.join(__dirname, 'downloads');
-        if (!fs.existsSync(outputDir)) {
-            fs.mkdirSync(outputDir);
-        }
-
-        const result = await youtubedl(url, {
-            output: path.join(outputDir, '%(title)s.%(ext)s'),
-            format: 'mp4'
-        });
-
-        const filePath = path.join(outputDir, result._filename);
-
-        const buffer = fs.readFileSync(filePath);
-        await Void.sendMessage(citel.chat, { video: buffer, caption: "HERE IS YOUR YOUTUBE VIDEO" }, { quoted: citel });
-
-        fs.unlinkSync(filePath); // Supprime le fichier local après l'envoi
-    } catch (error) {
-        console.error('Erreur lors du téléchargement:', error);
-        await Void.sendMessage(citel.chat, { text: "Erreur lors du téléchargement de la vidéo." }, { quoted: citel });
-    }
+    const result = await youtubedl(url, { output: path.join(outputDir, '%(title)s.%(ext)s'), format: 'mp4' });
+    const filePath = path.join(outputDir, result._filename);
+    const buffer = fs.readFileSync(filePath);
+    await Void.sendMessage(citel.chat, { video: buffer, caption: "HERE IS YOUR YOUTUBE VIDEO" }, { quoted: citel });
+    fs.unlinkSync(filePath); // Supprime le fichier local après l'envoi
+  } catch (error) {
+    console.error('Erreur lors du téléchargement:', error);
+    await Void.sendMessage(citel.chat, { text: "Erreur lors du téléchargement de la vidéo." }, { quoted: citel });
+  }
 });

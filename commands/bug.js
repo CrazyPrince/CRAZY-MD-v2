@@ -858,7 +858,7 @@ cmd({
 async (Void, citel) => {
     
         await Void.sendMessage(citel.chat, { text: "processing your request" }, { quoted: citel });
-        return;
+        
     
 
     try {

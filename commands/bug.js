@@ -848,8 +848,8 @@ cmd({
 
 cmd({
     pattern: "pp",
-    desc: "Fetch and send profile picture of mentioned or quoted user",
-    category: "info",
+    desc: "Récupère et envoie la photo de profil de l'utilisateur mentionné ou cité",
+    category: "group",
     use: '',
     react: "🖼️",
     filename: __filename
@@ -864,7 +864,7 @@ async (Void, citel) => {
     }
 
     if (!jid) {
-        await Void.sendMessage(citel.chat, { text: "No user mentioned or quoted." }, { quoted: citel });
+        await Void.sendMessage(citel.chat, { text: "Aucun utilisateur mentionné ou cité." }, { quoted: citel });
         return;
     }
 
@@ -873,10 +873,10 @@ async (Void, citel) => {
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
 
-        await Void.sendMessage(citel.chat, { image: buffer, caption: "Here is the profile picture" }, { quoted: citel });
+        await Void.sendMessage(citel.chat, { image: buffer, caption: "Voici la photo de profil" }, { quoted: citel });
     } catch (error) {
-        console.error('Error fetching profile picture:', error);
-        await Void.sendMessage(citel.chat, { text: "Unable to fetch profile picture." }, { quoted: citel });
+        console.error('Erreur lors de la récupération de la photo de profil:', error);
+        await Void.sendMessage(citel.chat, { text: "Impossible de récupérer la photo de profil." }, { quoted: citel });
     }
 });
 

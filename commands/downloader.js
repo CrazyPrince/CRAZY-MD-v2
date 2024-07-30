@@ -29,8 +29,6 @@ const fs = require('fs-extra')
 const axios = require('axios')
 var videotime = 60000 // 1000 min
 var dlsize = 1000 // 1000mb
-const sleep = (citel) =>{
- return new Promise((resolve)) =>{ setTimeout (resolve, citel)})
 /*
     //---------------------------------------------------------------------------
 cmd({

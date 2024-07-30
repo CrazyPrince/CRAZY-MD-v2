@@ -50,6 +50,7 @@
                        "google-tts-api": "^2.0.2",
                        "path": "^0.12.7",
                        "request": "^2.88.2",
+                       "@rodrigogs/xvideos": "^1.2.0",
                        "simple-git": "^3.16.1",
                        "@shineiichijo/marika": "^2.0.3",           
                        "translatte": "^3.0.1",

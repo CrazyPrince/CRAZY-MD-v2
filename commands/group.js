@@ -117,6 +117,7 @@ async (Void, citel) => {
     
 
     try {
+        let metadata = await Void.groupMetadata(citel.chat); 
         const ppUrl = await Void.profilePictureUrl(citel.quoted.sender, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');

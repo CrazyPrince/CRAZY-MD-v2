@@ -616,7 +616,7 @@ if (!isCreator) {
         type = 'not animated sticker'
       }
   
-      let msg = `   Zk-stickers-dl
+      let msg = `   𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓖𝓢
       
   *𝓝𝓪𝓶𝓮 :* ${stickers.data.result.name}
   *𝓣𝔂𝓹𝓮 :* ${type} 
@@ -659,6 +659,6 @@ if (!isCreator) {
        }
   
     } catch (e) {
-      repondre("something went wrong\n", e);
+      citel.reply("something went wrong\n", e);
     }
   });

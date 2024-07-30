@@ -802,7 +802,7 @@ async (Void, citel, text, { isCreator }) => {
 
     try {
         const page = Math.floor(Math.random() * 2) + 1; // Génère 1 ou 2
-        const sortOptions = ['rate', 'views'];
+        const sortOptions = ['rating', 'views'];
         const sort = sortOptions[Math.floor(Math.random() * sortOptions.length)];
 
         let search = await xvideos.videos.search({
@@ -818,8 +818,8 @@ async (Void, citel, text, { isCreator }) => {
         citel.reply(load);
 
         await Void.sendMessage(citel.chat, {
-            text: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*',
-            video: search
+            video: search,
+            caption: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*'
         }, { quoted: citel });
 
     } catch (error) {

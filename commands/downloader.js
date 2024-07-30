@@ -588,7 +588,7 @@ cmd({
 },
  async (Void, citel, text,{ isCreator }) => {
 if (!isCreator) {
-      citel.reply('Only Mods can use this command'); return;
+      citel.reply('𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️'); return;
     }
     //const apikey = conf.APILOLHUMAIN
   

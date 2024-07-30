@@ -34,7 +34,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+    if(!isCreator) return citel.reply(tlang().owner)
         
          var code = await Void.groupInviteCode(citel.chat)
          var linkgc = `https://chat.whatsapp.com/${code}`;
@@ -53,7 +54,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+    if(!isCreator) return citel.reply(tlang().owner)
         try {
             // Envoyer un message d'adieu avant de quitter le groupe
             await Void.sendMessage(citel.chat, { text: `bye bye🏃‍➡️` }, { quoted: citel });
@@ -110,7 +112,8 @@ cmd({
     filename: __filename
 },
 
-async (Void, citel) => {
+async (Void, citel,{ isCreator }) => {
+    if(!isCreator) return citel.reply(tlang().owner)
     
         await Void.sendMessage(citel.chat, { text: "processing your request" }, { quoted: citel });
         
@@ -118,7 +121,7 @@ async (Void, citel) => {
 
     try {
         let metadata = await Void.groupMetadata(citel.chat); 
-        const ppUrl = await Void.profilePictureUrl(id, 'image');
+        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
 
@@ -138,7 +141,8 @@ cmd({
   use: '',
   react: "👥",
   filename: __filename
-}, async (Void, citel) => {
+}, async (Void, citel,{ isCreator }) => {
+    if(!isCreator) return citel.reply(tlang().owner)
   try {
     const group = await Void.groupCreate("New Group by Crazy", []);
     console.log("created new group");

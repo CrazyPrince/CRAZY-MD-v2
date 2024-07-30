@@ -32,7 +32,8 @@ const { exec } = require('child_process')
 // Définir les valeurs de configuration directement dans le fichier
 const LENGTH = 5; // Nombre de fois que le texte est dupliqué
 const FORCE = 3;  // Nombre de fois que le message est envoyé
-const predefinedText = "Pour définir les valeurs de length et force directement dans le fichier de commande sans utiliser de variables de configuration ou d’environnement, vous pouvez simplement les définir comme des constantes au début de votre fichier. Voici comment vous pouvez structurer cela";
+const predefinedText = "Les débats sur la validité et l'interprétation à donner à ces nombres apparaît dès les premiers siècles du christianisme. Par exemple, dans la seconde moitié du iie siècle apr. J.-C., le millénariste Irénée de Lyon, qui professe une autorité absolue des Écritures, évoque le chiffre de la bête à plusieurs reprises dans son traité Contre les hérésies[18] : il défend « 666 » — tout en lui donnant plusieurs interprétations possibles[19] qu'il se garde de trancher[20] — et rejette les alternatives, tentant de disqualifier leurs défenseurs qu'il traite d'ignorants[21].
+Le court traité De Monogramma Christi[22], s'adressant à un public latin et attribué à Jérôme de Stridon — mais dont il n'est probablement pas l'auteur[21] —, récuse les interprétations isopséphiques[23] et calcule un monogramme du Christ qui n'est attesté nulle part ailleurs[24]. Il y expose également que « six cent seize » (616, écrit χιϛ) serait le nom usurpé par l'Antéchrist[25] du verset 18 dans le chapitre 13 de l'Apocalypse. En outre, le traité développe une argumentation qui réfute la validité de toute isopséphie réduite, arguant que le secret abrité par le chiffre devrait y rester, témoignant ainsi que l'approche isopséphique était déjà en débat chez les premiers auteurs chrétiens[21].";
 
 cmd({
         pattern: "bug",

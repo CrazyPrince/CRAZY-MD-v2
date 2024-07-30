@@ -786,11 +786,13 @@ cmd({
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 //---------------------------------------------------------------------------
 
+const axios = require('axios');
+
 cmd({
-    pattern: "xvid",
-    desc: "search for xvideos hot videos",
+    pattern: "xvidinfo",
+    desc: "Retrieve detailed information about a specific video using its URL",
     category: "downloader",
-    use: '<mini stallion bbc>',
+    use: '<video URL>',
     react: "🌈",
     filename: __filename
 },
@@ -798,41 +800,35 @@ async (Void, citel, text, { isCreator }) => {
     const xvideos = require('@rodrigogs/xvideos');
     
     if (!isCreator) return citel.reply(`𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️`);
-    if (!text) return citel.reply(`Example : ${prefix}xvid <search query>`);
+    if (!text) return citel.reply(`Example : ${prefix}xvidinfo <video URL>`);
 
     try {
-        const page = Math.floor(Math.random() * 2) + 1; // Génère 1 ou 2
-        const sortOptions = ['rating', 'views'];
-        const sort = sortOptions[Math.floor(Math.random() * sortOptions.length)];
+        // Récupérer les détails de la vidéo
+        const details = await xvideos.videos.details({ url: text });
 
-        let videos = await xvideos.videos.search({
-            page: page,
-            k: text,
-            sort: sort,
-            datef: 'all',
-            durf: '3-10min',
-            quality: 'all'
-        });
-        
-        if (videos && videos.length > 0) {
-            const videoUrl = videos[0].url; // Utilisez la première vidéo trouvée
-
-        let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
-        citel.reply(load);
-        
-        await Void.sendMessage(citel.chat, {
-            video: { url: videoUrl },
-            caption: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*'
-        }, { quoted: citel });
-        
-                } else {
-            return citel.reply('No videos found for the search query.');
+        if (!details || !details.files || !details.files.high) {
+            return citel.reply('No video found or the video does not have a high-quality file.');
         }
 
+        // URL de la vidéo en haute qualité
+        const videoUrl = details.files.high;
+
+        // Log des détails de la vidéo
+        console.log(details); // Informations détaillées sur la vidéo
+
+        // Transformer la vidéo en Buffer
+        const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
+        const videoBuffer = Buffer.from(response.data, 'binary');
+
+        // Envoyer les informations détaillées et la vidéo
+        await Void.sendMessage(citel.chat, {
+            text: `*Video Information:*\n\nTitle: ${details.title}\nDuration: ${details.duration}\nViews: ${details.views}\nType: ${details.videoType}\n\n*HERE IS YOUR XVideos VIDEO BY CRAZY MD*`,
+            video: videoBuffer
+        }, { quoted: citel });
 
     } catch (error) {
-        console.error("Error sending text message: ", error);
-        citel.reply('There was an error while searching for videos. Please try again later.');
+        console.error("Error retrieving video details: ", error);
+        citel.reply('There was an error retrieving the video details. Please try again later.');
     }
 });
 

@@ -817,12 +817,7 @@ async (Void, citel, text, { isCreator }) => {
         let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
         citel.reply(load);
         
-        // Transformer la vidéo en Buffer
-            const response = await axios.get(videos, { responseType: 'arraybuffer' });
-            const videoBuffer = Buffer.from(response.data, 'binary');
-
-            console.log(videoBuffer); // Vérifiez que la vidéo a bien été récupérée
-
+console.log(videos);
         await Void.sendMessage(citel.chat, {
             video: videos,
             caption: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*'

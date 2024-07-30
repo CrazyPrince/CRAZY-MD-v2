@@ -773,7 +773,7 @@ cmd({
                         location: {
                             degreesLatitude: 34.745948,
                             degreesLongitude: -92.289883,
-                            name: "bug2"
+                            name: l + bug2
                         }
                     },
                     { quoted: citel }

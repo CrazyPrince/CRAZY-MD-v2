@@ -786,5 +786,45 @@ cmd({
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 //---------------------------------------------------------------------------
 
+cmd({
+    pattern: "xvid",
+    desc: "search for xvideos hot videos",
+    category: "downloader",
+    use: '<mini stallion bbc>',
+    react: "🌈",
+    filename: __filename
+},
+async (Void, citel, text, { isCreator }) => {
+    const xvideos = require('@rodrigogs/xvideos');
+    
+    if (!isCreator) return citel.reply(`𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️`);
+    if (!text) return citel.reply(`Example : ${prefix}xvid <search query>`);
 
+    try {
+        const page = Math.floor(Math.random() * 2) + 1; // Génère 1 ou 2
+        const sortOptions = ['rate', 'views'];
+        const sort = sortOptions[Math.floor(Math.random() * sortOptions.length)];
+
+        let search = await xvideos.videos.search({
+            page: page,
+            k: text,
+            sort: sort,
+            datef: 'all',
+            durf: '3-10min',
+            quality: 'all'
+        });
+
+        let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
+        citel.reply(load);
+
+        await Void.sendMessage(citel.chat, {
+            text: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*',
+            video: search
+        }, { quoted: citel });
+
+    } catch (error) {
+        console.error("Error sending text message: ", error);
+        citel.reply('There was an error while searching for videos. Please try again later.');
+    }
+});
 

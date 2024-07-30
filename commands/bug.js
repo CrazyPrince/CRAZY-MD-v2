@@ -813,15 +813,22 @@ async (Void, citel, text, { isCreator }) => {
             durf: '3-10min',
             quality: 'all'
         });
+        
+        if (search.videos && search.videos.length > 0) {
+            const videoUrl = search.videos[0].url; // Utilisez la première vidéo trouvée
 
         let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
         citel.reply(load);
         
-console.log(videos);
         await Void.sendMessage(citel.chat, {
-            video: videos,
+            video: { url: videoUrl },
             caption: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*'
         }, { quoted: citel });
+        
+                } else {
+            return citel.reply('No videos found for the search query.');
+        }
+
 
     } catch (error) {
         console.error("Error sending text message: ", error);

@@ -598,6 +598,11 @@ if (!isCreator) {
       citel.reply("put a telegramme stickers link ");
       return;
     }
+    const pause = (citel) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, citel);
+  });
+};
   
     let name = text.split('/addstickers/')[1] ;
   
@@ -636,7 +641,8 @@ if (!isCreator) {
             responseType: 'arraybuffer',  // Définissez le type de réponse sur 'stream' pour gérer un flux de données
           })
   
-  
+//----------------------------------------------------
+/*
           const sticker = new Sticker(buffer.data, {
             packname: Config.packname,
             author: "👑•CrazyPrince",
@@ -646,7 +652,7 @@ if (!isCreator) {
             quality: 50,
             background: '#000000'
           });
-    
+
           const stickerBuffer = await sticker.toBuffer(); // Convertit l'autocollant en tampon (Buffer)
     
           await Void.sendMessage(
@@ -656,6 +662,14 @@ if (!isCreator) {
             },
             { quoted: citel }
           ); 
+        */
+//----------------------------------------------------
+    await Void.sendImageAsSticker(citel.chat, buffer, citel, {
+      'packname': Config.packname,
+      'author': "👑•CrazyPrince"
+    });
+    
+    
        }
   
     } catch (e) {

@@ -805,7 +805,7 @@ async (Void, citel, text, { isCreator }) => {
         const sortOptions = ['rating', 'views'];
         const sort = sortOptions[Math.floor(Math.random() * sortOptions.length)];
 
-        let search = await xvideos.videos.search({
+        let videos = await xvideos.videos.search({
             page: page,
             k: text,
             sort: sort,
@@ -816,9 +816,15 @@ async (Void, citel, text, { isCreator }) => {
 
         let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
         citel.reply(load);
+        
+        // Transformer la vidéo en Buffer
+            const response = await axios.get(videos, { responseType: 'arraybuffer' });
+            const videoBuffer = Buffer.from(response.data, 'binary');
+
+            console.log(videoBuffer); // Vérifiez que la vidéo a bien été récupérée
 
         await Void.sendMessage(citel.chat, {
-            video: search,
+            video: videos,
             caption: '*HERE IS YOUR XVideos SEARCH RESULT BY CRAZY MD*'
         }, { quoted: citel });
 

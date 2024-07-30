@@ -26,8 +26,11 @@ const { mediafire } = require("../lib/mediafire.js");
 const googleTTS = require("google-tts-api");
 const ytdl = require('ytdl-secktor')
 const fs = require('fs-extra')
+const axios = require('axios')
 var videotime = 60000 // 1000 min
 var dlsize = 1000 // 1000mb
+const sleep = (citel) =>{
+ return new Promise((resolve)) =>{ setTimeout (resolve, citel)})
 /*
     //---------------------------------------------------------------------------
 cmd({
@@ -584,28 +587,80 @@ cmd({
   category: "downloader",
   filename: __filename,
   use: '<add sticker url.>'
-}, async (Void, citel, text) => {
-
-  if (!text) {
-    return citel.reply("_Enter a tg sticker url_\nEg: https://t.me/addstickers/catuserbot_1840737523_1 \nKeep in mind that there is a chance of ban if used frequently");
-  }
-
-  let stickerSetName = text.split("/addstickers/")[1];
-  let { result } = await fetchJson("https://api.telegram.org/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/getStickerSet?name=" + encodeURIComponent(stickerSetName));
-
-  if (result.is_animated) {
-    return citel.reply("_Animated stickers are not supported_");
-  }
-
-  citel.reply(("*Total stickers :* " + result.stickers.length + "\n*Estimated complete in:* " + result.stickers.length * 1.5 + " seconds").trim());
-
-  for (let sticker of result.stickers) {
-    let fileData = await fetchJson("https://api.telegram.org/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/getFile?file_id=" + sticker.file_id);
-    let buffer = await getBuffer("https://api.telegram.org/file/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/" + fileData.result.file_path);
-    await Void.sendImageAsSticker(citel.chat, buffer, citel, {
-      'packname': Config.packname,
-      'author': citel.pushName
-    });
-    await sleep(1500);
-  }
-});
+},
+ async (Void, citel, text,{ isCreator }) => {
+if (!isCreator) {
+      citel.reply('Only Mods can use this command'); return;
+    }
+    //const apikey = conf.APILOLHUMAIN
+  
+   // if (apikey === null || apikey === 'null') { repondre('Veillez vérifier votre apikey ou si vous en avez pas , veiller crée un compte sur api.lolhuman.xyz et vous en procurer une.'); return; };
+  
+    if (!text) {
+      citel.reply("put a telegramme stickers link ");
+      return;
+    }
+  
+    let name = text.split('/addstickers/')[1] ;
+  
+    let api = 'https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=' + encodeURIComponent(name) ;
+  
+    try {
+  
+      let stickers = await axios.get(api) ;
+  
+      let type = null ;
+  
+      if (stickers.data.result.is_animated === true ||stickers.data.result.is_video === true  ) {
+  
+          type = 'animated sticker'
+      } else {
+        type = 'not animated sticker'
+      }
+  
+      let msg = `   Zk-stickers-dl
+      
+  *𝓝𝓪𝓶𝓮 :* ${stickers.data.result.name}
+  *𝓣𝔂𝓹𝓮 :* ${type} 
+  *𝓛𝓮𝓷𝓰𝓽𝓱 :* ${(stickers.data.result.stickers).length}
+  
+      𝓓𝓸𝔀𝓷𝓵𝓸𝓪𝓭𝓲𝓷𝓰...`
+  
+      await  citel.reply(msg) ;
+  
+       for ( let i = 0 ; i < (stickers.data.result.stickers).length ; i++ ) {
+  
+          let file = await axios.get(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getFile?file_id=${stickers.data.result.stickers[i].file_id}`) ;
+  
+          let buffer = await axios({
+            method: 'get',  // Utilisez 'get' pour télécharger le fichier
+            url:`https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/${file.data.result.file_path}` ,
+            responseType: 'arraybuffer',  // Définissez le type de réponse sur 'stream' pour gérer un flux de données
+          })
+  
+  
+          const sticker = new Sticker(buffer.data, {
+            packname: Config.packname,
+            author: "👑•CrazyPrince",
+            type: StickerTypes.FULL,
+            categories: ['🤩', '🎉'],
+            id: '12345',
+            quality: 50,
+            background: '#000000'
+          });
+    
+          const stickerBuffer = await sticker.toBuffer(); // Convertit l'autocollant en tampon (Buffer)
+    
+          await Void.sendMessage(
+            citel.chat,
+            {
+              sticker: stickerBuffer, // Utilisez le tampon (Buffer) directement dans l'objet de message
+            },
+            { quoted: citel }
+          ); 
+       }
+  
+    } catch (e) {
+      repondre("something went wrong\n", e);
+    }
+  });

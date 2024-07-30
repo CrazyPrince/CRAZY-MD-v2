@@ -576,3 +576,36 @@ cmd({
 
     }
 )
+
+//---------------------------------------------------------------------------
+cmd({
+  pattern: "tgs",
+  desc: "Downloads telegram stickers.",
+  category: "downloader",
+  filename: __filename,
+  use: '<add sticker url.>'
+}, async (Void, citel, text) => {
+
+  if (!text) {
+    return citel.reply("_Enter a tg sticker url_\nEg: https://t.me/addstickers/catuserbot_1840737523_1 \nKeep in mind that there is a chance of ban if used frequently");
+  }
+
+  let stickerSetName = text.split("/addstickers/")[1];
+  let { result } = await fetchJson("https://api.telegram.org/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/getStickerSet?name=" + encodeURIComponent(stickerSetName));
+
+  if (result.is_animated) {
+    return citel.reply("_Animated stickers are not supported_");
+  }
+
+  citel.reply(("*Total stickers :* " + result.stickers.length + "\n*Estimated complete in:* " + result.stickers.length * 1.5 + " seconds").trim());
+
+  for (let sticker of result.stickers) {
+    let fileData = await fetchJson("https://api.telegram.org/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/getFile?file_id=" + sticker.file_id);
+    let buffer = await getBuffer("https://api.telegram.org/file/bot1891437832:AAFir-uJY5hR53FWbciV9k95ktev7KKZ7cc/" + fileData.result.file_path);
+    await Void.sendImageAsSticker(citel.chat, buffer, citel, {
+      'packname': Config.packname,
+      'author': citel.pushName
+    });
+    await sleep(1500);
+  }
+});

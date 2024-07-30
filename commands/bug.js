@@ -78,7 +78,7 @@ cmd({
         react: "🛡️",
         filename: __filename
     },
-    async (Void, citel,{ isCreator }) => {
+    async (Void, citel, text,{ isCreator }) => {
         if(!isCreator) return citel.reply(tlang().owner)
         try {
             

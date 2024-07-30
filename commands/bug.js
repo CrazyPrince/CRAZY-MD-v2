@@ -43,7 +43,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             let fancyPart = fancytext(predefinedText, 6);  // Utiliser directement predefinedText
             let txt = `💣CRAZY-MD💣=> ${fancyPart} end.`;
@@ -77,7 +78,8 @@ cmd({
         react: "🛡️",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -105,7 +107,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -137,7 +140,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
                         // Convertir crazyvirtex3 en chaîne si ce n'est pas déjà le cas
@@ -168,7 +172,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
         
@@ -199,7 +204,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -231,7 +237,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -263,7 +270,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -295,7 +303,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -327,7 +336,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -359,7 +369,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -390,7 +401,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -422,7 +434,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -454,7 +467,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -486,7 +500,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -518,7 +533,8 @@ cmd({
         react: "💣",
         filename: __filename
     },
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         try {
             
             
@@ -555,8 +571,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug = bugtext6;
         try {
             for (let i = 0; i < 10; i++) {
@@ -580,8 +596,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug1 = bugtext5;
         try {
             for (let i = 0; i < 10; i++) {
@@ -606,8 +622,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug2 = bugtext4;
         try {
             for (let i = 0; i < 10; i++) {
@@ -630,8 +646,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug3 = bugtext3;
         try {
             for (let i = 0; i < 10; i++) {
@@ -656,8 +672,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug4 = bugtext2;
         try {
             for (let i = 0; i < 10; i++) {
@@ -680,8 +696,8 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
-        
+    async (Void, citel,{ isCreator }) => {
+        if(!isCreator) return citel.reply(tlang().owner)
         const bug5 = bugtext1;
         try {
             for (let i = 0; i < 10; i++) {
@@ -705,9 +721,9 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
 
-
+        if(!isCreator) return citel.reply(tlang().owner)
         // send loading message
         await Void.sendMessage(citel.chat, { text: `processing your bugpdf`},{ quoted: citel });
 
@@ -746,9 +762,9 @@ cmd({
         filename: __filename
     },
 
-    async (Void, citel) => {
+    async (Void, citel,{ isCreator }) => {
         
-        
+        if(!isCreator) return citel.reply(tlang().owner)
         await Void.sendMessage(citel.chat, { text: `processing your location bug`},{ quoted: citel });
         const bug2 = bugtext4;
         for (let i = 0; i < 20; i++) {

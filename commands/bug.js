@@ -814,8 +814,8 @@ async (Void, citel, text, { isCreator }) => {
             quality: 'all'
         });
         
-        if (search.videos && search.videos.length > 0) {
-            const videoUrl = search.videos[0].url; // Utilisez la première vidéo trouvée
+        if (videos && videos.length > 0) {
+            const videoUrl = videos[0].url; // Utilisez la première vidéo trouvée
 
         let load = `*XVideos Search*\n\n Result From "${text}"\n\n───────────────────\n`;
         citel.reply(load);

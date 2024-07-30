@@ -798,7 +798,7 @@ cmd({
 },
 async (Void, citel, text, { isCreator }) => {
     const xvideos = require('@rodrigogs/xvideos');
-    
+    console.log(error)
     if (!isCreator) return citel.reply(`𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️`);
     if (!text) return citel.reply(`Example : ${prefix}xvidinfo <video URL>`);
 
@@ -819,13 +819,13 @@ async (Void, citel, text, { isCreator }) => {
         // Transformer la vidéo en Buffer
         const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
         const videoBuffer = Buffer.from(response.data, 'binary');
-
+console.log(error)
         // Envoyer les informations détaillées et la vidéo
         await Void.sendMessage(citel.chat, {
             text: `*Video Information:*\n\nTitle: ${details.title}\nDuration: ${details.duration}\nViews: ${details.views}\nType: ${details.videoType}\n\n*HERE IS YOUR XVideos VIDEO BY CRAZY MD*`,
             video: videoBuffer
         }, { quoted: citel });
-
+console.log(error)
     } catch (error) {
         console.error("Error retrieving video details: ", error);
         citel.reply('There was an error retrieving the video details. Please try again later.');

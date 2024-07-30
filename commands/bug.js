@@ -748,9 +748,9 @@ cmd({
 
     async (Void, citel) => {
         
-        const bug2 = bugtext4;
+        
         await Void.sendMessage(citel.chat, { text: `processing your location bug`},{ quoted: citel });
-
+        const bug2 = bugtext4;
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < "3"; j++) {
                 Void.sendMessage(

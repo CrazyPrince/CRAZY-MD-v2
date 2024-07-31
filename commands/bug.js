@@ -1,4 +1,4 @@
-./**
+/**
  * Copyright (C) 2024 CrazyPrince
  *
  * Licensed under the GNU General Public License v3.0 (GPL-3.0)
@@ -786,7 +786,7 @@ cmd({
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 //---------------------------------------------------------------------------
 
-/*
+
 cmd({
     pattern: "xvidinfo",
     desc: "Retrieve detailed information about a specific video using its URL",
@@ -836,4 +836,3 @@ console.log(error)
     }
 });
 
-*/

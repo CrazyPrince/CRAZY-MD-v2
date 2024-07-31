@@ -800,10 +800,10 @@ cmd({
 
 async (Void, citel, text, { isCreator }) => {
     if (!isCreator) return citel.reply(`This command is for my owner`);
-    if (!text) return await citel.reply('Veuillez fournir un texte pour générer l\'effet photo.');
+    
    
     try {
-        const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", [text]);
+        const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", ["text"]);
         console.log(data)
         
         

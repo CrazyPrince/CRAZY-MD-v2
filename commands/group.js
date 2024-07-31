@@ -166,9 +166,9 @@ cmd({
     if(!isCreator) return citel.reply(tlang().owner)
   try {
     
-    const metadata = await sock.groupMetadata(citel.chat) 
+    const metadata = await Void.groupMetadata(citel.chat) 
 console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
-let inf = `Group Infos:
+/*let inf = `Group Infos:
         " author: " metadata.author + 
         " title: " + metadata.subject + 
         " description: " + metadata.desc + 
@@ -177,6 +177,15 @@ let inf = `Group Infos:
         
         _CRAZY MD_`
     citel.reply(inf);
+*/
+    await Void.sendMessage(citel.chat, { text: `Group Infos:
+        " author: " ${metadata.author}  
+        " title: "  ${metadata.subject}
+        " description: "  ${metadata.desc}
+        " DescAuthor: "  ${metadata.descOwner}
+        " link: "  ${metadata.inviteCode}
+        
+        _CRAZY MD_` }, { quoted: citel });
         
   } catch (error) {
     console.error('Erreur lors de la récupération des infos du groupe', error);

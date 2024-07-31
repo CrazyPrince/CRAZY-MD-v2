@@ -805,10 +805,10 @@ async (Void, citel, text, { isCreator }) => {
     try {
         const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", [text]);
         console.log(data)
-        if (!data || typeof data !== 'string') {
-    throw new Error('La valeur retournée par w5botapi.ephoto2 est invalide');
-        await Void.sendMessage(citel.chat, { image: data }, { quoted: citel }); 
-        } 
+        
+        
+        await Void.sendMessage(citel.chat, { text: data }, { quoted: citel }); 
+        
     } catch (e) {
         await Void.sendMessage(citel.chat, { text: `Une erreur est survenue lors de la génération de l'effet photo.` }, { quoted: citel });
         console.log(`Une erreur est survenue :`, e);

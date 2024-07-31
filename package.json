@@ -61,7 +61,8 @@
                        "ytdl-secktor": "latest",
                        "pastebin-js": "latest",
                        "fb-info-video":"^1.0.2",
-                       "wa-sticker-formatter": "^4.3.2"
+                       "wa-sticker-formatter": "^4.3.2",
+                       "w5-textmaker": "latest"
                       },
                   "directories": {
                        "lib": "lib",

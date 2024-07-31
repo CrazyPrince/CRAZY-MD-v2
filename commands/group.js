@@ -163,7 +163,7 @@ cmd({
   react: "ℹ️",
   filename: __filename
 }, async (Void, citel,{ isCreator }) => {
-    if(!isCreator) return citel.reply(tlang().owner)
+    
   try {
     
     const metadata = await Void.groupMetadata(citel.chat) 
@@ -178,7 +178,7 @@ console.log(metadata.id + ", title: " + metadata.subject + ", description: " + m
         _CRAZY MD_`
     citel.reply(inf);
 */
-    await Void.sendMessage(citel.chat, { text: `Group Infos:
+   / await Void.sendMessage(citel.chat, { text: `Group Infos:
         " author: " ${metadata.author}  
         " title: "  ${metadata.subject}
         " description: "  ${metadata.desc}

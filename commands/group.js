@@ -153,3 +153,34 @@ cmd({
     await Void.sendMessage(citel.chat, { text: "Erreur lors de la création du groupe." }, { quoted: citel });
   }
 });
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+  pattern: "infogp",
+  desc: "Créer un nouveau groupe",
+  category: "group",
+  use: '',
+  react: "ℹ️",
+  filename: __filename
+}, async (Void, citel,{ isCreator }) => {
+    if(!isCreator) return citel.reply(tlang().owner)
+  try {
+    
+    const metadata = await sock.groupMetadata(citel.chat) 
+console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
+    citel.reply(Group Infos:
+        " author: " metadata.author + 
+        " title: " + metadata.subject + 
+        " description: " + metadata.desc + 
+        " DescAuthor: " + metadata.descOwner + 
+        " link: " + metadata.inviteCode
+        
+        _CRAZY MD_
+        )
+        
+  } catch (error) {
+    console.error('Erreur lors de la récupération des infos du groupe', error);
+    await Void.sendMessage(citel.chat, { text: "Erreur lors de la recuperation des infos du groupe." }, { quoted: citel });
+  }
+});
+

@@ -170,10 +170,11 @@ console.log("group code: " + code)
     const metadata = await Void.groupMetadata(citel.chat) 
 console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
     await Void.sendMessage(citel.chat, { text: `────𝓖𝓡𝓞𝓤𝓟 𝓘𝓝𝓕𝓞𝓢─────  
-        " title: "  ${metadata.subject}
-        " description: "  ${metadata.desc}
-        " link: "  https://chat.whatsapp.com/${code}
-        " member " ${metadata.size}
+        *" 𝓣𝓲𝓽𝓵𝓮: "*  *${metadata.subject}*
+        *" 𝓓𝓮𝓼𝓬𝓻𝓲𝓹𝓽𝓲𝓸𝓷: "*  
+         ${metadata.desc}
+        *" 𝓛𝓲𝓷𝓴: "*  _https://chat.whatsapp.com/${code}_
+        *" 𝓜𝓮𝓶𝓫𝓮𝓻 "*     *[ ${metadata.size} ]*
         
         *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*` }, { quoted: citel });
         

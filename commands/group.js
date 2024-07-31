@@ -163,29 +163,19 @@ cmd({
   react: "ℹ️",
   filename: __filename
 }, async (Void, citel,{ isCreator }) => {
-    
+
   try {
-    
+    const code = await Void.groupInviteCode(citel.chat)
+console.log("group code: " + code)
     const metadata = await Void.groupMetadata(citel.chat) 
 console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
-/*let inf = `Group Infos:
-        " author: " metadata.author + 
-        " title: " + metadata.subject + 
-        " description: " + metadata.desc + 
-        " DescAuthor: " + metadata.descOwner + 
-        " link: " + metadata.inviteCode
-        
-        _CRAZY MD_`
-    citel.reply(inf);
-*/
-    await Void.sendMessage(citel.chat, { text: `Group Infos:
-        " author: " ${metadata.author}  
+    await Void.sendMessage(citel.chat, { text: `────𝓖𝓡𝓞𝓤𝓟 𝓘𝓝𝓕𝓞𝓢─────  
         " title: "  ${metadata.subject}
         " description: "  ${metadata.desc}
-        " DescAuthor: "  ${metadata.descOwner}
-        " link: "  ${metadata.inviteCode}
+        " link: "  https://chat.whatsapp.com/${code}
+        " member " ${metadata.size}
         
-        _CRAZY MD_` }, { quoted: citel });
+        *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*` }, { quoted: citel });
         
   } catch (error) {
     console.error('Erreur lors de la récupération des infos du groupe', error);

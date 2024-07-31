@@ -801,16 +801,16 @@ cmd({
 async (Void, citel, text, { isCreator }) => {
     if (!isCreator) return citel.reply(`This command is for my owner`);
     
-   
-    try {
-        
- 
-let data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", ["text"])
-  console.log(data)
- 
-        
-    } catch (e) {
-        await Void.sendMessage(citel.chat, { text: `Une erreur est survenue lors de la génération de l'effet photo.` }, { quoted: citel });
-        console.log(`Une erreur est survenue :`, e);
-    }
+   w5botapi.textpro("<textpro_html>",
+       // "Message One" (One Message)
+       // ["Message One"], ["Message Two"] (Two Message)
+   ).then(async(data) => {
+       try {
+           console.log(dat)
+       } catch (err) {
+           console.log(err)
+       }
+   });
+
+    
 });

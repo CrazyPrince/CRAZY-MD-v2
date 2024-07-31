@@ -821,7 +821,7 @@ async (Void, citel, text, { isCreator }) => {
 console.log(error)
         // Envoyer les informations détaillées et la vidéo
         await Void.sendMessage(citel.chat, {
-            video: videoBuffer`,
+            video: videoBuffer,
             caption: `*Video Information:*\n\nTitle: ${details.title}\nDuration: ${details.duration}\nViews: ${details.views}\nType: ${details.videoType}\n\n*HERE IS YOUR XVideos VIDEO BY CRAZY MD*`
         }, { quoted: citel });
 console.log(error)

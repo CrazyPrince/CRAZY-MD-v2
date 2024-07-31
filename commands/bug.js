@@ -787,40 +787,66 @@ cmd({
 //---------------------------------------------------------------------------
 
 
+const fetch = require('node-fetch');
+const puppeteer = require('puppeteer');
+const cheerio = require('cheerio');
+
 cmd({
     pattern: "xvid",
-    desc: "Retrieve detailed information about a specific video using its URL",
-    category: "downloader",
-    use: '<video URL>',
-    react: "🌈",
+    desc: "Search and download videos from Xvideos",
+    category: "NSFW",
+    use: 'xvid <search>',
+    react: "🔞",
     filename: __filename
 },
+
 async (Void, citel, text, { isCreator }) => {
-    let xvideos = require('@rodrigogs/xvideos');
-    if (!isCreator) return citel.reply(`𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️`);
-    if (!text) return citel.reply(`Example : ${prefix}xvid <video URL>`);
+    
 
-    try {
-        // Récupérer les détails de la vidéo
-        const details = await xvideos.videos.details({ url: text });
+    if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
+    if (!text) return citel.reply(`✳️ What do you want to search?\n📌 Usage: *${prefix}xvid <search>*\n\nExample: \nExample: ${prefix}xvid link *`);
 
-        // Log des détails de la vidéo
-        console.log(details); // Informations détaillées sur la vidéo
+    const isURL = /^(https?:\/\/)?(www\.)?xvideos\.com\/.+$/i.test(text);
 
+    async function fetchXvideosDetails(url) {
+        let browser;
+        try {
+            browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+            const page = await browser.newPage();
+            await page.goto(url, { waitUntil: 'domcontentloaded' });
 
-        // Envoyer les informations détaillées et la vidéo
-        await Void.sendMessage(citel.chat, {
-            text: `Video Information:
-Title: ${details.title}
-Duration: ${details.duration}
-Views: ${details.views}
-Type: ${details.videoType}
-HERE IS YOUR XVideos VIDEO BY CRAZY MD`
-        }, { quoted: citel });
-        
-    } catch (error) {
-        console.error("Error retrieving video details: ", error);
-        citel.reply('There was an error retrieving the video details. Please try again later.');
+            const content = await page.content();
+            const $ = cheerio.load(content);
+
+            const title = $('meta[property="og:title"]').attr('content');
+            const videoUrl = $('meta[property="og:video:url"]').attr('content');
+
+            return { title, videoUrl };
+        } catch (error) {
+            console.error('Error fetching video details:', error);
+            return null;
+        } finally {
+            if (browser) {
+                await browser.close();
+            }
+        }
+    }
+
+    if (isURL) {
+        try {
+            const details = await fetchXvideosDetails(text);
+            if (!details) return citel.reply('Failed to fetch video details.');
+
+            const response = await fetch(details.videoUrl);
+            const buffer = await response.buffer();
+
+            await Void.sendMessage(citel.chat, { video: buffer, caption: `Here is your Xvideos video: ${details.title}` }, { quoted: citel });
+        } catch (error) {
+            console.error(error);
+            return citel.reply('Failed to fetch Xvideos video details.');
+        }
+    } else {
+        // Searching functionality can be implemented here
+        return citel.reply('Search functionality is not implemented yet.');
     }
 });
-

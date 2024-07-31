@@ -7,6 +7,7 @@
                "engines" : { "node": "v20.15.1", "npm": "10.8.2" },
                "license": "GPL-3.0",
    "scripts": {
+                "install": "npm install @rodrigogs/xvideos",
                 "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
                 "stop": "pm2 stop crazy",
                 "restart": "pm2 restart crazy"
@@ -15,6 +16,7 @@
               "dependencies": {
                        "@sampandey001/baileys": "latest", 
                        "@adiwajshing/keyed-db": "^0.2.4",
+                       "@rodrigogs/xvideos": "latest",
                        "awesome-phonenumber": "^3.3.0",
                        "anime-character-random": "latest",
                        "axios": "^0.24.0",
@@ -52,7 +54,6 @@
                        "google-tts-api": "^2.0.2",
                        "path": "^0.12.7",
                        "request": "^2.88.2",
-                       "@rodrigogs/xvideos": "^1.2.0",
                        "simple-git": "^3.16.1",
                        "@shineiichijo/marika": "^2.0.3",           
                        "translatte": "^3.0.1",

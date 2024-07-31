@@ -5,7 +5,6 @@ FROM node:lts-buster
 # Installer les dépendances système
 RUN apt-get update && \
     apt-get install -y \
-    libnss3 \
     ffmpeg \
     imagemagick \
     webp && \

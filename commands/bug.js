@@ -787,66 +787,28 @@ cmd({
 //---------------------------------------------------------------------------
 
 
-const fetch = require('node-fetch');
-const puppeteer = require('puppeteer');
-const cheerio = require('cheerio');
+const w5botapi = require('w5-textmaker');
 
 cmd({
-    pattern: "xvid",
-    desc: "Search and download videos from Xvideos",
-    category: "NSFW",
-    use: 'xvid <search>',
-    react: "🔞",
+    pattern: "ephoto",
+    desc: "Générer une photo avec un effet à partir d’un texte",
+    category: "fun",
+    use: 'photoeffect <texte>',
+    react: "🖼️",
     filename: __filename
 },
 
 async (Void, citel, text, { isCreator }) => {
-    
+    if (!isCreator) return citel.reply(`This command is for my owner`);
+    if (!text) return await citel.reply('Veuillez fournir un texte pour générer l\'effet photo.');
 
-    if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
-    if (!text) return citel.reply(`✳️ What do you want to search?\n📌 Usage: *${prefix}xvid <search>*\n\nExample: \nExample: ${prefix}xvid link *`);
-
-    const isURL = /^(https?:\/\/)?(www\.)?xvideos\.com\/.+$/i.test(text);
-
-    async function fetchXvideosDetails(url) {
-        let browser;
-        try {
-            browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
-            const page = await browser.newPage();
-            await page.goto(url, { waitUntil: 'domcontentloaded' });
-
-            const content = await page.content();
-            const $ = cheerio.load(content);
-
-            const title = $('meta[property="og:title"]').attr('content');
-            const videoUrl = $('meta[property="og:video:url"]').attr('content');
-
-            return { title, videoUrl };
-        } catch (error) {
-            console.error('Error fetching video details:', error);
-            return null;
-        } finally {
-            if (browser) {
-                await browser.close();
-            }
-        }
-    }
-
-    if (isURL) {
-        try {
-            const details = await fetchXvideosDetails(text);
-            if (!details) return citel.reply('Failed to fetch video details.');
-
-            const response = await fetch(details.videoUrl);
-            const buffer = await response.buffer();
-
-            await Void.sendMessage(citel.chat, { video: buffer, caption: `Here is your Xvideos video: ${details.title}` }, { quoted: citel });
-        } catch (error) {
-            console.error(error);
-            return citel.reply('Failed to fetch Xvideos video details.');
-        }
-    } else {
-        // Searching functionality can be implemented here
-        return citel.reply('Search functionality is not implemented yet.');
+    try {
+        const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", ["text"]);
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
+        await Void.sendMessage(citel.chat, { image: data }, { quoted: citel });
+    } catch (e) {
+        await Void.sendMessage(citel.chat, { text: `Une erreur est survenue lors de la génération de l'effet photo.` }, { quoted: citel });
+        console.log(`Une erreur est survenue :`, e);
     }
 });

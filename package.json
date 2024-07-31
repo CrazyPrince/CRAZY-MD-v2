@@ -4,6 +4,7 @@
                "description": "Multi device whatsapp bot by CrazyPrince.",
                "main": "lib/client.js",
                "type": "commonjs",
+               "engines" : { "node": "v20.15.1", "npm": "10.8.2" },
                "license": "GPL-3.0",
    "scripts": {
                 "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",

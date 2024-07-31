@@ -7,15 +7,13 @@
                "engines" : { "node": "v20.15.1", "npm": "10.8.2" },
                "license": "GPL-3.0",
    "scripts": {
-                "install": "npm install @rodrigogs/xvideos",
                 "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
                 "stop": "pm2 stop crazy",
                 "restart": "pm2 restart crazy"
                 },
                "author": "CrazyPrince",
               "dependencies": {
-                       "@sampandey001/baileys": "latest", 
-                       "@adiwajshing/keyed-db": "^0.2.4",
+                       "@sampandey001/baileys": "latest",
                        "@rodrigogs/xvideos": "latest",
                        "awesome-phonenumber": "^3.3.0",
                        "anime-character-random": "latest",

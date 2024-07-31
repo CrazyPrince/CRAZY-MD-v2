@@ -801,7 +801,7 @@ cmd({
 async (Void, citel, text, { isCreator }) => {
     if (!isCreator) return citel.reply(`This command is for my owner`);
     
-   w5botapi.textpro("https://photooxy.com/logo-and-text-effects/make-tik-tok-text-effect-375.html",
+   w5botapi.textpro("https://photooxy.com/manga-and-anime/make-naruto-banner-online-free-378.html",
        ["Message"]
    ).then(async(data) => {
        try {

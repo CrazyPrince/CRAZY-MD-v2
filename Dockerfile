@@ -3,13 +3,7 @@
 FROM node:lts-buster
 
 # Installer les dépendances système
-RUN apt-get update && \
-    apt-get install -y \
-    ffmpeg \
-    imagemagick \
-    webp && \
-    apt-get upgrade -y && \
-    rm -rf /var/lib/apt/lists/*
+
 
 # Copier le fichier package.json
 COPY package.json .

@@ -175,8 +175,7 @@ console.log(metadata.id + ", title: " + metadata.subject + ", description: " + m
         " DescAuthor: " + metadata.descOwner + 
         " link: " + metadata.inviteCode
         
-        _CRAZY MD_
-        )
+        _CRAZY MD_);
         
   } catch (error) {
     console.error('Erreur lors de la récupération des infos du groupe', error);

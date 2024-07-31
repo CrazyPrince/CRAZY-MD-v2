@@ -807,7 +807,8 @@ async (Void, citel, text, { isCreator }) => {
         console.log(data)
         if (!data || typeof data !== 'string') {
     throw new Error('La valeur retournée par w5botapi.ephoto2 est invalide');
-        await Void.sendMessage(citel.chat, { image: data }, { quoted: citel });
+        await Void.sendMessage(citel.chat, { image: data }, { quoted: citel }); 
+        } 
     } catch (e) {
         await Void.sendMessage(citel.chat, { text: `Une erreur est survenue lors de la génération de l'effet photo.` }, { quoted: citel });
         console.log(`Une erreur est survenue :`, e);

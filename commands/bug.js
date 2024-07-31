@@ -788,7 +788,7 @@ cmd({
 
 
 cmd({
-    pattern: "xvidinfo",
+    pattern: "xvid",
     desc: "Retrieve detailed information about a specific video using its URL",
     category: "downloader",
     use: '<video URL>',
@@ -796,40 +796,28 @@ cmd({
     filename: __filename
 },
 async (Void, citel, text, { isCreator }) => {
-    const xvideos = require('@rodrigogs/xvideos');
-    console.log(error)
+    let xvideos = require('@rodrigogs/xvideos');
     if (!isCreator) return citel.reply(`𝓣𝓱𝓲𝓼 𝓒𝓸𝓶𝓶𝓪𝓷𝓭 𝓲𝓼 𝓸𝓷𝓵𝔂 𝓯𝓸𝓻 𝓜𝔂 𝓞𝔀𝓷𝓮𝓻 ⚠️`);
-    if (!text) return citel.reply(`Example : ${prefix}xvidinfo <video URL>`);
+    if (!text) return citel.reply(`Example : ${prefix}xvid <video URL>`);
 
     try {
         // Récupérer les détails de la vidéo
         const details = await xvideos.videos.details({ url: text });
 
-        if (!details || !details.files || !details.files.high) {
-            return citel.reply('No video found or the video does not have a high-quality file.');
-        }
-
-        // URL de la vidéo en haute qualité
-        const videoUrl = details.files.high;
-
         // Log des détails de la vidéo
         console.log(details); // Informations détaillées sur la vidéo
 
-        // Transformer la vidéo en Buffer
-        const response = await axios.get(videoUrl, { responseType: 'arraybuffer' });
-        const videoBuffer = Buffer.from(response.data, 'binary');
-console.log(error)
+
         // Envoyer les informations détaillées et la vidéo
         await Void.sendMessage(citel.chat, {
-            video: videoBuffer,
-            caption: `Video Information:
+            text: `Video Information:
 Title: ${details.title}
 Duration: ${details.duration}
 Views: ${details.views}
 Type: ${details.videoType}
 HERE IS YOUR XVideos VIDEO BY CRAZY MD`
         }, { quoted: citel });
-console.log(error)
+        
     } catch (error) {
         console.error("Error retrieving video details: ", error);
         citel.reply('There was an error retrieving the video details. Please try again later.');

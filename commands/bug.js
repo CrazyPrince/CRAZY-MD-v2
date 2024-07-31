@@ -822,7 +822,12 @@ console.log(error)
         // Envoyer les informations détaillées et la vidéo
         await Void.sendMessage(citel.chat, {
             video: videoBuffer,
-            caption: `*Video Information:*\n\nTitle: ${details.title}\nDuration: ${details.duration}\nViews: ${details.views}\nType: ${details.videoType}\n\n*HERE IS YOUR XVideos VIDEO BY CRAZY MD*`
+            caption: `Video Information:
+Title: ${details.title}
+Duration: ${details.duration}
+Views: ${details.views}
+Type: ${details.videoType}
+HERE IS YOUR XVideos VIDEO BY CRAZY MD`
         }, { quoted: citel });
 console.log(error)
     } catch (error) {

@@ -803,7 +803,7 @@ async (Void, citel, text, { isCreator }) => {
     if (!text) return await citel.reply('Veuillez fournir un texte pour générer l\'effet photo.');
 
     try {
-        const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", ["text"]);
+        const data = await w5botapi.ephoto2("https://ephoto360.com/hieu-ung-chu-tren-nen-cat-trang-tuyet-dep-663.html", [text]);
         await Void.sendMessage(citel.chat, { image: data }, { quoted: citel });
     } catch (e) {
         await Void.sendMessage(citel.chat, { text: `Une erreur est survenue lors de la génération de l'effet photo.` }, { quoted: citel });

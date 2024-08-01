@@ -818,36 +818,31 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 
 
-const { getLyrics } = require("@fantox01/lyrics-scraper");
+const { getLyrics } = require('@fantox01/lyrics-scraper');
 
 cmd({
   pattern: "lyrics",
   desc: "Récupère les paroles d'une chanson",
   category: "fun",
   use: 'lyrics <chanson>',
-  react: "🎶",
+  react: "",
   filename: __filename
-}, async (Void, citel, text) => {
-  if (!text) {
-    return citel.reply('Veuillez fournir le titre de la chanson.');
-  }
-
-  try {
-    const data = await getLyrics(text);
-    if (data.status !== 200) {
-      return citel.reply('Erreur lors de la récupération des paroles.');
-     console.log(data)
-    }
-
-    return citel.reply(` *LYRICS BY CRAZY MD*
-*${data.artist}* - *${data.album}*
-" Lyric: "  ${data.lyrics}
-____________________________
-[Plus d'info]
-URL : _${data.url}_
+}, async (Void, citel, text, { isCreator }) => {
+  const main = async () => {
+    try {
+      const data = await getLyrics(text);
+      
+      citel.reply(data)
+    console.log(data)
+      return citel.reply(`
+${data.artist} - ${data.album}
+${data.lyrics}
+[Plus d'info](${data.url})
 `);
-  } catch (error) {
-    console.error('Erreur lors de la récupération des paroles :', error);
-    return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');
-  }
+    } catch (error) {
+      console.error('Erreur lors de la récupération des paroles :', error);
+      citel.reply(`Erreur lors de la récupération des paroles : ${error.message}`);
+    }
+  };
+  main();
 });

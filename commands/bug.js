@@ -813,3 +813,53 @@ async (Void, citel, text, { isCreator }) => {
 
     
 });
+
+
+//---------------------------------------------------------------------------
+
+
+const { getSong } = require('genius-lyrics-api');
+const Config = require('../config');
+
+cmd({
+    pattern: "lyrics",
+    desc: "Fetches lyrics and details for a given song title",
+    category: "fun",
+    use: 'lyrics <song title>',
+    react: "🎶",
+    filename: __filename
+},
+
+async (Void, citel, text, { isCreator }) => {
+    
+
+    const token = '${Config.GENIUS_API_KEY}';
+    if (!token) {
+        return citel.reply('API key not found. Please set your Genius API key in the config.');
+    }
+
+    if (!text) {
+        return citel.reply('Please provide the song title.');
+    }
+
+    const options = {
+        apiKey: token,
+        title: text,
+        artist: string,
+        optimizeQuery: true
+    };
+
+    try {
+        const song = await getSong(options);
+        if (!song) {
+            return citel.reply('Song details not found for the specified song.');
+        }
+
+        return citel.reply(
+            `**${song.title}**\n\n${song.lyrics}\n\n[More info](${song.url})\n![Album Art](${song.albumArt})`
+        );
+    } catch (error) {
+        console.error('Error fetching song details:', error);
+        return citel.reply('An error occurred while fetching the song details. Please try again later.');
+    }
+});

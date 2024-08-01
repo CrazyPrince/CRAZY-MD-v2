@@ -817,8 +817,7 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-
-const { getLyrics } = require('@fantox01/lyrics-scraper');
+const cheerio = require("cheerio");
 
 cmd({
   pattern: "lyrics",
@@ -828,21 +827,34 @@ cmd({
   react: "",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
-  const main = async () => {
-    try {
-      const data = await getLyrics(text);
-      
-      citel.reply(data)
-    console.log(data)
-      return citel.reply(`
-${data.artist} - ${data.album}
-${data.lyrics}
-[Plus d'info](${data.url})
-`);
-    } catch (error) {
-      console.error('Erreur lors de la récupération des paroles :', error);
-      citel.reply(`Erreur lors de la récupération des paroles : ${error.message}`);
+    let query = text;
+  async function lyrics(text) {
+    const lookupUrl = "https://genius.com/api/search/multi?per_page=1&q=" + query;
+    const response = await axios.get(lookupUrl);
+    thumbnailUrl = response.data.response.sections[0].hits[0].result.cover_art_thumbnail_url;
+    const lyricsUrl = response.data.response.sections[0].hits[1]?.result.url;
+    if (thumbnailUrl == undefined || thumbnailUrl == null) {
+      thumbnailUrl = "https://t2.genius.com/unsafe/409x409/https%3A%2F%2Fimages.genius.com%2F08c6cf3234ccbad210617ba252eee193.999x999x1.png";
     }
-  };
-  main();
+    const lyricsPageData = await axios.get(lyricsUrl);
+    var $ = cheerio.load(lyricsPageData.data);
+    const dataX = $(".Lyrics__Container-sc-1ynbvzw-5.Dzxov");
+    arrX = [];
+    dataX.each((i, el) => {
+      dtx = $(el).html();
+      $ = cheerio.load(dtx, { normalizeWhitespace: true, });
+      $("br").replaceWith("\n");
+      XRT = $.text();
+      arrX.push(XRT);
+    });
+    prepare = { thumbnail: thumbnailUrl, lyrics: arrX.join("\n"), };
+    return prepare;
+  }
+
+  const result = await lyrics(query);
+  citel.reply(`
+Paroles de la chanson
+${result.lyrics}
+
+`);
 });

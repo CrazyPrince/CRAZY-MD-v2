@@ -819,7 +819,7 @@ async (Void, citel, text, { isCreator }) => {
 
 
 const { getSong } = require('genius-lyrics-api');
-const Config = require('../config');
+
 
 cmd({
     pattern: "lyrics",
@@ -831,13 +831,13 @@ cmd({
 },
 
 async (Void, citel, text, { isCreator }) => {
-    
 
+/*
     const token = '${Config.GENIUS_API_KEY}';
     if (!token) {
         return citel.reply('API key not found. Please set your Genius API key in the config.');
     }
-
+*/
     if (!text) {
         return citel.reply('Please provide the song title.');
     }
@@ -847,7 +847,7 @@ async (Void, citel, text, { isCreator }) => {
     const titre = words.join(' ');
     
     const options = {
-        apiKey: token,
+        apiKey: '6vdum57Wo2tsKxaEGKJcvNHeSo1sd9oNTcPpDZD8E9v3mUh0jArn5TSvuvgmZLIs',
         title: titre,
         artist: auteur,
         optimizeQuery: true

@@ -841,10 +841,15 @@ async (Void, citel, text, { isCreator }) => {
     if (!text) {
         return citel.reply('Please provide the song title.');
     }
-
+    
+    const words = text.split(' ');
+    const auteur = words.pop();
+    const titre = words.join(' ');
+    
     const options = {
         apiKey: token,
-        title: text,
+        title: titre,
+        artist: auteur,
         optimizeQuery: true
     };
 

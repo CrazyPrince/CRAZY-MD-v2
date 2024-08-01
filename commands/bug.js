@@ -845,7 +845,6 @@ async (Void, citel, text, { isCreator }) => {
     const options = {
         apiKey: token,
         title: text,
-        artist: string,
         optimizeQuery: true
     };
 

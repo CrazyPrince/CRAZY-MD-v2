@@ -817,7 +817,7 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-const lyrics = require("@fantox01/lyrics-scraper");
+const { lyrics } = require("@fantox01/lyrics-scraper");
 
 cmd({
   pattern: "lyrics",

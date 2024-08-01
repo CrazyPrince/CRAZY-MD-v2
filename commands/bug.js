@@ -818,7 +818,7 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 
 
-const getLyrics = require("@fantox01/lyrics-scraper");
+const { getLyrics } = require("@fantox01/lyrics-scraper");
 
 cmd({
   pattern: "lyrics",
@@ -836,6 +836,7 @@ cmd({
     const data = await getLyrics(text);
     if (data.status !== 200) {
       return citel.reply('Erreur lors de la récupération des paroles.');
+     console.log(data)
     }
 
     return citel.reply(` *LYRICS BY CRAZY MD*

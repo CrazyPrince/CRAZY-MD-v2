@@ -818,52 +818,35 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 
 
-const { getSong } = require('genius-lyrics-api');
-
+const getLyrics = require("@fantox01/lyrics-scraper");
 
 cmd({
-    pattern: "lyrics",
-    desc: "Fetches lyrics and details for a given song title",
-    category: "fun",
-    use: 'lyrics <song title>',
-    react: "🎶",
-    filename: __filename
-},
+  pattern: "lyrics",
+  desc: "Récupère les paroles d'une chanson",
+  category: "fun",
+  use: 'lyrics <chanson>',
+  react: "🎶",
+  filename: __filename
+}, async (Void, citel, text) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir le titre de la chanson.');
+  }
 
-async (Void, citel, text, { isCreator }) => {
-
-/*
-    const token = '${Config.GENIUS_API_KEY}';
-    if (!token) {
-        return citel.reply('API key not found. Please set your Genius API key in the config.');
+  try {
+    const data = await getLyrics(text);
+    if (data.status !== 200) {
+      return citel.reply('Erreur lors de la récupération des paroles.');
     }
-*/
-    if (!text) {
-        return citel.reply('Please provide the song title.');
-    }
-    
-    const words = text.split(' ');
-    const auteur = words.pop();
-    const titre = words.join(' ');
-    
-    const options = {
-        apiKey: '6vdum57Wo2tsKxaEGKJcvNHeSo1sd9oNTcPpDZD8E9v3mUh0jArn5TSvuvgmZLIs',
-        title: titre,
-        artist: auteur,
-        optimizeQuery: true
-    };
 
-    try {
-        const song = await getSong(options);
-        if (!song) {
-            return citel.reply('Song details not found for the specified song.');
-        }
-
-        return citel.reply(
-            `**${song.title}**\n\n${song.lyrics}\n\n[More info](${song.url})\n![Album Art](${song.albumArt})`
-        );
-    } catch (error) {
-        console.error('Error fetching song details:', error);
-        return citel.reply('An error occurred while fetching the song details. Please try again later.');
-    }
+    return citel.reply(` *LYRICS BY CRAZY MD*
+*${data.artist}* - *${data.album}*
+" Lyric: "  ${data.lyrics}
+____________________________
+[Plus d'info]
+URL : _${data.url}_
+`);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des paroles :', error);
+    return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');
+  }
 });

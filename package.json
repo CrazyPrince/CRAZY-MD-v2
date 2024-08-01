@@ -30,7 +30,7 @@
                        "koyeb-api-client":"latest",
                        "dotenv": "^16.0.0",
                        "discord-xp": "^1.1.16",
-                       "mongoose": "^6.2.1",
+                       "mongoose": "^7.4.1",
                        "mumaker": "^1.0.0",
                        "google-it": "^1.6.2",
                        "file-type": "^16.5.3",

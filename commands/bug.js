@@ -817,44 +817,35 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-const cheerio = require("cheerio");
+const lyrics = require("@fantox01/lyrics-scraper");
 
 cmd({
   pattern: "lyrics",
   desc: "Récupère les paroles d'une chanson",
   category: "fun",
   use: 'lyrics <chanson>',
-  react: "",
+  react: "🎶",
   filename: __filename
-}, async (Void, citel, text, { isCreator }) => {
-    let query = text;
-  async function lyrics(text) {
-    const lookupUrl = "https://genius.com/api/search/multi?per_page=1&q=" + query;
-    const response = await axios.get(lookupUrl);
-    thumbnailUrl = response.data.response.sections[0].hits[0].result.cover_art_thumbnail_url;
-    const lyricsUrl = response.data.response.sections[0].hits[1]?.result.url;
-    if (thumbnailUrl == undefined || thumbnailUrl == null) {
-      thumbnailUrl = "https://t2.genius.com/unsafe/409x409/https%3A%2F%2Fimages.genius.com%2F08c6cf3234ccbad210617ba252eee193.999x999x1.png";
-    }
-    const lyricsPageData = await axios.get(lyricsUrl);
-    var $ = cheerio.load(lyricsPageData.data);
-    const dataX = $(".Lyrics__Container-sc-1ynbvzw-5.Dzxov");
-    arrX = [];
-    dataX.each((i, el) => {
-      dtx = $(el).html();
-      $ = cheerio.load(dtx, { normalizeWhitespace: true, });
-      $("br").replaceWith("\n");
-      XRT = $.text();
-      arrX.push(XRT);
-    });
-    prepare = { thumbnail: thumbnailUrl, lyrics: arrX.join("\n"), };
-    return prepare;
+}, 
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir le titre de la chanson.');
   }
 
-  const result = await lyrics(query);
-  citel.reply(`
-Paroles de la chanson
-${result.lyrics}
+  try {
+    
+    const data = await lyrics(text);
+  
+  console.log(data.lyrics);
+
+    return citel.reply(`
+${data.artist} - ${data.album}
+${data.lyrics}
 
 `);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des paroles :', error);
+    return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');
+  }
 });

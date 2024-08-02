@@ -927,7 +927,7 @@ async (Void, citel, text, { isCreator }) => {
     }
   } catch (error) {
     console.error('Erreur lors de la récupération de la vidéo :', error);
-    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.);
+    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.');
   }
 });
 

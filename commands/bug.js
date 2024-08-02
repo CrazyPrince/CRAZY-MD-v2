@@ -787,29 +787,35 @@ cmd({
 //---------------------------------------------------------------------------
 
 
-const w5botapi = require('w5-textmaker');
+const puppeteer = require("puppeteer");
 
 cmd({
-    pattern: "ephoto",
-    desc: "Générer une photo avec un effet à partir d’un texte",
-    category: "fun",
-    use: 'photoeffect <texte>',
-    react: "🖼️",
+    pattern: "sc",
+    desc: "Générer une capture d'écran",
+    category: "misc",
+    use: 'sc <url>',
+    react: "🖥️",
     filename: __filename
 },
 
 async (Void, citel, text, { isCreator }) => {
-    if (!isCreator) return citel.reply(`This command is for my owner`);
-    
-   w5botapi.textpro("https://photooxy.com/manga-and-anime/make-naruto-banner-online-free-378.html",
-       ["Message"]
-   ).then(async(data) => {
-       try {
-           console.log(dat)
-       } catch (err) {
-           console.log(err)
-       }
-   });
+    if (!text) {
+    return citel.reply('Veuillez fournir une url.');
+  }
+puppeteer
+  .launch({
+    defaultViewport: {
+      width: 1280,
+      height: 2000,
+    },
+  })
+  .then(async (browser) => {
+    const page = await browser.newPage();
+    await page.goto(text);
+    await page.screenshot({ path: "nyt-puppeteer.png" });
+    Void.sendMessage(citel.chat, { image: { url: "nyt-puppeteer.png" }, caption: '*SS BY CRAZY-MD*' }, { quoted: citel });
+    await browser.close();
+  });
 
     
 });
@@ -820,25 +826,25 @@ async (Void, citel, text, { isCreator }) => {
 var mumaker = require("mumaker")
 
 cmd({
-  pattern: "ephoto",
-  desc: "Récupère les paroles d'une chanson",
-  category: "logo",
-  use: 'ephoto <text>',
-  react: "🎨",
+  pattern: "tik",
+  desc: "download tiktok",
+  category: "downloader",
+  use: 'tik <link>',
+  react: "⬇️",
   filename: __filename
 }, 
 
 async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Veuillez fournir un texte.');
+    return citel.reply('Veuillez fournir un lien.');
   }
 
   try {
     
-    const query = text.join(" ");
-  mumaker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", query)
+  mumaker.tiktok(text)
+    .then(console.log)
     .then((data) => {
-      Void.sendMessage(citel.chat, { image: { url: data.image }, caption: 'Logo BY *CRAZY-MD*' }, { quoted: citel });
+      Void.sendMessage(citel.chat, { video: { url: data.media }, caption: 'Logo BY *CRAZY-MD*\n data.description' }, { quoted: citel });
     })
     
   } catch (error) {

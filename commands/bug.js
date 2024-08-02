@@ -910,7 +910,7 @@ async (Void, citel, text, { isCreator }) => {
     return citel.reply('Veuillez fournir un lien.');
   }
 
-  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=https://web.facebook.com/watch/?v=892725951575913`;
+  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=${encodeURIComponent(text)}`;
 
   try {
     const response = await axios.get(apiURL);

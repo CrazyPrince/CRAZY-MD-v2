@@ -952,7 +952,7 @@ cmd({
   
   if (gameSession && gameSession.gameStatus) {
     return await citel.reply("A game is already in progress in this chat.\nType .
-        ${prefix}wcg end to terminate the session.");
+        + prefix + wcg end to terminate the session.");
   }
   
   var user = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;

@@ -910,14 +910,14 @@ async (Void, citel, text, { isCreator }) => {
     return citel.reply('Veuillez fournir un lien.');
   }
 
-  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url= + text`;
+  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=${encodeURIComponent(text)}`;
 
   try {
     const response = await axios.get(apiURL);
     const { result } = response.data;
     console.log(response.data)
 
-    if (result && result.medias && result.medias.length > 0) {
+    if (result && result.result.medias && result.result.medias.length > 0) {
       const videoUrl = result.result.medias[0].url;;
       const title = result.title;
 

@@ -884,7 +884,7 @@ class WordChainGame {
     this.botPlayer = false;
   }
 
-  async startTurn(Void,citel,text,chat) {
+  async startTurn(Void,citel,text,chat,reply) {
     this.turnIntervalId = setInterval(() => {
       const elapsedTime = Math.floor((Date.now() - this.turnStartTime) / 1000);
       this.currentRemTime = this.turnTimeLimit - elapsedTime;
@@ -922,7 +922,7 @@ class WordChainGame {
         this.botPlayer = true;
         if (this.player2 && this.player1) {
           let reminderMessage = "*Reminder : Game Terminates After " + this.currentRemTime + "s*\n\n*_Waiting For @" + this.currentPlayer.split("@")[0] + "'s Response_*    \n_Take Your Turn, Otherwise Game Terminates_\n_Make Sure Your Word Must Start With *" + this.previousWord.slice(-1) + "* , and Must Have Atleast *" + this.wordLength + "* letters_\n\nYou Still Have *" + this.currentRemTime + "Secs* to Answer\nGive Your Best To Make Difficult For Opponent";
-          citel.reply(reminderMessage);
+         return citel.reply(reminderMessage);
         } else if (!this.player2 || !this.player1) {
           Void.sendMessage(citel.chat, {
             text: "_Still Waiting For Player to Start Word Chain Game..._\n _Type *" + prefix + "wcg* to Join The Game_  \nOtherwise : _Wcg Session Expires After " + this.currentRemTime + "s_"

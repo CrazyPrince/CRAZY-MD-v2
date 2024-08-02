@@ -842,7 +842,7 @@ async (Void, citel, text, { isCreator }) => {
 
   try {
     
-  mumeker.tiktok(text)
+  mumaker.tiktok(text)
     .then(console.log)
     .then((data) => {
       Void.sendMessage(citel.chat, { video: { url: data.media }, caption: 'Logo BY *CRAZY-MD*\n data.description' }, { quoted: citel });
@@ -855,6 +855,44 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
+
+
+cmd({
+  pattern: "scr",
+  desc: "download tiktok",
+  category: "downloader",
+  use: 'tik <link>',
+  react: "⬇️",
+  filename: __filename
+}, 
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
+
+  try {
+    
+  // usual browser startup:
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(text);
+    // wait for the selector appear on the page
+    await page.screenshot({
+      "type": "png", // can also be "jpeg" or "webp" (recommended)
+      "path": "screenshot.png",  // where to save it
+      "fullPage": true,  // will scroll down to capture everything if true
+    });
+
+      Void.sendMessage(citel.chat, { video: { url: screenshot.png }, caption: 'Logo BY *CRAZY-MD*' }, { quoted: citel });
+    
+    
+  } catch (error) {
+    console.error('Erreur lors de la récupération des videos :', error);
+    return citel.reply('Une erreur est survenue lors de la récupération des videos. Veuillez réessayer plus tard.');
+  }
+});
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------

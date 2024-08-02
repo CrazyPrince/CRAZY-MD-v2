@@ -50,7 +50,7 @@
                        "node-fetch": "^2.6.1",
                        "node-webpmux": "^3.1.0",
                        "google-tts-api": "^2.0.2",
-                       "@fantox01/lyrics-scraper": ">=3.0.1",
+                       "mumaker": ">=2.0.0",
                        "path": "^0.12.7",
                        "puppeteer": "^10.0.0",
                        "request": "^2.88.2",

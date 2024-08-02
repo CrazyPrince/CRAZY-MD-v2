@@ -917,8 +917,8 @@ async (Void, citel, text, { isCreator }) => {
     const { result } = response.data;
     console.log(response.data)
 
-    if (result && result.result.medias && result.result.medias.length > 0) {
-      const videoUrl = result.result.medias[0].url;;
+    if (result && result.medias && result.medias.length > 0) {
+      const videoUrl = result.medias[0].url;
       const title = result.title;
 
       await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });
@@ -927,9 +927,10 @@ async (Void, citel, text, { isCreator }) => {
     }
   } catch (error) {
     console.error('Erreur lors de la récupération de la vidéo :', error);
-    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.');
+    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.' error);
   }
 });
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 

@@ -893,7 +893,8 @@ class WordChainGame {
         try {
           this.botPlayer = true;
           if (this.wordsCount !== 0 && this.player2 && this.player1) {
-            citel.reply("*_Damn, Time's up!_*\n _@" + this.currentPlayer.split("@")[0] + " Lost Game...!_", {
+            Void.sendMessage(citel.chat, {
+              text: "*_Damn, Time's up!_*\n _@" + this.currentPlayer.split("@")[0] + " Lost Game...!_",
               mentions: [this.currentPlayer]
             });
             this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
@@ -921,11 +922,12 @@ class WordChainGame {
         this.botPlayer = true;
         if (this.player2 && this.player1) {
           let reminderMessage = "*Reminder : Game Terminates After " + this.currentRemTime + "s*\n\n*_Waiting For @" + this.currentPlayer.split("@")[0] + "'s Response_*    \n_Take Your Turn, Otherwise Game Terminates_\n_Make Sure Your Word Must Start With *" + this.previousWord.slice(-1) + "* , and Must Have Atleast *" + this.wordLength + "* letters_\n\nYou Still Have *" + this.currentRemTime + "Secs* to Answer\nGive Your Best To Make Difficult For Opponent";
-          Void.send(reminderMessage, {
+          Void.sendMessage(citel.chat, {
+            text: reminderMessage,
             mentions: [this.currentPlayer]
           }, "asta");
         } else if (!this.player2 || !this.player1) {
-          Void.sendMessage(Void.jid, {
+          Void.sendMessage(citel.chat, {
             text: "_Still Waiting For Player to Start Word Chain Game..._\n _Type *" + prefix + "wcg* to Join The Game_  \nOtherwise : _Wcg Session Expires After " + this.currentRemTime + "s_"
           });
         }

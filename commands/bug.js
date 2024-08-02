@@ -932,6 +932,43 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
+
+cmd({
+  pattern: "twitter",
+  desc: "Télécharger une vidéo twitter",
+  category: "downloader",
+  use: 'twitter <link>',
+  react: "⬇️",
+  filename: __filename
+},
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
+
+  const apiURL = `https://api.maher-zubair.tech/download/twitter?url=${encodeURIComponent(text)}`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { data } = response.data; // Correction: Utilisation de 'data' au lieu de 'result'
+    console.log(response.data);
+
+    if (data && data.HD) { // Correction: Vérification de 'data.HD' au lieu de 'data.HD.length > 0'
+      const videoUrl = data.HD;
+      const user = data.username;
+
+      await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `De ${user} sur Twitter` }, { quoted: citel });
+    } else {
+      citel.reply('Aucune vidéo trouvée.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération de la vidéo :', error);
+    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.');
+  }
+});
+
+
 //---------------------------------------------------------------------------
 
 // Déclaration globale pour suivre les sessions de jeu

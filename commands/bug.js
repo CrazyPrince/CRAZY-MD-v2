@@ -817,33 +817,30 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-const { lyrics } = require("@fantox01/lyrics-scraper");
+var mumaker = require("mumaker")
 
 cmd({
-  pattern: "lyrics",
+  pattern: "ephoto",
   desc: "Récupère les paroles d'une chanson",
-  category: "fun",
-  use: 'lyrics <chanson>',
-  react: "🎶",
+  category: "logo",
+  use: 'ephoto <text>',
+  react: "🎨",
   filename: __filename
 }, 
 
 async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Veuillez fournir le titre de la chanson.');
+    return citel.reply('Veuillez fournir un texte.');
   }
 
   try {
     
-    const data = await lyrics(text);
-  
-  console.log(data.lyrics);
-
-    return citel.reply(`
-${data.artist} - ${data.album}
-${data.lyrics}
-
-`);
+    const query = text.join(" ");
+  mumaker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", query)
+    .then((data) => {
+      Void.sendMessage(citel.chat, { image: { url: data.image }, caption: 'Logo BY *CRAZY-MD*' }, { quoted: citel });
+    })
+    
   } catch (error) {
     console.error('Erreur lors de la récupération des paroles :', error);
     return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');

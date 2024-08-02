@@ -874,7 +874,7 @@ async (Void, citel, text, { isCreator }) => {
   try {
     
   // usual browser startup:
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(text);
     // wait for the selector appear on the page

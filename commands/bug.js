@@ -884,7 +884,7 @@ class WordChainGame {
     this.botPlayer = false;
   }
 
-  async startTurn(Void) {
+  async startTurn(citel) {
     this.turnIntervalId = setInterval(() => {
       const elapsedTime = Math.floor((Date.now() - this.turnStartTime) / 1000);
       this.currentRemTime = this.turnTimeLimit - elapsedTime;
@@ -893,12 +893,13 @@ class WordChainGame {
         try {
           this.botPlayer = true;
           if (this.wordsCount !== 0 && this.player2 && this.player1) {
-            Void.send("*_Damn, Time's up!_*\n _@" + this.currentPlayer.split("@")[0] + " Lost Game...!_", {
+            citel.reply("*_Damn, Time's up!_*\n _@" + this.currentPlayer.split("@")[0] + " Lost Game...!_", {
               mentions: [this.currentPlayer]
             });
             this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
             let resultMessage = "@" + this.currentPlayer.split("@")[0] + " Won The Game.\nWrong Attempt By Player : " + this.wrongAttempts[this.currentPlayer] + "\n\n\t\t*Game Information*\n\nTotal Chain Words : " + this.wordsCount + "  \n" + this.longestWordBy + "\n*_Chain Started From :-_*  " + this.wordChain + " ...!  \n";
-            Void.send(resultMessage, {
+            Void.sendMessage(citel.chat, {
+              text: resultMessage,
               mentions: [this.currentPlayer]
             });
           } else if (this.wordsCount === 0 && this.player2 && this.player1) {
@@ -950,7 +951,8 @@ cmd({
   }
   
   if (gameSession && gameSession.gameStatus) {
-    return await citel.reply("A game is already in progress in this chat.\nType ```.wcg end``` to terminate the session.");
+    return await citel.reply("A game is already in progress in this chat.\nType ```.
+        ${prefix}wcg end``` to terminate the session.");
   }
   
   var user = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;

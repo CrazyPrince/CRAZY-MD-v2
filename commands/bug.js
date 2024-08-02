@@ -918,7 +918,7 @@ async (Void, citel, text, { isCreator }) => {
     console.log(response.data)
 
     if (result && result.medias && result.medias.length > 0) {
-      const videoUrl = result.medias.url;
+      const videoUrl = result.medias[0].url;
       const title = result.title;
 
       await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });

@@ -846,3 +846,179 @@ async (Void, citel, text, { isCreator }) => {
     return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');
   }
 });
+
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
+// Déclaration globale pour suivre les sessions de jeu
+const astro_patch_wcg = {};
+
+class WordChainGame {
+  constructor() {
+    this.player1 = "";
+    this.player2 = "";
+    this.currentPlayer = "";
+    this.previousWord = "";
+    this.wordChain = "";
+    this.wordsCount = 0;
+    this.wordLength = 4;
+    this.longestWordBy = "There's No Word yet";
+    this.gameStatus = false;
+    this.botPlayer = false;
+    this.wrongAttempts = {};
+    this.maxAttempts = 5;
+    this.turnTimeLimit = 45;
+    this.turnStartTime = 45;
+    this.currentRemTime = 45;
+    this.turnIntervalId = null;
+  }
+  
+  stopTurn() {
+    clearInterval(this.turnIntervalId);
+  }
+
+  async AwaitForSeconds(seconds) {
+    await new Promise(resolve => setTimeout(resolve, seconds * 1000));
+    this.botPlayer = false;
+  }
+
+  async startTurn(Void) {
+    this.turnIntervalId = setInterval(() => {
+      const elapsedTime = Math.floor((Date.now() - this.turnStartTime) / 1000);
+      this.currentRemTime = this.turnTimeLimit - elapsedTime;
+      
+      if (this.currentRemTime === 0 && this.gameStatus) {
+        try {
+          this.botPlayer = true;
+          if (this.wordsCount !== 0 && this.player2 && this.player1) {
+            Void.send("*_Damn, Time's up!_*\n _@" + this.currentPlayer.split("@")[0] + " Lost Game...!_", {
+              mentions: [this.currentPlayer]
+            });
+            this.currentPlayer = this.currentPlayer === this.player1 ? this.player2 : this.player1;
+            let resultMessage = "@" + this.currentPlayer.split("@")[0] + " Won The Game.\nWrong Attempt By Player : " + this.wrongAttempts[this.currentPlayer] + "\n\n\t\t*Game Information*\n\nTotal Chain Words : " + this.wordsCount + "  \n" + this.longestWordBy + "\n*_Chain Started From :-_*  " + this.wordChain + " ...!  \n";
+            Void.send(resultMessage, {
+              mentions: [this.currentPlayer]
+            });
+          } else if (this.wordsCount === 0 && this.player2 && this.player1) {
+            Void.sendMessage(citel.chat, {
+              text: "*Wcg Session Terminated,* \nPlayer1 @" + this.player1.split("@")[0] + " And Player2 @" + this.player2.split("@")[0] + " both didn't take any move yet*",
+              mentions: [this.player1, this.player2]
+            });
+          } else if (!this.player2 || !this.player1) {
+            Void.sendMessage(citel.chat, {
+              text: "*Word Chain Game Session Expired,*\n*Reason : _One Player Still Missing_*"
+            });
+          }
+          this.stopTurn();
+          delete astro_patch_wcg[citel.chat];
+        } catch (error) {
+          return citel.reply("Error while ending game: " + error);
+        }
+      } else if (this.currentRemTime === 10) {
+        this.botPlayer = true;
+        if (this.player2 && this.player1) {
+          let reminderMessage = "*Reminder : Game Terminates After " + this.currentRemTime + "s*\n\n*_Waiting For @" + this.currentPlayer.split("@")[0] + "'s Response_*    \n_Take Your Turn, Otherwise Game Terminates_\n_Make Sure Your Word Must Start With *" + this.previousWord.slice(-1) + "* , and Must Have Atleast *" + this.wordLength + "* letters_\n\nYou Still Have *" + this.currentRemTime + "Secs* to Answer\nGive Your Best To Make Difficult For Opponent";
+          Void.send(reminderMessage, {
+            mentions: [this.currentPlayer]
+          }, "asta");
+        } else if (!this.player2 || !this.player1) {
+          Void.sendMessage(Void.jid, {
+            text: "_Still Waiting For Player to Start Word Chain Game..._\n _Type *" + prefix + "wcg* to Join The Game_  \nOtherwise : _Wcg Session Expires After " + this.currentRemTime + "s_"
+          });
+        }
+        this.AwaitForSeconds(1);
+      }
+    }, 1000);
+  }
+}
+
+cmd({
+  pattern: "wcg",
+  desc: "starts a Word Chain game.",
+  filename: __filename,
+  category: "game"
+}, async (Void,citel,text,{isCreator}) => {
+  const chatId = citel.chat;
+  let gameSession = astro_patch_wcg[chatId];
+  
+  if (text.startsWith("end") && gameSession) {
+    gameSession.stopTurn();
+    delete astro_patch_wcg[chatId];
+    return await citel.reply("Game ended. Goodbye!");
+  }
+  
+  if (gameSession && gameSession.gameStatus) {
+    return await citel.reply("A game is already in progress in this chat.\nType ```.wcg end``` to terminate the session.");
+  }
+  
+  var user = citel.mentionedJid ? citel.mentionedJid[0] : citel.msg.contextInfo.participant || false;
+  
+  if (!gameSession) {
+    gameSession = new WordChainGame();
+    astro_patch_wcg[chatId] = gameSession;
+  }
+  
+  if (!gameSession.player1 || citel.sender === gameSession.player1) {
+    if (user && user !== citel.sender) {
+      gameSession.player1 = citel.sender;
+      gameSession.player2 = user;
+      gameSession.gameStatus = true;
+    } else {
+      gameSession.player1 = citel.sender;
+      gameSession.turnStartTime = Date.now();
+      gameSession.startTurn(Void);
+      return await Void.sendMessage(citel.chat, {
+        text: "_Game Starting..._\nPlayer 1: _@" + gameSession.player1.split("@")[0] + " Joined_ \n\n_Needs Another Player To Start Game..._\nType *_" + prefix + "wcg_* to Join This Game.",
+        mentions: [gameSession.player1]
+      });
+    }
+  } else if (citel.sender !== gameSession.player1) {
+    gameSession.player2 = citel.sender;
+    gameSession.gameStatus = true;
+  }
+  
+  if (gameSession.gameStatus) {
+    gameSession.stopTurn();
+    gameSession.botPlayer = true;
+    gameSession.turnStartTime = Date.now();
+    gameSession.startTurn(Void);
+    gameSession.wrongAttempts[gameSession.player1] = 0;
+    gameSession.wrongAttempts[gameSession.player2] = 0;
+    gameSession.previousWord = String.fromCharCode("a".charCodeAt(0) + Math.floor(Math.random() * 26));
+    gameSession.wordChain = gameSession.previousWord;
+    gameSession.currentPlayer = gameSession.player1;
+    gameSession.AwaitForSeconds(3);
+    return await Void.sendMessage(citel.chat, {
+      text: "*_Game started Now..._*\n _Turn : @" + gameSession.player1.split("@")[0] + "_\n _Next @" + gameSession.player2.split("@")[0] + "_\n *Let's play! :* @" + gameSession.currentPlayer.split("@")[0] + "'s Word Must Start With *_\"" + gameSession.previousWord + "\"_* .\n_You Have " + gameSession.turnTimeLimit + "Secs to Answer_\n",
+      mentions: [gameSession.player1, gameSession.player2, gameSession.currentPlayer]
+    });
+  }
+});
+
+cmd({
+  pattern: "delwcg",
+  desc: "deletes word chain game running session.",
+  filename: __filename,
+  type: "game"
+}, async (Void,citel,text,{isCreator}) => {
+const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+  let gameSession = astro_patch_wcg[chatId];
+  if (gameSession) {
+    if (!isCreator && sender !== gameSession.player2 && sender !== gameSession.player1 && !isAdmin) {
+      await citel.reply("┏━━━━━━━━━━━━━━━━━━┓\n┃     WORD CHAIN GAME     ┃\n┗━━━━━━━━━━━━━━━━━━┛\n\n*Uhh Please, _You are not a Player of the running game!!!_\n");
+    } else {
+      gameSession.stopTurn();
+      await citel.reply(("┏━━━━━━━━━━━━━━━━━━┓\n┃     WORD CHAIN GAME     ┃\n┗━━━━━━━━━━━━━━━━━━┛\n\n*Room Id : _wcg-" + chatId.split("@")[0] + "_ Cleared Successfully*\n*_Word Chain Game Session Deleted From This Chat..._*\n\n\n\n" + (gameSession.wordsCount > 0 ? "\t*Game Information*\n\nTotal Chain Words : " + gameSession.wordsCount + "  \n" + gameSession.longestWordBy + "\n*_Chain Started From :-_*  " + gameSession.wordChain + " ...!" : "") + "\n\n").trim());
+      console.log("counts : ", gameSession.wordsCount);
+      delete astro_patch_wcg[chatId];
+    }
+  } else {
+    await citel.reply("┏━━━━━━━━━━━━━━━━━━┓\n┃   WORD CHAIN 404Error    ┃\n┗━━━━━━━━━━━━━━━━━━┛ \n\n*Uhh Dear, _There's No Game Started yet in This Chat_*\n");
+  }
+});
+
+
+
+

@@ -894,6 +894,41 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
+
+
+cmd({
+  pattern: "fb",
+  desc: "Télécharger une vidéo Facebook",
+  category: "downloader",
+  use: 'fb <link>',
+  react: "⬇️",
+  filename: __filename
+},
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
+
+  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url= + text }`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+
+    if (result && result.medias && result.medias.length > 0) {
+      const videoUrl = result.medias[0].url;
+      const title = result.title;
+
+      await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });
+    } else {
+      citel.reply('Aucune vidéo trouvée.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération de la vidéo :', error);
+    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.');
+  }
+});
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 

@@ -884,7 +884,7 @@ class WordChainGame {
     this.botPlayer = false;
   }
 
-  async startTurn(Void,citel) {
+  async startTurn(Void,citel,text,{isCreator}) => {
     this.turnIntervalId = setInterval(() => {
       const elapsedTime = Math.floor((Date.now() - this.turnStartTime) / 1000);
       this.currentRemTime = this.turnTimeLimit - elapsedTime;

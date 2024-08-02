@@ -910,14 +910,15 @@ async (Void, citel, text, { isCreator }) => {
     return citel.reply('Veuillez fournir un lien.');
   }
 
-  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url= + text }`;
+  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=https://web.facebook.com/watch/?v=892725951575913`;
 
   try {
     const response = await axios.get(apiURL);
     const { result } = response.data;
+    console.log(response.data)
 
     if (result && result.medias && result.medias.length > 0) {
-      const videoUrl = result.medias[0].url;
+      const videoUrl = result.medias.url;
       const title = result.title;
 
       await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });

@@ -925,7 +925,7 @@ class WordChainGame {
           Void.sendMessage(citel.chat, {
             text: reminderMessage,
             mentions: [this.currentPlayer]
-          },{ quoted: citel });
+           });
         } else if (!this.player2 || !this.player1) {
           Void.sendMessage(citel.chat, {
             text: "_Still Waiting For Player to Start Word Chain Game..._\n _Type *" + prefix + "wcg* to Join The Game_  \nOtherwise : _Wcg Session Expires After " + this.currentRemTime + "s_"

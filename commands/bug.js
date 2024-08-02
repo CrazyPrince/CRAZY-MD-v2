@@ -910,7 +910,7 @@ async (Void, citel, text, { isCreator }) => {
     return citel.reply('Veuillez fournir un lien.');
   }
 
-  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=${encodeURIComponent(text)}`;
+  const apiURL = `https://api.maher-zubair.tech/download/alldownload?url= + text`;
 
   try {
     const response = await axios.get(apiURL);
@@ -918,7 +918,7 @@ async (Void, citel, text, { isCreator }) => {
     console.log(response.data)
 
     if (result && result.medias && result.medias.length > 0) {
-      const videoUrl = result.result.medias[1].url;;
+      const videoUrl = result.result.medias[0].url;;
       const title = result.title;
 
       await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });

@@ -808,6 +808,7 @@ puppeteer
       width: 1280,
       height: 2000,
     },
+    args: ['--no-sandbox']
   })
   .then(async (browser) => {
     const page = await browser.newPage();
@@ -841,7 +842,7 @@ async (Void, citel, text, { isCreator }) => {
 
   try {
     
-  mumaker.tiktok(text)
+  mumeker.tiktok(text)
     .then(console.log)
     .then((data) => {
       Void.sendMessage(citel.chat, { video: { url: data.media }, caption: 'Logo BY *CRAZY-MD*\n data.description' }, { quoted: citel });

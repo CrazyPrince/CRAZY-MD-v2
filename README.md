@@ -29,14 +29,14 @@
 #### DEPLOY STEPS
 
 1. Fork This Repository 
-2. Update [`config.js`] if you want more functions or skip
+2. Update [`config.js`] if you want more functions or skip (bot require update global.owner)
 ```js
 {
   "SESSION_ID": "your session id here",
   "OWNER_NUMBER": "237620xxxxxx",
   "OWNER_NAME": "CRAZY PRINCE",
-  "OPENAI_API_KEY": "null",
-  "MONGODB_URI": "mongodb+srv://rahul:rahulkr@cluster0.szdpcp6.mongodb.net/?retryWrites=true&w=majority",
+  "AUTO_READ_STATUS": "false",
+  "AUTO_STATUS_SAVER": "false",
   "PACK_INFO": "👑;CrazyPrince",
   "PREFIX": "."
    

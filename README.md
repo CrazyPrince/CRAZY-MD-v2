@@ -48,12 +48,11 @@
 
 13. If You don't have a account in Render. Create a account.
     <br>
-<a href='https://dashboard.render.com/register' target="_blank"><img alt='Render' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=render' width="96.35" height="28"/></a></p>
+<a href='https://dashboard.render.com/register' target="_blank"><img alt='Render' src='https://img.shields.io/badge/REGISTER-h?color=black&style=for-the-badge&logo=render' width="96.35" height="28"/></a></p>
 
 14. Now Deploy
     <br>
-<a href='https://dashboard.render.com/select-repo?type=web' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=render' width="96.35" height="28"/></a></p>
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/select-repo?type=web)
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
@@ -61,7 +60,7 @@
 
 7. If You don't have a account in Railway. Create a account.
     <br>
-<a href='https://railway.app/login' target="_blank"><img alt='Railway' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=railway' width="96.35" height="28"/></a></p>
+<a href='https://railway.app/login' target="_blank"><img alt='Railway' src='https://img.shields.io/badge/LOGIN-h?color=black&style=for-the-badge&logo=railway' width="96.35" height="28"/></a></p>
 
 8. Now Deploy
     <br>

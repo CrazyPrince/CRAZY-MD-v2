@@ -15,7 +15,7 @@
 </p>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-#### SETUP
+#### First You Must...
 
 1. Fork the repo
     <br>

@@ -46,11 +46,11 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 #### DEPLOY TO RENDER
 
-13. If You don't have a account in Render. Create a account.
+1. If You don't have a account in Render. Create a account.
     <br>
 <a href='https://dashboard.render.com/register' target="_blank"><img alt='Render' src='https://img.shields.io/badge/REGISTER-h?color=black&style=for-the-badge&logo=render' width="96.35" height="28"/></a></p>
 
-14. Now Deploy
+2. Now Deploy
     <br>
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/select-repo?type=web)
@@ -59,11 +59,11 @@
 
 #### DEPLOY TO RAILWAY
 
-7. If You don't have a account in Railway. Create a account.
+1. If You don't have a account in Railway. Create a account.
     <br>
 <a href='https://railway.app/login' target="_blank"><img alt='Railway' src='https://img.shields.io/badge/LOGIN-h?color=black&style=for-the-badge&logo=railway' width="96.35" height="28"/></a></p>
 
-8. Now Deploy
+2. Now Deploy
     <br>
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/2gWw63?referralCode=Mo3xZD)

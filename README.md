@@ -91,7 +91,7 @@
 
 ## Team
 
-[![Crazy Prince](https://avatars.githubusercontent.com/u/86961470?s=400&u=ff8e0ed7361e9f7a80b241aaa85fd4a600023421&v=3&s=144)](https://github.com/CrazyPrince)
+[![Crazy Prince](https://avatars.githubusercontent.com/u/86961470?s=400&u=ff8e0ed7361e9f7a80b241aaa85fd4a600023421?v=3&s=144)](https://github.com/CrazyPrince)
     <br>
 ---|---
 [Crazy Prince ](https://github.com/CrazyPrince)

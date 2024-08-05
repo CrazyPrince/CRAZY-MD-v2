@@ -13,6 +13,8 @@
 <p align="center">
 <a href="#"><img title="Dev" src="https://img.shields.io/badge/Dev-CrazyPrince-red.svg?style=for-the-badge&logo=github"></a>
 </p>
+<p align="center"><img src="https://profile-counter.glitch.me/{CRAZY-MD-v2}/count.svg" alt="CRAZY-MD-v2 :: Visitor's Count" /></p>
+
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 #### First You Must...

@@ -52,6 +52,7 @@
 
 14. Now Deploy
     <br>
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/select-repo?type=web)
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
@@ -82,48 +83,4 @@
 2. Now Deploy
     <br>
 <a href='https://hermit.koyeb.app/deploy-koyeb' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/-DEPLOY-black?style=for-the-badge&logo=koyeb&logoColor=white'/></a>
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO MONGENIUS
-
-9. If You don't have a account in Mongenius. Create a account.
-    <br>
-<a href='https://app.mogenius.com/user/registration' target="_blank"><img alt='Mongenius' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=genius' width="96.35" height="28"/></a></p>
-
-10. Now Deploy
-    <br>
-<a href='https://app.mogenius.com/new' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=genius' width="96.35" height="28"/></a></p>
-
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO COOLIFY
-
-11. If You don't have a account in Coolify. Create a account.
-    <br>
-<a href='https://app.coolify.io/register' target="_blank"><img alt='Coolify' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=C' width="96.35" height="28"/></a></p>
-
-12. Now Deploy
-    <br>
-<a href='https://coolify.io/' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=C' width="96.35" height="28"/></a></p>
-
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO HEROKU 
-
-1. If You don't have a account in Heroku. Create a account.
-    <br>
-<a href='https://signup.heroku.com/' target="_blank"><img alt='Heroku' src='https://img.shields.io/badge/-Create-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
-
-2. Now Deploy
-    <a href='https://dashboard.heroku.com/new?template=https://github.com/Anonphoenix007/MAKINO-MD-V2' target="_blank"><img alt='DEPLOY Heroku' src='https://img.shields.io/badge/-Deploy-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
-
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO CODESPACE
-
-3. If You don't have a account in Codespace. Create a account.
-    <br>
-<a href='https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fcodespaces' target="_blank"><img alt='Codespaces' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
-
-4. Now Deploy
-    <br>
-<a href='https://github.com/codespaces/new' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
-
-
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>

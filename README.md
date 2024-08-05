@@ -86,3 +86,11 @@
 [![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?...)
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
+
+
+## Team
+
+[![Crazy Prince](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/CrazyPrince)
+---|---
+[Crazy Prince ](https://github.com/CrazyPrince)

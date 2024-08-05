@@ -56,20 +56,6 @@
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
-#### DEPLOY TO CODESPACE
-
-3. If You don't have a account in Codespace. Create a account.
-    <br>
-<a href='https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fcodespaces' target="_blank"><img alt='Codespaces' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
-
-4. Now Deploy
-    <br>
-<a href='https://github.com/codespaces/new' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
-
-
-<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 #### DEPLOY TO RAILWAY
 
 7. If You don't have a account in Railway. Create a account.
@@ -78,6 +64,7 @@
 
 8. Now Deploy
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/2gWw63?referralCode=Mo3xZD)
+<br>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 #### DEPLOY TO KOYEB 
@@ -124,3 +111,17 @@
 
 2. Now Deploy
     <a href='https://dashboard.heroku.com/new?template=https://github.com/Anonphoenix007/MAKINO-MD-V2' target="_blank"><img alt='DEPLOY Heroku' src='https://img.shields.io/badge/-Deploy-black?style=for-the-badge&logo=heroku&logoColor=white'/></a>
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+#### DEPLOY TO CODESPACE
+
+3. If You don't have a account in Codespace. Create a account.
+    <br>
+<a href='https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fcodespaces' target="_blank"><img alt='Codespaces' src='https://img.shields.io/badge/CREATE-h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
+
+4. Now Deploy
+    <br>
+<a href='https://github.com/codespaces/new' target="_blank"><img alt='DEPLOY' src='https://img.shields.io/badge/DEPLOY -h?color=black&style=for-the-badge&logo=visualstudiocode' width="96.35" height="28"/></a></p>
+
+
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>

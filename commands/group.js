@@ -1133,9 +1133,10 @@ cmd({
   use: '',
   react: "👥",
   filename: __filename
-}, async (Void, citel,{ isCreator }) => {
-    if(!isCreator) return citel.reply(tlang().owner)
+}, async (Void, citel,{isCreator}) => {
+    
   try {
+    if(!isCreator) return citel.reply(tlang().owner)
     const group = await Void.groupCreate("New Group by Crazy", []);
     console.log("created new group");
     await Void.sendMessage(citel.chat, { text: 'Hello there' });

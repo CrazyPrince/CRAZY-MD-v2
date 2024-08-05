@@ -23,7 +23,7 @@
 
 2. Scan or pair to get session ID
     <br>
-<a href='https://taira-web-service.onrender.com/' target="_blank"><img alt='Get Session ID' src='https://img.shields.io/badge/Get-Session_ID-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=blue'/></a>
+<a href='https://pair-qr-crazy-md1-uxqx.onrender.com' target="_blank"><img alt='Get SESSION_ID' src='https://img.shields.io/badge/Get-Session_ID-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=blue'/></a>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 #### DEPLOY STEPS

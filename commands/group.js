@@ -1251,7 +1251,7 @@ cmd({
         *" 𝓜𝓮𝓶𝓫𝓮𝓻 "*     *[ ${metadata.size} ]*
         
         *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*`  
-        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
+        const ppUrl = await Void.profilePictureUrl(citel.chat, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
 

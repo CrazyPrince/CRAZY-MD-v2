@@ -1206,7 +1206,7 @@ cmd({
   desc: "website screenshots",
   category: "search",
   use: '<titre>',
-  react: "🎵",
+  react: "🌐",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
   if (!text || text.length === 0) {
@@ -1215,15 +1215,15 @@ cmd({
   }
 
   let url;
-  if (text[0] === '-g') {
-    if (text.length < 2) {
+  if (!text.match(/^https?:\/\/.+$/)) {
+    if (text.split(' ').length === 1) {
       citel.reply(`Invalid text input after -g tag⚠️\nPlease use:\n${prefix}scr -g YourText`);
       return;
     }
     const query = text.slice(1).join('+');
-    url = `https://www.google.com/search?q=${query}&tbm=isch`;
+    url = `https://www.google.com/search?q=${text}&tbm=isch`;
   } else {
-    url = text[0];
+    url = text;
     if (!url.match(/^https?:\/\/.+$/)) {
       url = `https://${url}`;
     }

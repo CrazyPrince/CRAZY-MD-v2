@@ -1041,27 +1041,6 @@ cmd({
 
 ////////////////////////===============================================///////////////////////////////////////////////////////
 
-/*
-cmd({
-        pattern: "invite",
-        desc: "to ask group invite code",
-        category: "group",
-        use: '',
-        react: "🔗",
-        filename: __filename
-    },
-
-    async (Void, citel,{ isCreator }) => {
-    if(!isCreator) return citel.reply(tlang().owner)
-        
-         var code = await Void.groupInviteCode(citel.chat)
-         var linkgc = `https://chat.whatsapp.com/${code}`;
-         let mess = `- *Here is your group invite link:* \n\n ${linkgc}`
-console.log("group code: " + linkgc)
-        await Void.sendMessage(citel.chat, { text: mess},{ quoted: citel });
-    }
-);
-*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
@@ -1083,31 +1062,7 @@ cmd({
     )
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-/*
-cmd({
-        pattern: "leave",
-        desc: "to leave the group",
-        category: "group",
-        use: '',
-        react: "🏃‍♂️‍➡️",
-        filename: __filename
-    },
 
-    async (Void, citel,{ isCreator }) => {
-    if(!isCreator) return citel.reply(tlang().owner)
-        try {
-            // Envoyer un message d'adieu avant de quitter le groupe
-            await Void.sendMessage(citel.chat, { text: `bye bye🏃‍➡️` }, { quoted: citel });
-            
-            // Quitter le groupe
-            await Void.groupLeave(citel.chat);
-        } catch (error) {
-            console.error("Error leaving the group:", error);
-            await Void.sendMessage(citel.chat, { text: "Failed to leave the group. Please try again later." }, { quoted: citel });
-        }
-    }
-);
-*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
@@ -1139,38 +1094,7 @@ cmd({
         }
     )
 ///////////////===============================================///////////////////////////////////////////////////////
-/*
-cmd({
-        pattern: "gpp",
-        desc: "to get the group profile picture",
-        category: "group",
-        use: '',
-        react: "📸",
-        filename: __filename
-    },
 
-    async (Void, citel) => {
-        try {
-            const jid = citel.chat; // The JID of the group
-            
-            // Get the profile picture URL
-            const ppUrl = await Void.profilePictureUrl(jid, 'image');
-            
-            // Fetch the image as a buffer
-            const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
-            const profilePicture = Buffer.from(response.data, 'binary');
-            
-            // Send the profile picture
-            await Void.sendMessage(citel.chat, { image: profilePicture, caption: "Here is the group profile picture" }, { quoted: citel });
-            
-            console.log("Profile picture sent successfully");
-        } catch (error) {
-            console.error("Error sending profile picture:", error);
-            await Void.sendMessage(citel.chat, { text: "Failed to get and send profile picture. Please try again later." }, { quoted: citel });
-        }
-    }
-);
-*/
 ///////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
@@ -1194,36 +1118,7 @@ cmd({
     )
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-/*
-cmd({
-    pattern: "botpp",
-    desc: "Récupère et envoie la photo de profil de l'utilisateur mentionné ou cité",
-    category: "group",
-    use: '',
-    react: "🖼️",
-    filename: __filename
-},
 
-async (Void, citel,{ isCreator }) => {
-    if(!isCreator) return citel.reply(tlang().owner)
-    
-        await Void.sendMessage(citel.chat, { text: "processing your request" }, { quoted: citel });
-        
-    
-
-    try {
-        let metadata = await Void.groupMetadata(citel.chat); 
-        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
-        const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
-        const buffer = Buffer.from(response.data, 'binary');
-
-        await Void.sendMessage(citel.chat, { image: buffer, caption: "Voici la photo de profil" }, { quoted: citel });
-    } catch (error) {
-        console.error('Erreur lors de la récupération de la photo de profil:', error);
-        await Void.sendMessage(citel.chat, { text: "Impossible de récupérer la photo de profil." }, { quoted: citel });
-    }
-});
-*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
@@ -1281,36 +1176,7 @@ cmd({
     )
 
 ///////////////===============================================///////////////////////////////////////////////////////
-/*
-cmd({
-  pattern: "infogp",
-  desc: "Créer un nouveau groupe",
-  category: "group",
-  use: '',
-  react: "ℹ️",
-  filename: __filename
-}, async (Void, citel,{ isCreator }) => {
 
-  try {
-    const code = await Void.groupInviteCode(citel.chat)
-console.log("group code: " + code)
-    const metadata = await Void.groupMetadata(citel.chat) 
-console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
-    await Void.sendMessage(citel.chat, { text: `────𝓖𝓡𝓞𝓤𝓟 𝓘𝓝𝓕𝓞𝓢─────  
-        *" 𝓣𝓲𝓽𝓵𝓮: "*  *${metadata.subject}*
-        *" 𝓓𝓮𝓼𝓬𝓻𝓲𝓹𝓽𝓲𝓸𝓷: "*  
-         ${metadata.desc}
-        *" 𝓛𝓲𝓷𝓴: "*  _https://chat.whatsapp.com/${code}_
-        *" 𝓜𝓮𝓶𝓫𝓮𝓻 "*     *[ ${metadata.size} ]*
-        
-        *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*` }, { quoted: citel });
-        
-  } catch (error) {
-    console.error('Erreur lors de la récupération des infos du groupe', error);
-    await Void.sendMessage(citel.chat, { text: "Erreur lors de la recuperation des infos du groupe." }, { quoted: citel });
-  }
-});
-*/
 ///////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
@@ -1384,8 +1250,147 @@ async (Void, citel, text, { isCreator }) => {
 }
 );
 
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "privacy",
+            desc: "to get bot privacy settings state",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            const privacySettings = await Void.fetchPrivacySettings(true)
+            console.log("*privacy settings: *" + privacySettings)
+            Void.sendMessage(citel.chat, '*privacy settings: *' + privacySettings, {
+                quoted: citel});
+        }
+        
+    )
+
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "lastseen",
+            desc: "To update the LastSeen privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <contacts> or <contact_blacklist> or <none>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none)
+            if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
+            return citel.reply('Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none')
+            }
+            const value = text; // 'contacts' | 'contact_blacklist' | 'none'
+            await Void.updateLastSeenPrivacy(value)
+            citel.reply('Lastseen updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "online",
+            desc: "To update the LastSeen privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <match_last_seen>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}online all, ${prefix}online match_last_seen)
+            if (!['all', 'match_last_seen'].includes(text)) {
+            return citel.reply('Type ${prefix}online all, ${prefix}online match_last_seen')
+            }
+            const value = text; // 'match_last_seen'
+            await Void.updateOnlinePrivacy(value)
+            citel.reply('Online privacy updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "ppprivacy",
+            desc: "To update the LastSeen privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <contacts> or <contact_blacklist> or <none>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none)
+            if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
+            return citel.reply('Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none')
+            }
+            const value = text; // 'contacts' | 'contact_blacklist' | 'none'
+            await Void.updateProfilePicturePrivacy(value)
+            citel.reply('Profil picture privacy updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "privstatus",
+            desc: "To update the LastSeen privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <contacts> or <contact_blacklist> or <none>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none)
+            if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
+            return citel.reply('Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none')
+            }
+            const value = text; // 'contacts' | 'contact_blacklist' | 'none'
+            await Void.updateProfilePicturePrivacy(value)
+            citel.reply('Status privacy updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "read",
+            desc: "To update the Read Receipts privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <none>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}read all, ${prefix}read none)
+            if (!['all', 'none'].includes(text)) {
+            return citel.reply('Type ${prefix}read all, ${prefix}read none')
+            }
+            const value = text; // 'none'
+            await Void.updateReadReceiptsPrivacy(value)
+            citel.reply('Read Receipts privacy updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+cmd({
+            pattern: "gpadd",
+            desc: "To update the Groups Add privacy",
+            category: "owner",
+            react: "👨🏽‍💻",
+            filename: __filename,
+            use: '<all> or <contacts> or <contact_blacklist> or <none>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply(Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none)
+            if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
+            return citel.reply('Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none')
+            }
+            const value = text; // 'contacts' | 'contact_blacklist' | 'none'
+            await Void.updateGroupsAddPrivacy(value)
+            citel.reply('Groups Add privacy updated to:' + value)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+
+///////////////===============================================///////////////////////////////////////////////////////
 
 
-
-
-//=======================

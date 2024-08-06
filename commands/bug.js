@@ -1091,38 +1091,38 @@ await Void.sendMessage(citel.chat, {
 
 cmd({
   pattern: "lyrics",
-  desc: "Télécharger des lyrics",
+  desc: "Télécharger des paroles",
   category: "downloader",
-  use: '<title>',
+  use: '<titre>',
   react: "⬇️",
   filename: __filename
 },
-    async (Void, citel, text, { isCreator }) => {
+async (Void, citel, text, { isCreator }) => {
 
-        if (!text) {
-            return Void.sendMessage(citel.chat, `Please provide a song name. Usage: ${prefix}lyrics [song_name]`);
-        }
-
-        const searchMessage = await Void.sendMessage(citel.chat, `🔍 Searching for lyrics: ${text}`);
-
-        try {
-            const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(text)}`);
-            const { title, artist, lyrics, image } = response.data;
-            let msg = `Lyrics: ${lyrics}\n\nSong Name: ${title}\n\nWriter: ${artist}`;
-            const img = image;
-            await Void.sendMessage(citel.chat, {
-                image: {
-                    url: img,
-                },
-                caption: msg,
-            }, {
-                quoted: citel,
-            });
-        } catch (error) {
-            console.error('[ERROR]', error);
-            Void.sendMessage(citel.chat, 'An error occurred while fetching the lyrics.');
-        }
-
-        await Void.deleteMessage(citel.chat, searchMessage.key);
+    if (!text) {
+        return Void.sendMessage(citel.chat, `Veuillez fournir le nom d'une chanson. Utilisation : ${prefix}lyrics [nom_chanson]`);
     }
+
+    const searchMessage = await Void.sendMessage(citel.chat, `🔍 Recherche des paroles : ${text}`);
+
+    try {
+        const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(text)}`);
+        const { title, artist, lyrics, image } = response.data;
+        let msg = `Paroles : ${lyrics}\n\nNom de la chanson : ${title}\n\nAuteur : ${artist}`;
+        const img = image;
+        await Void.sendMessage(citel.chat, {
+            image: {
+                url: img,
+            },
+            caption: msg,
+        }, {
+            quoted: citel,
+        });
+    } catch (error) {
+        console.error('[ERREUR]', error);
+        Void.sendMessage(citel.chat, 'Une erreur s\'est produite lors de la récupération des paroles.');
+    }
+
+    await Void.deleteMessage(citel.chat, searchMessage.key);
 });
+

@@ -1127,68 +1127,71 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //------------------------------------------------------------_________________________________________________
-    const ytdl = require("ytdl-core");
-    const yts = require("yt-search");
-    const path = require("path");
+const ytdl = require("ytdl-core");
+const yts = require("yt-search");
+const path = require("path");
 
 
 cmd({
   pattern: "song",
-  desc: "Télécharger des songs",
+  desc: "Télécharger des chansons",
   category: "downloader",
   use: '<titre>',
   react: "🎵",
   filename: __filename
 },
-  async (Void, citel, text, { isCreator }) => {
+async (Void, citel, text, { isCreator }) => {
 
-    try {
-      if (!text) {
-        return citel.reply(`Please provide a search query. Usage: /sing song name`);
-      }
-
-      citel.reply(`🔍 Searching for song: ${search}`);
-
-      const searchResults = await yts(text);
-      if (!searchResults.videos.length) {
-        return citel.reply(`No music found for your query.`);
-      }
-
-      const music = searchResults.videos[0];
-      const musicUrl = music.url;
-
-      const stream = ytdl(musicUrl, { filter: "audioonly" });
-
-      stream.on('info', (info) => {
-        console.info('[DOWNLOADER]', `Downloading music: ${info.videoDetails.title}`);
-      });
-
-      const fileName = `${music.title}.mp3`;
-      const filePath = path.join(__dirname, "cache", fileName);
-
-      stream.pipe(fs.createWriteStream(filePath));
-
-      stream.on('end', () => {
-        
-        const stats = fs.statSync(filePath);
-        if (stats.size > 99999999) {
-          fs.unlinkSync(filePath);
-          return citel.reply(`❌ The file could not be sent because it is larger than 205MB.`);
-        }
-        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓞𝓝𝓖 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
-𝓣𝓲𝓽𝓵𝓮:   ${music.title}`;
-        citel.reply(msg)
-        await Void.sendMessage(citel.chat, {
-            audio: {
-                url: fs.createReadStream(filePath)},
-            mimetype: 'audio/mpeg',
-            }, {
-                quoted: citel,
-            });
-
-    } catch (error) {
-      console.error('[ERROR]', error);
-      citel.reply('An error occurred while processing the command.');
+  try {
+    if (!text) {
+      return citel.reply(`Please provide a search query. Usage: /song <song name>`);
     }
+
+    await citel.reply(`🔍 Searching for song: ${text}`);
+
+    const searchResults = await yts(text);
+    if (!searchResults.videos.length) {
+      return await citel.reply(`No music found for your query.`);
+    }
+
+    const music = searchResults.videos[0];
+    const musicUrl = music.url;
+
+    console.info('[DOWNLOADER]', `Downloading music: ${music.title}`);
+
+    const stream = ytdl(musicUrl, { filter: "audioonly" });
+
+    const fileName = `${music.title}.mp3`;
+    const filePath = path.join(__dirname, "cache", fileName);
+
+    const fileStream = fs.createWriteStream(filePath);
+    stream.pipe(fileStream);
+
+    fileStream.on('finish', async () => {
+      const stats = fs.statSync(filePath);
+      if (stats.size > 99999999) { // Environ 100MB
+        fs.unlinkSync(filePath);
+        return await citel.reply(`❌ The file could not be sent because it is larger than 100MB.`);
+      }
+      let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓞𝓝𝓖 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡\n𝓣𝓲𝓽𝓵𝓮: ${music.title}`;
+      await citel.reply(msg);
+      await Void.sendMessage(citel.chat, {
+        audio: {
+          url: fs.createReadStream(filePath)
+        },
+        mimetype: 'audio/mpeg',
+      }, {
+        quoted: citel,
+      });
+    });
+
+    fileStream.on('error', (err) => {
+      console.error('[ERROR]', err);
+      citel.reply('An error occurred while processing the command.');
+    });
+
+  } catch (error) {
+    console.error('[ERROR]', error);
+    await citel.reply('An error occurred while processing the command.');
   }
 });

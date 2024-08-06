@@ -888,7 +888,7 @@ async (Void, citel, text, { isCreator }) => {
 
 cmd({
   pattern: "wamods",
-  desc: "Télécharger une mods Wathsapp",
+  desc: "Download a WhatsApp mod",
   category: "downloader",
   use: '<gbwa> <waplus> <ogwa> <anwa> <fmwa> <yowa> <aerowa> <goldwa> <karinawa>',
   react: "⬇️",
@@ -896,39 +896,40 @@ cmd({
 },
 
 async (Void, citel, text, { isCreator }) => {
- if (!text) {
-    return citel.reply('Veuillez fournir un nom de mod. Utilisez l\'une des options suivantes: ${prefix}gbwa ${prefix}waplus ${prefix}ogwa ${prefix}anwa ${prefix}fmwa ${prefix}yowa ${prefix}aerowa ${prefix}goldwa ${prefix}karinawa.');
+  if (!text) return citel.reply(`Type: ${prefix}gbwa ${prefix}waplus ${prefix}ogwa ${prefix}anwa ${prefix}fmwa ${prefix}yowa ${prefix}aerowa ${prefix}goldwa ${prefix}karinawa.`);
+  if (!['gbwa', 'waplus', 'ogwa', 'anwa', 'fmwa', 'yowa', 'aerowa', 'goldwa', 'karinawa'].includes(text)) {
+    return citel.reply(`Type: ${prefix}gbwa ${prefix}waplus ${prefix}ogwa ${prefix}anwa ${prefix}fmwa ${prefix}yowa ${prefix}aerowa ${prefix}goldwa ${prefix}karinawa.`);
   }
-
   const apiURL = `https://api.maher-zubair.tech/whatsapp/wamods`;
 
   try {
     const response = await axios.get(apiURL);
     const { result } = response.data;
-    console.log(response.data)
+    console.log(response.data);
     let msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓦𝓐 𝓜𝓞𝓓𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
 𝓝𝓪𝓶𝓮: ${text},
-𝓢𝓲𝔃𝓮: ${url.text}`;
-    citel.reply(msg)
-    if (result && url.text && url.text.length > 0) {
-      const link = url.text[0];
+𝓢𝓲𝔃𝓮: undefined`;
+    citel.reply(msg);
+    if (result && result.text && result.text.length > 0) {
+      const link = result.text[0];
       const title = text;
 
       await Void.sendMessage(citel.chat, {
-          document: { url: link },
-          mimetype: "application/x-rar",,
-          title: text,
-          fileName: text
-        });
+        document: { url: link },
+        mimetype: "application/vnd.android.package-archive",
+        title: text + '.apk',
+        fileName: text + '.apk'
+      });
     } else {
-      citel.reply('Aucun mods trouvé.');
+      citel.reply('No mods found.');
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération des mods :', error);
-    citel.reply('Une erreur est survenue lors de la récupération des mods. Veuillez réessayer plus tard.');
+    console.error('Error fetching mods:', error);
+    citel.reply('An error occurred while fetching mods. Please try again later.');
   }
 });
+
 
 //---------------------------------------------------------------------------
 cmd({

@@ -1144,7 +1144,7 @@ async (Void, citel, text, { isCreator }) => {
 
   try {
     if (!text) {
-      return citel.reply(`Please provide a search query. Usage: /song <song name>`);
+      return citel.reply(`Please provide a search query. Usage: ${prefix}song <song name>`);
     }
 
     await citel.reply(`🔍 Searching for song: ${text}`);
@@ -1193,5 +1193,63 @@ async (Void, citel, text, { isCreator }) => {
   } catch (error) {
     console.error('[ERROR]', error);
     await citel.reply('An error occurred while processing the command.');
+  }
+});
+
+//------------------------------------------------------------_________________________________________________
+
+const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));
+
+
+cmd({
+  pattern: "scr",
+  desc: "website screenshots",
+  category: "search",
+  use: '<titre>',
+  react: "🎵",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+  if (!text || text.length === 0) {
+    citel.reply(`Invalid input⚠️\nPlease use:\n${prefix}scr <url> \nor\n${prefix}scr -g <text>.`);
+    return;
+  }
+
+  let url;
+  if (text[0] === '-g') {
+    if (text.length < 2) {
+      citel.reply(`Invalid text input after -g tag⚠️\nPlease use:\n${prefix}scr -g YourText`);
+      return;
+    }
+    const query = text.slice(1).join('+');
+    url = `https://www.google.com/search?q=${query}&tbm=isch`;
+  } else {
+    url = text[0];
+    if (!url.match(/^https?:\/\/.+$/)) {
+      url = `https://${url}`;
+    }
+  }
+
+  const apiURL = `https://image.thum.io/get/width/1920/crop/400/fullpage/noanimate/${url}`;
+
+  try {
+    const res = await fetch(apiURL);
+    if (!res.ok) {
+      citel.reply(`API not responding. Please try again later.`);
+      return;
+    }
+
+    const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓒𝓡𝓔𝓔𝓝𝓢𝓗𝓞𝓣𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡\n_Here is the screenshot._`;
+
+    await Void.sendMessage(citel.chat, {
+      image: {
+        url: apiURL,
+      },
+      caption: msg,
+    }, {
+      quoted: citel,
+    });
+  } catch (error) {
+    console.error('[ERROR]', error);
+    citel.reply('An error occurred while processing the command.');
   }
 });

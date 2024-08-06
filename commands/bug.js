@@ -1009,3 +1009,81 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
+cmd({
+  pattern: "apk1",
+  desc: "Télécharger des apps",
+  category: "downloader",
+  use: '<name>',
+  react: "⬇️",
+  filename: __filename
+},
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un nom.');
+  }
+
+  const apiURL = `https://api.maher-zubair.tech/download/apk?id=${text}`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+    console.log(response.data);
+    if (status !== 200) {
+      return citel.reply('This app is not in our database.');
+    }
+    if (result && result.dllink) {
+      const type = result.mime;
+      const nom = result.name;
+      const lien = result.dllink;
+      const sizeStr = result.size;
+      const last = result.lastup;
+      const img = result.icon;
+      const msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓜𝓔𝓓𝓘𝓐𝓕𝓘𝓡𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+
+𝓝𝓪𝓶𝓮: ${nom},
+𝓢𝓲𝔃𝓮:    [${sizeStr}],
+𝓛𝓪𝓼𝓽𝓤𝓹𝓭𝓪𝓽𝓮: ${last}`;
+await Void.sendMessage(citel.chat, { 
+    image: icon,
+    caption: msg
+},{ quoted: citel });
+      // Fonction de conversion de la taille en MB
+      const convertSizeToMB = (sizeStr) => {
+        const sizeValue = parseFloat(sizeStr);
+        const unit = sizeStr.match(/[a-zA-Z]+/)[0].toUpperCase(); // Récupère l'unité (KB, MB, GB, TB)
+        
+        switch(unit) {
+          case 'KB':
+            return sizeValue / 1024;
+          case 'MB':
+            return sizeValue;
+          case 'GB':
+            return sizeValue * 1024;
+          case 'TB':
+            return sizeValue * 1024 * 1024;
+          default:
+            return sizeValue; // Si aucune unité trouvée, retourne la valeur brute
+        }
+      };
+
+      const sizeInMB = convertSizeToMB(sizeStr);
+
+      if (sizeInMB > 100) {
+        return citel.reply('The file is too large to be sent (over than 100 MB).');
+      } else {
+        await Void.sendMessage(citel.chat, {
+          document: { url: lien },
+          mimetype: type,
+          title: nom,
+          fileName: nom
+        });
+      }
+    } else {
+      citel.reply('Fichier non trouvé.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération du média :', error);
+    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+  }
+});

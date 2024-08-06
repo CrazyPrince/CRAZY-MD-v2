@@ -885,7 +885,7 @@ async (Void, citel, text, { isCreator }) => {
 
 
 //---------------------------------------------------------------------------
-
+/*
 cmd({
   pattern: "mediafire1",
   desc: "Télécharger un fichier mediafire",
@@ -932,5 +932,82 @@ async (Void, citel, text, { isCreator }) => {
     citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
   }
 });
+*/
 //---------------------------------------------------------------------------
+cmd({
+  pattern: "mediafire1",
+  desc: "Télécharger un fichier mediafire",
+  category: "downloader",
+  use: '<link>',
+  react: "⬇️",
+  filename: __filename
+},
+
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
+
+  const apiURL = `https://api.maher-zubair.tech/download/mediafire?url=${encodeURIComponent(text)}`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+    console.log(response.data);
+
+    if (result && result.link) {
+      const type = result.mime;
+      const nom = result.name;
+      const lien = result.link;
+      const sizeStr = result.size;
+      const last = result.date;
+
+      // Fonction de conversion de la taille en MB
+      const convertSizeToMB = (sizeStr) => {
+        const sizeValue = parseFloat(sizeStr);
+        const unit = sizeStr.match(/[a-zA-Z]+/)[0].toUpperCase(); // Récupère l'unité (KB, MB, GB, TB)
+        
+        switch(unit) {
+          case 'KB':
+            return sizeValue / 1024;
+          case 'MB':
+            return sizeValue;
+          case 'GB':
+            return sizeValue * 1024;
+          case 'TB':
+            return sizeValue * 1024 * 1024;
+          default:
+            return sizeValue; // Si aucune unité trouvée, retourne la valeur brute
+        }
+      };
+
+      const sizeInMB = convertSizeToMB(sizeStr);
+
+      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+
+𝓝𝓪𝓶𝓮: ${nom},
+𝓢𝓲𝔃𝓮:    [${sizeStr}],
+𝓛𝓪𝓼𝓽𝓤𝓹𝓭𝓪𝓽𝓮: ${last}`;
+
+      citel.reply(msg);
+
+      if (sizeInMB > 100) {
+        return citel.reply('Le fichier est trop volumineux pour être envoyé (supérieur à 100 MB).');
+      } else {
+        await Void.sendMessage(citel.chat, {
+          document: { url: lien },
+          mimetype: type,
+          title: nom,
+          fileName: nom
+        });
+      }
+    } else {
+      citel.reply('Fichier non trouvé.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération du média :', error);
+    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+  }
+});
+
 //---------------------------------------------------------------------------

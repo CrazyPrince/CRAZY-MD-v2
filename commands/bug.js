@@ -863,7 +863,7 @@ async (Void, citel, text, { isCreator }) => {
       const mime = result.mimetype;
       const nom = result.fileName;
       const lien = result.downloadUrl;
-      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+      const msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
 𝓝𝓪𝓶𝓮: ${nom},
 𝓢𝓲𝔃𝓮: ${result.fileSize}`;
@@ -885,54 +885,51 @@ async (Void, citel, text, { isCreator }) => {
 
 
 //---------------------------------------------------------------------------
-/*
+
 cmd({
-  pattern: "mediafire1",
-  desc: "Télécharger un fichier mediafire",
+  pattern: "wamods",
+  desc: "Télécharger une mods Wathsapp",
   category: "downloader",
-  use: '<link>',
+  use: '<gbwa> <waplus> <ogwa> <anwa> <fmwa> <yowa> <aerowa> <goldwa> <karinawa>',
   react: "⬇️",
   filename: __filename
 },
 
 async (Void, citel, text, { isCreator }) => {
-  if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
+ if (!text) {
+    return citel.reply('Veuillez fournir un nom de mod. Utilisez l\'une des options suivantes: ${prefix}gbwa ${prefix}waplus ${prefix}ogwa ${prefix}anwa ${prefix}fmwa ${prefix}yowa ${prefix}aerowa ${prefix}goldwa ${prefix}karinawa.');
   }
 
-  const apiURL = `https://api.maher-zubair.tech/download/mediafire?url=${encodeURIComponent(text)}`;
+  const apiURL = `https://api.maher-zubair.tech/whatsapp/wamods`;
 
   try {
     const response = await axios.get(apiURL);
     const { result } = response.data;
-    console.log(response.data);
+    console.log(response.data)
+    let msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓦𝓐 𝓜𝓞𝓓𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
-    if (result && result.link) {
-      const type = result.mime;
-      const nom = result.name;
-      const lien = result.link;
-      const last = result.date;
-      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+𝓝𝓪𝓶𝓮: ${text},
+𝓢𝓲𝔃𝓮: ${url.text}`;
+    citel.reply(msg)
+    if (result && url.text && url.text.length > 0) {
+      const link = url.text[0];
+      const title = text;
 
-𝓝𝓪𝓶𝓮: ${result.name},
-𝓢𝓲𝔃𝓮:    [${result.size}],
-𝓛𝓪𝓼𝓽𝓤𝓹𝓭𝓪𝓽𝓮: ${result.date}`;
-      citel.reply(msg);
       await Void.sendMessage(citel.chat, {
-        document: { url: lien },
-        mimetype: type,
-        title: nom,
-        fileName: nom
-      });
+          document: { url: link },
+          mimetype: "application/x-rar",,
+          title: text,
+          fileName: text
+        });
     } else {
-      citel.reply('Fichier non trouvé.');
+      citel.reply('Aucun mods trouvé.');
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération du média :', error);
-    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+    console.error('Erreur lors de la récupération des mods :', error);
+    citel.reply('Une erreur est survenue lors de la récupération des mods. Veuillez réessayer plus tard.');
   }
 });
-*/
+
 //---------------------------------------------------------------------------
 cmd({
   pattern: "mediafire1",
@@ -983,7 +980,7 @@ async (Void, citel, text, { isCreator }) => {
 
       const sizeInMB = convertSizeToMB(sizeStr);
 
-      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+      const msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓜𝓔𝓓𝓘𝓐𝓕𝓘𝓡𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
 𝓝𝓪𝓶𝓮: ${nom},
 𝓢𝓲𝔃𝓮:    [${sizeStr}],
@@ -992,7 +989,7 @@ async (Void, citel, text, { isCreator }) => {
       citel.reply(msg);
 
       if (sizeInMB > 100) {
-        return citel.reply('Le fichier est trop volumineux pour être envoyé (supérieur à 100 MB).');
+        return citel.reply('The file is too large to be sent (over than 100 MB).');
       } else {
         await Void.sendMessage(citel.chat, {
           document: { url: lien },

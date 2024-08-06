@@ -1125,4 +1125,4 @@ cmd({
 
         await Void.deleteMessage(citel.chat, searchMessage.key);
     }
-};
+});

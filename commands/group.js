@@ -1028,7 +1028,7 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel
+            const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
             var code = await Void.groupInviteCode(citel.chat)
@@ -1120,7 +1120,7 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel
+            const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
             const jid = citel.chat; // The JID of the group
@@ -1236,7 +1236,7 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel
+            const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
             const code = await Void.groupInviteCode(citel.chat)
@@ -1323,7 +1323,7 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel
+            const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
             if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
@@ -1343,7 +1343,7 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!citel.isGroup) return citel.reply(tlang().group);
-            const groupAdmins = await getAdmin(Void, citel
+            const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
             if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
@@ -1364,7 +1364,7 @@ cmd({
 },
 async (Void, citel, text, { isCreator }) => {
     if (!citel.isGroup) return citel.reply(tlang().group);
-    const groupAdmins = await getAdmin(Void, citel
+    const groupAdmins = await getAdmin(Void, citel)
     const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
     if (!isAdmins) return citel.reply(tlang().admin);
     const response = citel.isGroup ? await Void.groupRequestParticipantsList(citel.chat).catch((e) => {}) : "";
@@ -1377,7 +1377,7 @@ async (Void, citel, text, { isCreator }) => {
 ➲ *Author :* ${citel.pushName} 🔖
 `;
     for (let mem of requests) {
-        textt += `📍 @${mem.id.split("@")[0]}\n`;
+        textt += `⏳ @${mem.id.split("@")[0]}\n`;
     }
     console.log(response);
     await Void.sendMessage(citel.chat, { text: textt, mentions: requests.map((a) => a.id) }, { quoted: citel });

@@ -1086,3 +1086,39 @@ await Void.sendMessage(citel.chat, {
     citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
   }
 });
+
+//------------------------------------------------------------_________________________________________________
+
+cmd({
+  pattern: "lyrics",
+  desc: "Télécharger des lyrics",
+  category: "downloader",
+  use: '<title>',
+  react: "⬇️",
+  filename: __filename
+},
+    async (Void, citel, text, { isCreator }) => {
+
+        if (!text) {
+            return Void.sendMessage(citel.chat, `Please provide a song name. Usage: ${prefix}lyrics [song_name]`);
+        }
+
+        const searchMessage = await Void.sendMessage(citel.chat, `🔍 Searching for lyrics: ${text}`);
+
+        try {
+            const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(text)}`);
+            const { title, artist, lyrics, image } = response.data;
+            let msg = `Lyrics: ${lyrics}\n\nSong Name: ${title}\n\nWriter: ${artist}`;
+            const img = image;
+            await Void.sendMessage(citel.chat, 
+                image: img,
+                caption: msg
+                );
+        } catch (error) {
+            console.error('[ERROR]', error);
+            Void.sendMessage(citel.chat, 'An error occurred while fetching the lyrics.');
+        }
+
+        await Void.deleteMessage(citel.chat, searchMessage.key);
+    }
+};

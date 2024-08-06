@@ -1110,10 +1110,14 @@ cmd({
             const { title, artist, lyrics, image } = response.data;
             let msg = `Lyrics: ${lyrics}\n\nSong Name: ${title}\n\nWriter: ${artist}`;
             const img = image;
-            await Void.sendMessage(citel.chat, 
-                image: img,
-                caption: msg
-                );
+            await Void.sendMessage(citel.chat, {
+                image: {
+                    url: img,
+                },
+                caption: msg,
+            }, {
+                quoted: citel,
+            });
         } catch (error) {
             console.error('[ERROR]', error);
             Void.sendMessage(citel.chat, 'An error occurred while fetching the lyrics.');

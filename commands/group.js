@@ -1017,6 +1017,28 @@ cmd({ on: "text" }, async(Void, citel) => {
 }
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 const axios = require('axios')
+
+cmd({
+            pattern: "invite",
+            desc: "to ask group invite code",
+            category: "group",
+            react: "🔗",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            var code = await Void.groupInviteCode(citel.chat)
+            var linkgc = `https://chat.whatsapp.com/${code}`;
+            let mess = `- *Here is your group invite link:* \n\n ${linkgc}`
+            console.log("*group code:* " + linkgc)
+            await Void.sendMessage(citel.chat, { text: mess},{ quoted: citel });
+        }
+    )
+
+////////////////////////===============================================///////////////////////////////////////////////////////
+
+/*
 cmd({
         pattern: "invite",
         desc: "to ask group invite code",
@@ -1036,7 +1058,29 @@ console.log("group code: " + linkgc)
         await Void.sendMessage(citel.chat, { text: mess},{ quoted: citel });
     }
 );
+*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+            pattern: "leave",
+            desc: "to leave the group",
+            category: "group",
+            react: "🏃‍♂️‍➡️",
+            filename: __filename,
+            use: '',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            // Envoyer un message d'adieu avant de quitter le groupe
+            await Void.sendMessage(citel.chat, { text: `bye bye🏃‍➡️` }, { quoted: citel });
+            
+            // Quitter le groupe
+            await Void.groupLeave(citel.chat);
+        }
+    )
+
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+/*
 cmd({
         pattern: "leave",
         desc: "to leave the group",
@@ -1060,8 +1104,36 @@ cmd({
         }
     }
 );
+*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
+cmd({
+            pattern: "gpp",
+            desc: "to get the group pp",
+            category: "group",
+            react: "🖼️",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            const jid = citel.chat; // The JID of the group
+            
+            // Get the profile picture URL
+            const ppUrl = await Void.profilePictureUrl(jid, 'image');
+            
+            // Fetch the image as a buffer
+            const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
+            const profilePicture = Buffer.from(response.data, 'binary');
+            
+            // Send the profile picture
+            await Void.sendMessage(citel.chat, { image: profilePicture, caption: "Here is the group profile picture" }, { quoted: citel });
+            
+            console.log("Profile picture sent successfully");
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+/*
 cmd({
         pattern: "gpp",
         desc: "to get the group profile picture",
@@ -1092,9 +1164,31 @@ cmd({
         }
     }
 );
+*/
+///////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+            pattern: "botpp",
+            desc: "to logs bot pic",
+            category: "group",
+            react: "🖼️",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+        if(!isCreator) return citel.reply(tlang().owner)
+        citel.reply('processing your request')
+        let metadata = await Void.groupMetadata(citel.chat); 
+        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
+        const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
+        const buffer = Buffer.from(response.data, 'binary');
+
+        await Void.sendMessage(citel.chat, { image: buffer, caption: "Here is the profil pic" }, { quoted: citel });
+        }
+    )
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-
+/*
 cmd({
     pattern: "botpp",
     desc: "Récupère et envoie la photo de profil de l'utilisateur mentionné ou cité",
@@ -1123,42 +1217,54 @@ async (Void, citel,{ isCreator }) => {
         await Void.sendMessage(citel.chat, { text: "Impossible de récupérer la photo de profil." }, { quoted: citel });
     }
 });
-
-///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-/*
-cmd({
-  pattern: "newgp",
-  desc: "Créer un nouveau groupe",
-  category: "group",
-  use: '',
-  react: "👥",
-  filename: __filename
-}, async (Void, citel,{isCreator}) => {
-    
-  try {
-    if(!isCreator) return citel.reply(tlang().owner)
-    const group = await Void.groupCreate("New Group by Crazy", []);
-    console.log("created new group");
-    await Void.sendMessage(citel.chat, { text: 'Hello there' });
-    await Void.sendMessage(citel.chat, { text: `Groupe créé avec succès: lien introuvable}` }, { quoted: citel });
-  } catch (error) {
-    console.error('Erreur lors de la création du groupe:', error);
-    await Void.sendMessage(citel.chat, { text: "Erreur lors de la création du groupe." }, { quoted: citel });
-  }
-});
 */
+///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+            pattern: "infogp",
+            desc: "to log group infos",
+            category: "group",
+            react: "ℹ️",
+            filename: __filename,
+            use: '',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            const code = await Void.groupInviteCode(citel.chat)
+            console.log("group code: " + code)
+            const metadata = await Void.groupMetadata(citel.chat) 
+            console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
+            let info = `────𝓖𝓡𝓞𝓤𝓟 𝓘𝓝𝓕𝓞𝓢─────  
+        *" 𝓣𝓲𝓽𝓵𝓮: "*  *${metadata.subject}*
+        *" 𝓓𝓮𝓼𝓬𝓻𝓲𝓹𝓽𝓲𝓸𝓷: "*  
+         ${metadata.desc}
+        *" 𝓛𝓲𝓷𝓴: "*  _https://chat.whatsapp.com/${code}_
+        *" 𝓜𝓮𝓶𝓫𝓮𝓻 "*     *[ ${metadata.size} ]*
+        
+        *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*` 
+        
+        let metadata = await Void.groupMetadata(citel.chat); 
+        const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
+        const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
+        const buffer = Buffer.from(response.data, 'binary');
+
+        await Void.sendMessage(citel.chat, { image: buffer, caption: info}, { quoted: citel });
+        }
+    )
+
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
 cmd({
             pattern: "newgp",
             desc: "to create a new group",
             category: "group",
+            react: "🧑‍🧑‍🧒‍🧒",
             filename: __filename,
             use: '<name>',
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply('Quote a group name.')
+            if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
             const group = await Void.groupCreate(text + 'ᶜʳᵃᶻʸ²⁰²⁴', []);
             console.log("created new group");
             return citel.reply(`*Group created successfully: ${text}*`)
@@ -1168,6 +1274,7 @@ cmd({
     )
 
 ///////////////===============================================///////////////////////////////////////////////////////
+/*
 cmd({
   pattern: "infogp",
   desc: "Créer un nouveau groupe",
@@ -1196,4 +1303,4 @@ console.log(metadata.id + ", title: " + metadata.subject + ", description: " + m
     await Void.sendMessage(citel.chat, { text: "Erreur lors de la recuperation des infos du groupe." }, { quoted: citel });
   }
 });
-
+*/

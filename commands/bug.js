@@ -1094,7 +1094,7 @@ cmd({
   desc: "Télécharger des paroles",
   category: "downloader",
   use: '<titre>',
-  react: "⬇️",
+  react: "🎙️",
   filename: __filename
 },
 async (Void, citel, text, { isCreator }) => {
@@ -1126,3 +1126,69 @@ async (Void, citel, text, { isCreator }) => {
     await Void.deleteMessage(citel.chat, searchMessage.key);
 });
 
+//------------------------------------------------------------_________________________________________________
+    const ytdl = require("ytdl-core");
+    const yts = require("yt-search");
+    const path = require("path");
+
+
+cmd({
+  pattern: "song",
+  desc: "Télécharger des songs",
+  category: "downloader",
+  use: '<titre>',
+  react: "🎵",
+  filename: __filename
+},
+  async (Void, citel, text, { isCreator }) => {
+
+    try {
+      if (!text) {
+        return citel.reply(`Please provide a search query. Usage: /sing song name`);
+      }
+
+      citel.reply(`🔍 Searching for song: ${search}`);
+
+      const searchResults = await yts(text);
+      if (!searchResults.videos.length) {
+        return citel.reply(`No music found for your query.`);
+      }
+
+      const music = searchResults.videos[0];
+      const musicUrl = music.url;
+
+      const stream = ytdl(musicUrl, { filter: "audioonly" });
+
+      stream.on('info', (info) => {
+        console.info('[DOWNLOADER]', `Downloading music: ${info.videoDetails.title}`);
+      });
+
+      const fileName = `${music.title}.mp3`;
+      const filePath = path.join(__dirname, "cache", fileName);
+
+      stream.pipe(fs.createWriteStream(filePath));
+
+      stream.on('end', () => {
+        
+        const stats = fs.statSync(filePath);
+        if (stats.size > 99999999) {
+          fs.unlinkSync(filePath);
+          return citel.reply(`❌ The file could not be sent because it is larger than 205MB.`);
+        }
+        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓞𝓝𝓖 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+𝓣𝓲𝓽𝓵𝓮:   ${music.title}`;
+        citel.reply(msg)
+        await Void.sendMessage(citel.chat, {
+            audio: {
+                url: fs.createReadStream(filePath)},
+            mimetype: 'audio/mpeg',
+            }, {
+                quoted: citel,
+            });
+
+    } catch (error) {
+      console.error('[ERROR]', error);
+      citel.reply('An error occurred while processing the command.');
+    }
+  }
+});

@@ -783,116 +783,22 @@ cmd({
         await Void.sendMessage(citel.chat, { react: { text: "💥", key: ms.key } });
     }
 );
-///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
+
 //---------------------------------------------------------------------------
 
-/*
-const puppeteer = require("puppeteer");
 
-cmd({
-    pattern: "sc",
-    desc: "Générer une capture d'écran",
-    category: "misc",
-    use: 'sc <url>',
-    react: "🖥️",
-    filename: __filename
-},
 
-async (Void, citel, text, { isCreator }) => {
-    if (!text) {
-    return citel.reply('Veuillez fournir une url.');
-  }
-puppeteer
-  .launch({
-    defaultViewport: {
-      width: 1280,
-      height: 2000,
-    },
-    args: ['--no-sandbox']
-  })
-  .then(async (browser) => {
-    const page = await browser.newPage();
-    await page.goto(text);
-    await page.screenshot({ path: "nyt-puppeteer.png" });
-    Void.sendMessage(citel.chat, { image: { url: "nyt-puppeteer.png" }, caption: '*SS BY CRAZY-MD*' }, { quoted: citel });
-    await browser.close();
-  });
 
-    
-});
-
-*/
-//---------------------------------------------------------------------------
-/*
-var mumaker = require("mumaker")
-
-cmd({
-  pattern: "tik",
-  desc: "download tiktok",
-  category: "downloader",
-  use: 'tik <link>',
-  react: "⬇️",
-  filename: __filename
-}, 
-
-async (Void, citel, text, { isCreator }) => {
-  if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
-  }
-
-  try {
-    
-  mumaker.tiktok(text)
-    .then(console.log)
-    .then((data) => {
-      Void.sendMessage(citel.chat, { video: { url: data.media }, caption: 'Logo BY *CRAZY-MD*\n data.description' }, { quoted: citel });
-    })
-    
-  } catch (error) {
-    console.error('Erreur lors de la récupération des paroles :', error);
-    return citel.reply('Une erreur est survenue lors de la récupération des paroles. Veuillez réessayer plus tard.');
-  }
-});
-*/
 //---------------------------------------------------------------------------
 
-/*
-cmd({
-  pattern: "scr",
-  desc: "download tiktok",
-  category: "downloader",
-  use: 'tik <link>',
-  react: "⬇️",
-  filename: __filename
-}, 
 
-async (Void, citel, text, { isCreator }) => {
-  if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
-  }
 
-  try {
-    
-  // usual browser startup:
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
-    const page = await browser.newPage();
-    await page.goto(text);
-    // wait for the selector appear on the page
-    await page.screenshot({
-      "type": "png", // can also be "jpeg" or "webp" (recommended)
-      "path": "screenshot.png",  // where to save it
-      "fullPage": true,  // will scroll down to capture everything if true
-    });
 
-      Void.sendMessage(citel.chat, { video: { url: screenshot.png }, caption: 'Logo BY *CRAZY-MD*' }, { quoted: citel });
-    
-    
-  } catch (error) {
-    console.error('Erreur lors de la récupération des videos :', error);
-    return citel.reply('Une erreur est survenue lors de la récupération des videos. Veuillez réessayer plus tard.');
-  }
-});
-*/
+//---------------------------------------------------------------------------
+
+
+
+
 //---------------------------------------------------------------------------
 
 
@@ -932,43 +838,9 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
-/*
-cmd({
-  pattern: "twitter",
-  desc: "Télécharger une vidéo twitter",
-  category: "downloader",
-  use: 'twitter <link>',
-  react: "⬇️",
-  filename: __filename
-},
 
-async (Void, citel, text, { isCreator }) => {
-  if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
-  }
 
-  const apiURL = `https://api.maher-zubair.tech/download/twitter?url=${encodeURIComponent(text)}`;
 
-  try {
-    const response = await axios.get(apiURL);
-    const { data } = response.data; // Correction: Utilisation de 'data' au lieu de 'result'
-    console.log(response.data);
-
-    if (data && data.HD) { // Correction: Vérification de 'data.HD' au lieu de 'data.HD.length > 0'
-      const videoUrl = data.HD;
-      const user = data.username;
-
-      await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `De ${user} sur Twitter` }, { quoted: citel });
-    } else {
-      citel.reply('Aucune vidéo trouvée.');
-    }
-  } catch (error) {
-    console.error('Erreur lors de la récupération de la vidéo :', error);
-    citel.reply('Une erreur est survenue lors de la récupération de la vidéo. Veuillez réessayer plus tard.');
-  }
-});
-
-*/
 //---------------------------------------------------------------------------
 
 

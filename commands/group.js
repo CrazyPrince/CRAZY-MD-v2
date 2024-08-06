@@ -1027,7 +1027,8 @@ cmd({
             use: '<name>',
         },
         async(Void, citel, text,{isCreator}) => {
-            if (!isCreator) return citel.reply(tlang().owner)
+            const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+            if (!isAdmins) return citel.reply(tlang().admin);
             var code = await Void.groupInviteCode(citel.chat)
             var linkgc = `https://chat.whatsapp.com/${code}`;
             let mess = `- *Here is your group invite link:* \n\n ${linkgc}`
@@ -1064,7 +1065,7 @@ console.log("group code: " + linkgc)
 cmd({
             pattern: "leave",
             desc: "to leave the group",
-            category: "group",
+            category: "owner",
             react: "🏃‍♂️‍➡️",
             filename: __filename,
             use: '',
@@ -1116,7 +1117,8 @@ cmd({
             use: '<name>',
         },
         async(Void, citel, text,{isCreator}) => {
-            if (!isCreator) return citel.reply(tlang().owner)
+        const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+        if (!isAdmins) return citel.reply(tlang().admin);
             const jid = citel.chat; // The JID of the group
             
             // Get the profile picture URL
@@ -1170,7 +1172,7 @@ cmd({
 cmd({
             pattern: "botpp",
             desc: "to logs bot pic",
-            category: "group",
+            category: "owner",
             react: "🖼️",
             filename: __filename,
             use: '<name>',
@@ -1229,10 +1231,11 @@ cmd({
             use: '',
         },
         async(Void, citel, text,{isCreator}) => {
-            if (!isCreator) return citel.reply(tlang().owner)
+            const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+            if (!isAdmins) return citel.reply(tlang().admin);
             const code = await Void.groupInviteCode(citel.chat)
             console.log("group code: " + code)
-            const metadata = await Void.groupMetadata(citel.chat) 
+            let metadata = await Void.groupMetadata(citel.chat) 
             console.log(metadata.id + ", title: " + metadata.subject + ", description: " + metadata.desc)
             let info = `────𝓖𝓡𝓞𝓤𝓟 𝓘𝓝𝓕𝓞𝓢─────  
         *" 𝓣𝓲𝓽𝓵𝓮: "*  *${metadata.subject}*
@@ -1241,9 +1244,7 @@ cmd({
         *" 𝓛𝓲𝓷𝓴: "*  _https://chat.whatsapp.com/${code}_
         *" 𝓜𝓮𝓶𝓫𝓮𝓻 "*     *[ ${metadata.size} ]*
         
-        *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*` 
-        
-        let metadata = await Void.groupMetadata(citel.chat); 
+        *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷*`  
         const ppUrl = await Void.profilePictureUrl(Void.user.id, 'image');
         const response = await axios.get(ppUrl, { responseType: 'arraybuffer' });
         const buffer = Buffer.from(response.data, 'binary');
@@ -1304,3 +1305,75 @@ console.log(metadata.id + ", title: " + metadata.subject + ", description: " + m
   }
 });
 */
+///////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+            pattern: "gname",
+            desc: "to set group name",
+            category: "group",
+            react: "🧑‍🧑‍🧒‍🧒",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+            if (!isAdmins) return citel.reply(tlang().admin);
+            if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
+            await Void.groupUpdateSubject(citel.chat, text)
+            return citel.reply(`*Group name set to: ${text}*`)
+        }
+    )
+///////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+            pattern: "gdesc",
+            desc: "to set new group description",
+            category: "group",
+            react: "🧑‍🧑‍🧒‍🧒",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+            if (!isAdmins) return citel.reply(tlang().admin);
+            if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
+            await Void.groupUpdateDescription(citel.chat, text)
+            return citel.reply(`*Group description set to: ${text}*`)
+        }
+    )
+
+///////////////===============================================///////////////////////////////////////////////////////
+
+cmd({
+    pattern: "req",
+    desc: "pour obtenir la liste des demandes de rejoindre un groupe",
+    category: "group",
+    react: "🧑‍🧑‍🧒‍🧒",
+    filename: __filename,
+    use: '<name>',
+},
+async (Void, citel, text, { isCreator }) => {
+    const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
+    if (!isAdmins) return citel.reply(tlang().admin);
+    const response = citel.isGroup ? await Void.groupRequestParticipantsList(citel.chat).catch((e) => {}) : "";
+    const requests = citel.isGroup ? await groupRequestParticipantsList : "";
+
+    let textt = `
+══✪〘   *Toutes les demandes*   〙✪══
+
+➲ *Message :* ${text ? text : "vide"}\n\n
+➲ *Author :* ${citel.pushName} 🔖
+`;
+    for (let mem of requests) {
+        textt += `📍 @${mem.id.split("@")[0]}\n`;
+    }
+    console.log(response);
+    await Void.sendMessage(citel.chat, { text: textt, mentions: requests.map((a) => a.id) }, { quoted: citel });
+}
+);
+
+
+
+
+
+//=======================

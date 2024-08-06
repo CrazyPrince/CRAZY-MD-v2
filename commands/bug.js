@@ -867,7 +867,7 @@ async (Void, citel, text, { isCreator }) => {
 
 𝓝𝓪𝓶𝓮: ${nom},
 𝓢𝓲𝔃𝓮: ${result.fileSize}`;
-
+      citel.reply(msg);
       await Void.sendMessage(citel.chat, {
         document: { url: lien },
         mimetype: mime,
@@ -886,5 +886,51 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
+cmd({
+  pattern: "mediafire1",
+  desc: "Télécharger un fichier mediafire",
+  category: "downloader",
+  use: '<link>',
+  react: "⬇️",
+  filename: __filename
+},
 
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
 
+  const apiURL = `https://api.maher-zubair.tech/download/mediafire?url=${encodeURIComponent(text)}`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+    console.log(response.data);
+
+    if (result && result.link) {
+      const type = result.mime;
+      const nom = result.name;
+      const lien = result.link;
+      const last = result.date;
+      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+
+𝓝𝓪𝓶𝓮: ${result.name},
+𝓢𝓲𝔃𝓮:    [${result.size}],
+𝓛𝓪𝓼𝓽𝓤𝓹𝓭𝓪𝓽𝓮: ${result.date}`;
+      citel.reply(msg);
+      await Void.sendMessage(citel.chat, {
+        document: { url: lien },
+        mimetype: type,
+        title: nom,
+        fileName: nom
+      });
+    } else {
+      citel.reply('Fichier non trouvé.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération du média :', error);
+    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+  }
+});
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------

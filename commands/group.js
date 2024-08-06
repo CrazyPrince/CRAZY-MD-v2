@@ -1280,9 +1280,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none)
+            if (!text) return citel.reply(`Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none`)
             if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
-            return citel.reply('Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none')
+            return citel.reply(`Type ${prefix}lastseen all, ${prefix}lastseen contacts, ${prefix}lastseen contact_blacklist, ${prefix}lastseen none`)
             }
             const value = text; // 'contacts' | 'contact_blacklist' | 'none'
             await Void.updateLastSeenPrivacy(value)
@@ -1300,9 +1300,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}online all, ${prefix}online match_last_seen)
+            if (!text) return citel.reply(`Type ${prefix}online all, ${prefix}online match_last_seen`)
             if (!['all', 'match_last_seen'].includes(text)) {
-            return citel.reply('Type ${prefix}online all, ${prefix}online match_last_seen')
+            return citel.reply(`Type ${prefix}online all, ${prefix}online match_last_seen`)
             }
             const value = text; // 'match_last_seen'
             await Void.updateOnlinePrivacy(value)
@@ -1320,9 +1320,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none)
+            if (!text) return citel.reply(`Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none`)
             if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
-            return citel.reply('Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none')
+            return citel.reply(`Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none`)
             }
             const value = text; // 'contacts' | 'contact_blacklist' | 'none'
             await Void.updateProfilePicturePrivacy(value)
@@ -1340,9 +1340,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none)
+            if (!text) return citel.reply(`Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none`)
             if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
-            return citel.reply('Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none')
+            return citel.reply(`Type ${prefix}ppprivacy all, ${prefix}ppprivacy contacts, ${prefix}ppprivacy contact_blacklist, ${prefix}ppprivacy none`)
             }
             const value = text; // 'contacts' | 'contact_blacklist' | 'none'
             await Void.updateProfilePicturePrivacy(value)
@@ -1360,9 +1360,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}read all, ${prefix}read none)
+            if (!text) return citel.reply(`Type ${prefix}read all, ${prefix}read none`)
             if (!['all', 'none'].includes(text)) {
-            return citel.reply('Type ${prefix}read all, ${prefix}read none')
+            return citel.reply(`Type ${prefix}read all, ${prefix}read none`)
             }
             const value = text; // 'none'
             await Void.updateReadReceiptsPrivacy(value)
@@ -1380,9 +1380,9 @@ cmd({
         },
         async(Void, citel, text,{isCreator}) => {
             if (!isCreator) return citel.reply(tlang().owner)
-            if (!text) return citel.reply(Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none)
+            if (!text) return citel.reply(`Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none`)
             if (!['all', 'contacts', 'contact_blacklist', 'none'].includes(text)) {
-            return citel.reply('Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none')
+            return citel.reply(`Type ${prefix}gpadd all, ${prefix}gpadd contacts, ${prefix}gpadd contact_blacklist, ${prefix}gpadd none`)
             }
             const value = text; // 'contacts' | 'contact_blacklist' | 'none'
             await Void.updateGroupsAddPrivacy(value)

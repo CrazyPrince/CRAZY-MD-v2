@@ -1125,7 +1125,7 @@ async (Void, citel,{ isCreator }) => {
 });
 
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
-
+/*
 cmd({
   pattern: "newgp",
   desc: "Créer un nouveau groupe",
@@ -1146,8 +1146,28 @@ cmd({
     await Void.sendMessage(citel.chat, { text: "Erreur lors de la création du groupe." }, { quoted: citel });
   }
 });
+*/
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 
+cmd({
+            pattern: "newgp",
+            desc: "to create a new group",
+            category: "group",
+            filename: __filename,
+            use: '<name>',
+        },
+        async(Void, citel, text,{isCreator}) => {
+            if (!isCreator) return citel.reply(tlang().owner)
+            if (!text) return citel.reply('Quote a group name.')
+            const group = await Void.groupCreate(text + 'ᶜʳᵃᶻʸ²⁰²⁴', []);
+            console.log("created new group");
+            return citel.reply(`*Group created successfully: ${text}*`)
+            Void.sendMessage(citel.chat, buttonMessage, {
+                quoted: citel});
+        }
+    )
+
+///////////////===============================================///////////////////////////////////////////////////////
 cmd({
   pattern: "infogp",
   desc: "Créer un nouveau groupe",

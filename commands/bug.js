@@ -906,13 +906,15 @@ async (Void, citel, text, { isCreator }) => {
     const response = await axios.get(apiURL);
     const { result } = response.data;
     console.log(response.data);
+    const lien = 'result.' + text;
     let msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓦𝓐 𝓜𝓞𝓓𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
 𝓝𝓪𝓶𝓮: ${text},
-𝓢𝓲𝔃𝓮: undefined`;
+𝓢𝓲𝔃𝓮: undefined
+𝓛𝓲𝓷𝓴: ${lien}`;
     citel.reply(msg);
     if (result && result.text && result.text.length > 0) {
-      const link = result.text[0];
+      const link = 'result.' + text;
       const title = text;
 
       await Void.sendMessage(citel.chat, {

@@ -1368,7 +1368,7 @@ async (Void, citel, text, { isCreator }) => {
     const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
     if (!isAdmins) return citel.reply(tlang().admin);
     const response = citel.isGroup ? await Void.groupRequestParticipantsList(citel.chat).catch((e) => {}) : "";
-    const requests = citel.isGroup ? await groupRequestParticipantsList : "";
+    const requests = citel.isGroup ? await Void.groupRequestParticipantsList(citel.chat) : "";
 
     let textt = `
 ══✪〘   *Toutes les demandes*   〙✪══

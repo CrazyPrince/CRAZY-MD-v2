@@ -1100,10 +1100,10 @@ cmd({
 async (Void, citel, text, { isCreator }) => {
 
     if (!text) {
-        return Void.sendMessage(citel.chat, `Veuillez fournir le nom d'une chanson. Utilisation : ${prefix}lyrics [nom_chanson]`);
+        return citel.reply(`Veuillez fournir le nom d'une chanson. Utilisation : ${prefix}lyrics [nom_chanson]`);
     }
 
-    const searchMessage = await Void.sendMessage(citel.chat, `🔍 Recherche des paroles : ${text}`);
+    const searchMessage = await citel.reply(`🔍 Recherche des paroles : ${text}`);
 
     try {
         const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(text)}`);

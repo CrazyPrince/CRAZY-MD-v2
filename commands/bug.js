@@ -887,13 +887,4 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 
 
-return Void.sendMessage(citel.chat, {
-                    document: {
-                        url: baby1[0].link,
-                    },
-                    fileName: baby1[0].nama,
-                    mimetype: baby1[0].mime,
-                }, {
-                    quoted: citel,
-                })
 

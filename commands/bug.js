@@ -838,11 +838,62 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //---------------------------------------------------------------------------
+cmd({
+  pattern: "gdrive",
+  desc: "Télécharger un fichier google drive",
+  category: "downloader",
+  use: '<link>',
+  react: "⬇️",
+  filename: __filename
+},
 
+async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Veuillez fournir un lien.');
+  }
+
+  const apiURL = `https://api.maher-zubair.tech/download/gdrive?url=${encodeURIComponent(text)}`;
+
+  try {
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+    console.log(response.data);
+
+    if (result && result.downloadUrl) {
+      const mime = result.mimetype;
+      const nom = result.fileName;
+      const lien = result.downloadUrl;
+      const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓞𝓞𝓖𝓛𝓔 𝓓𝓡𝓘𝓥𝓔 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+
+𝓝𝓪𝓶𝓮: ${nom},
+𝓢𝓲𝔃𝓮: ${result.fileSize}`;
+
+      await Void.sendMessage(citel.chat, {
+        document: { url: lien },
+        mimetype: mime,
+        title: nom,
+        fileName: nom
+      });
+    } else {
+      citel.reply('Fichier non trouvé.');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération du média :', error);
+    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+  }
+});
 
 
 //---------------------------------------------------------------------------
 
 
-
+return Void.sendMessage(citel.chat, {
+                    document: {
+                        url: baby1[0].link,
+                    },
+                    fileName: baby1[0].nama,
+                    mimetype: baby1[0].mime,
+                }, {
+                    quoted: citel,
+                })
 

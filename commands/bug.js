@@ -1029,9 +1029,6 @@ async (Void, citel, text, { isCreator }) => {
     const response = await axios.get(apiURL);
     const { result } = response.data;
     console.log(response.data);
-    if (status !== 200) {
-      return citel.reply('This app is not in our database.');
-    }
     if (result && result.dllink) {
       const type = result.mime;
       const nom = result.name;

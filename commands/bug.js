@@ -1265,7 +1265,7 @@ cmd({
             return citel.reply("Please provide a search query. Usage: .tiks <query>");
         }
 
-        const query = encodeURIComponent(text.join(' '));
+        const query = encodeURIComponent(text);
         const url = `https://apis-samir.onrender.com/tiktok/search/${query}`;
 
         try {

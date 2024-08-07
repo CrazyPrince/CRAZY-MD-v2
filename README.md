@@ -2,7 +2,7 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <p align="center">
     <a href="https://git.io/typing-svg">
-        <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=65&pause=1000&color=25D30E&center=true&width=1150&height=100&lines=CRAZY+BOT;MULTI+DEVICE+WHATSAPP+BOT;CREATED+BY+CRAZY+PRINCE;RELEASED+BY+@CrazyPrince.2024" alt="Typing SVG" />
+        <img src="https://readme-typing-svg.demolab.com?font=Black+Ops+One&size=65&pause=500&color=25D30E&center=true&width=1150&height=100&lines=CRAZY+BOT;MULTI+DEVICE+WHATSAPP+BOT;CREATED+BY+CRAZY+PRINCE;RELEASED+BY+@CrazyPrince.2024" alt="Typing SVG" />
     </a>
 </p>
 

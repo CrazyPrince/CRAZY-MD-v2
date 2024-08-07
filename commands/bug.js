@@ -1215,8 +1215,8 @@ cmd({
 
   let url;
   if (!text.includes('http') && !text.includes('https')) {
-    if (!text.includes(' ')) {
-      citel.reply(`Invalid text input after -g tag⚠️\nPlease use:\n${prefix}scr -g YourText`);
+    if (text.includes(' ')) {
+      citel.reply(`Invalid text input with spaces⚠️\nPlease use:\n${prefix}scr  YourText`);
       return;
     }
     const query = text.slice(1).join('+');

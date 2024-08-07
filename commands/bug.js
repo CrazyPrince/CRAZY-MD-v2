@@ -1215,7 +1215,7 @@ cmd({
 
   let url;
   if (!text.match(/^https?:\/\/.+$/)) {
-    if (text.split(' ').length === 1) {
+    if (/^\w+$/.test(text)) {
       citel.reply(`Invalid text input after -g tag⚠️\nPlease use:\n${prefix}scr -g YourText`);
       return;
     }

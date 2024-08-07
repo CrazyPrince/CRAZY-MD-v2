@@ -105,9 +105,14 @@
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-
-
-## Dev
+## 🔗 Follow Me
+[![CRAZY](https://img.shields.io/badge/SUBSCRIBE%20ME-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@CrazyPrince/)</br>
+[![CRAZY](https://img.shields.io/badge/FOLLOW%20CRAZY%20ON%20WHATSAPP-green?style=for-the-badge&logo=whatsapp&logoColor=white)](https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c)</br>
+[![CRAZY](https://img.shields.io/badge/FOLLOW%20SUPPORT%20ON%20WHATSAPP-green?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/I404Kcfw1JnIwi7n6aRvLe)</br>
+[![tg](https://img.shields.io/badge/CrazyMdChat-0A66C2?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/crazymdChat)
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+</br>
+## 👨🏽‍💻 Dev
    <br>
     
 <img src="https://avatars.githubusercontent.com/u/86961470?s=400&u=ff8e0ed7361e9f7a80b241aaa85fd4a600023421?v=3&s=144" alt="Crazy Prince" width="100" height="100">

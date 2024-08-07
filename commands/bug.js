@@ -1209,10 +1209,9 @@ cmd({
   react: "🌐",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
-  if (!text) {
-    citel.reply(`Invalid input⚠️\nPlease use:\n${prefix}scr <url> \nor\n${prefix}scr -g <text>.`);
-    return;
-  }
+   if (!text) {
+      return citel.reply(`Invalid input⚠️\nPlease use:\n${prefix}scr <url> \nor\n${prefix}scr -g <text>.`);
+    }
 
   let url;
   if (!text.match(/^https?:\/\/.+$/)) {

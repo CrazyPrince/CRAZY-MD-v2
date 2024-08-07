@@ -1296,3 +1296,55 @@ _Here's your TikTok video 📸_`;
         }
     }
 );
+
+//------------------------------------------------------------_________________________________________________
+
+cmd({
+  pattern: "weather1",
+  desc: "search for weather data",
+  category: "search",
+  use: '<city>',
+  react: "⛅️",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+    if (!text) {
+        citel.reply("🌆 Please provide a valid city name.");
+        return;
+    }
+
+    try {
+        const apiUrl = `https://apis-samir.onrender.com/weather/${encodeURIComponent(text)}`;
+        const response = await axios.get(apiUrl);
+        const weatherData = response.data;
+
+        const msg = `
+🌤️ *𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷 𝓯𝓸𝓻 ${weatherData.city}, ${weatherData.country}:*
+
+🌡️ *𝓣𝓮𝓶𝓹𝓮𝓻𝓪𝓽𝓾𝓻𝓮:* ${weatherData.temperature.celsius}°C (${weatherData.temperature.fahrenheit}°F)
+☁️ *𝓒𝓸𝓷𝓭𝓲𝓽𝓲𝓸𝓷:* ${weatherData.condition.text}
+💧 *𝓗𝓾𝓶𝓲𝓭𝓲𝓽𝔂:* ${weatherData.humidity}%
+🌬️ *𝓦𝓲𝓷𝓭:* ${weatherData.wind.speed_kph} kph (${weatherData.wind.speed_mph} mph) ${weatherData.wind.direction}
+📏 *𝓟𝓻𝓮𝓼𝓼𝓾𝓻𝓮:* ${weatherData.pressure.mb} mb (${weatherData.pressure.in} in)
+🌧️ *𝓟𝓻𝓮𝓬𝓲𝓹𝓲𝓽𝓪𝓽𝓲𝓸𝓷:* ${weatherData.precipitation.mm} mm (${weatherData.precipitation.inches} in)
+☁️ *𝓒𝓵𝓸𝓾𝓭𝓲𝓷𝓮𝓼𝓼:* ${weatherData.cloudiness}%
+👁️ *𝓥𝓲𝓼𝓲𝓫𝓲𝓵𝓲𝓽𝔂:* ${weatherData.visibility.km} km (${weatherData.visibility.miles} miles)
+🌞 *𝓤𝓥 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.uv_index}
+🔥 *𝓕𝓮𝓮𝓵𝓼 𝓛𝓲𝓴𝓮:* ${weatherData.feels_like.celsius}°C (${weatherData.feels_like.fahrenheit}°F)
+🕒 *𝓛𝓸𝓬𝓪𝓵 𝓣𝓲𝓶𝓮:* ${weatherData.localtime}
+
+🌫️ *𝓐𝓲𝓻 𝓠𝓾𝓪𝓵𝓲𝓽𝔂 𝓘𝓷𝓭𝓮𝔁:*
+- *𝓒𝓞:* ${weatherData.air_quality.co}
+- *𝓝𝓞₂:* ${weatherData.air_quality.no2}
+- *𝓞₃:* ${weatherData.air_quality.o3}
+- *𝓢𝓞₂:* ${weatherData.air_quality.so2}
+- *𝓟𝓜2.5:* ${weatherData.air_quality.pm2_5}
+- *𝓟𝓜10:* ${weatherData.air_quality.pm10}
+- *𝓤𝓢 𝓔𝓟𝓐 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.air_quality.us_epa_index}
+- *𝓖𝓑 𝓓𝓔𝓕𝓡𝓐 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.air_quality.gb_defra_index}
+        `.trim();
+        await Void.sendMessage(citel.chat, { text: msg }, { quoted: citel });
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        citel.reply('⚠️ Sorry, an error occurred while fetching the weather data.');
+    }
+});

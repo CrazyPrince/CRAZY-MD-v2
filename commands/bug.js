@@ -1251,3 +1251,46 @@ cmd({
     citel.reply('An error occurred while processing the command.');
   }
 });
+//------------------------------------------------------------_________________________________________________
+
+cmd({
+  pattern: "tiks",
+  desc: "search for tiktok videos",
+  category: "downloader",
+  use: '<query>',
+  react: "📱",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+        if (text.length === 0) {
+            return citel.reply("Please provide a search query. Usage: .tiks <query>");
+        }
+
+        const query = encodeURIComponent(text.join(' '));
+        const url = `https://apis-samir.onrender.com/tiktok/search/${query}`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (!data.videos || data.videos.length === 0) {
+                return citel.reply("No videos found for your query.");
+            }
+
+            const randomVideoUrl = data.videos[Math.floor(Math.random() * data.videos.length)];
+            let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓘𝓚𝓣𝓞𝓚 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+_Here's your TikTok video 📸_`;
+                await Void.sendMessage(citel.chat, {
+                    video: {
+                        url: randomVideoUrl,
+                    },
+                    caption: msg,
+                }, {
+                    quoted: citel,
+                });
+            
+        } catch (error) {
+            console.error('Error fetching TikTok videos:', error);
+            citel.reply("An error occurred while searching for TikTok videos.");
+        }
+    }
+);

@@ -22,7 +22,7 @@
 <a href="https://github.com/CrazyPrince/CRAZY-MD-v2/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/CrazyPrince/CRAZY-MD-v2?label=Watchers&color=red&style=flat-square"></a>
 <a href="https://github.com/CrazyPrince/CRAZY-MD-v2"><img title="Size" src="https://img.shields.io/github/repo-size/CrazyPrince/CRAZY-MD-v2?style=flat-square&color=darkred"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/CrazyPrince/CRAZY-MD-v2/hit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2304FF00&title=hits&edge_flat=false"/></a>
-<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-No-red.svg"></a>&nbsp;&nbsp;
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-Yes-red.svg"></a>&nbsp;&nbsp;
 </p>
 </a>
 </div>

@@ -1209,7 +1209,7 @@ cmd({
   react: "🌐",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
-  if (!text || text.length === 0) {
+  if (!text) {
     citel.reply(`Invalid input⚠️\nPlease use:\n${prefix}scr <url> \nor\n${prefix}scr -g <text>.`);
     return;
   }

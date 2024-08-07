@@ -1219,7 +1219,6 @@ cmd({
       citel.reply(`Invalid text input with spaces⚠️\nPlease use:\n${prefix}scr  YourText`);
       return;
     }
-    const query = text.slice(1).join('+');
     url = `https://www.google.com/search?q=${text}&tbm=isch`;
   } else {
     url = text;

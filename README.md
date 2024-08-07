@@ -13,6 +13,22 @@
 <p align="center">
 <a href="#"><img title="Dev" src="https://img.shields.io/badge/Dev-CrazyPrince-red.svg?style=for-the-badge&logo=github"></a>
 </p>
+
+<div class = "repo" align = "center">
+<p align="center">
+<a href="https://github.com/CrazyPrince?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/CrazyPrince?color=green&style=flat-square"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/CrazyPrince/CRAZY-MD-v2?color=white&style=flat-square"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/network/members"><img title="Forks" src="https://img.shields.io/github/forks/CrazyPrince/CRAZY-MD-v2?color=yellow&style=flat-square"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/CrazyPrince/CRAZY-MD-v2?label=Watchers&color=red&style=flat-square"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2"><img title="Size" src="https://img.shields.io/github/repo-size/CrazyPrince/CRAZY-MD-v2?style=flat-square&color=darkred"></a>
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/CrazyPrince/CRAZY-MD-v2/hit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2304FF00&title=hits&edge_flat=false"/></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-No-red.svg"></a>&nbsp;&nbsp;
+</p>
+</a>
+</div>
+
+
+
 <p align="center"><img src="https://profile-counter.glitch.me/{CRAZY-MD-v2}/count.svg" alt="CRAZY-MD-v2 :: Visitor's Count" /></p>
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>

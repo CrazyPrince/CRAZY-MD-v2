@@ -1279,11 +1279,13 @@ cmd({
             const randomVideoUrl = data.videos[Math.floor(Math.random() * data.videos.length)];
             let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓘𝓚𝓣𝓞𝓚 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 _Here's your TikTok video 📸_`;
+                
                 await Void.sendMessage(citel.chat, {
                     video: {
                         url: randomVideoUrl,
                     },
-                    caption: msg,
+                    mimetype: 'video/mp4',
+                    caption: msg
                 }, {
                     quoted: citel,
                 });

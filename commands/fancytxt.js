@@ -12,7 +12,7 @@ cmd({
   if (!text) {
     return citel.reply('The title of the YouTube song is required.');
   }
-    citel.reply(⏳Downloadind ${text}...);
+    citel.reply('⏳Downloadind ${text}...');
   try {
     const apiUrls = [
       `https://api.cafirexos.com/api/ytplay?text=${text}`,
@@ -90,7 +90,7 @@ cmd({
   if (!text) {
     return citel.reply('The title of the YouTube video is required.');
   }
-
+    citel.reply('⏳Downloadind ${text}...');
   try {
     const apiUrls = [
       `https://api.cafirexos.com/api/ytplay?text=${text}`,

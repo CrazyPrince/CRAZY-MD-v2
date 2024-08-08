@@ -44,9 +44,27 @@ cmd({
 ╚══════⊰⊱═══════╝
 
     ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 𝓤𝓹𝓵𝓸𝓪𝓭 :* ${data.resultado.publicDate}\n\n♣ *📻 𝓒𝓱𝓪𝓷𝓷𝓮𝓵 :* ${data.resultado.channel}\n\n♣ *🔗 𝓤𝓡𝓛 :* ${data.resultado.url}
-    ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+    
+       ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
-    await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
+let buttonMessaged = {
+    image: { url: 'https://telegra.ph/file/4aaac205eff63dae2b7f7.jpg' },
+    caption: dataMessage,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
 
     if (buff) {
       await Void.sendMessage(citel.chat, { document: buff.data, mimetype: 'audio/mpeg', fileName: ikratos }, { quoted: citel });
@@ -104,9 +122,28 @@ cmd({
 ╚══════⊰⊱═══════╝
 
     ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 Publié :* ${data.resultado.publicDate}\n\n♣ *📻 Chaine :* ${data.resultado.channel}\n\n♣ *🔗 URL Vidéo :* ${data.resultado.url}
-    ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+    
+       ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
-    await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
+
+
+    let buttonMessaged = {
+    image: { url: 'https://telegra.ph/file/4aaac205eff63dae2b7f7.jpg' },
+    caption: dataMessage,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
 
     if (buff) {
       await Void.sendMessage(citel.chat, { video: buff.data, mimetype: 'video/mp4', fileName: ikratos }, { quoted: citel });

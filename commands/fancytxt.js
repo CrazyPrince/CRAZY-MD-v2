@@ -1,7 +1,116 @@
 
+const fetch = require('node-fetch');
 
-const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));
+cmd({
+  pattern: 'song',
+  desc: 'Télécharge une chanson à partir de YouTube',
+  category: 'downloader',
+  use: '<titre>',
+  react: '🎵',
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Le titre de la chanson YouTube est requis.');
+  }
 
+  try {
+    const apiUrls = [
+      `https://api.cafirexos.com/api/ytplay?text=${text}`,
+      `https://api-brunosobrino.onrender.com/api/ytplay?text=${text}`
+    ];
+
+    let data;
+    for (const url of apiUrls) {
+      try {
+        const res = await fetch(url);
+        data = await res.json();
+        if (data.resultado && data.resultado.url) {
+          break;
+        }
+      } catch (e) {
+        console.error('[ERROR]', e);
+      }
+    }
+
+    if (!data.resultado || !data.resultado.url) {
+      return citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+    }
+
+    let apiUrl = `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`;
+    let buff = await getFile(apiUrl);
+    let ikratos = `${data.resultado.title}`;
+    let dataMessage = `▢ *🎶 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
+
+    await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
+
+    if (buff) {
+      await Void.sendMessage(citel.chat, { document: buff.data, mimetype: 'audio/mpeg', fileName: ikratos }, { quoted: citel });
+      await Void.sendMessage(citel.chat, { audio: buff.data, mimetype: 'audio/mpeg', fileName: ikratos }, { quoted: citel });
+    }
+
+  } catch (error) {
+    console.error('[ERROR]', error);
+    citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+  }
+});
+//============================================================================================================================================================================================================================================================================
+
+const fetch = require('node-fetch');
+
+cmd({
+  pattern: 'video',
+  desc: 'Télécharge une vidéo à partir de YouTube',
+  category: 'downloader',
+  use: '<titre>',
+  react: '🎥',
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+  if (!text) {
+    return citel.reply('Le titre de la vidéo YouTube est requis.');
+  }
+
+  try {
+    const apiUrls = [
+      `https://api.cafirexos.com/api/ytplay?text=${text}`,
+      `https://api-brunosobrino.onrender.com/api/ytplay?text=${text}`
+    ];
+
+    let data;
+    for (const url of apiUrls) {
+      try {
+        const res = await fetch(url);
+        data = await res.json();
+        if (data.resultado && data.resultado.url) {
+          break;
+        }
+      } catch (e) {
+        console.error('[ERROR]', e);
+      }
+    }
+
+    if (!data.resultado || !data.resultado.url) {
+      return citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+    }
+
+    let apiUrl = `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`;
+    let buff = await getFile(apiUrl);
+    let ikratos = `${data.resultado.title}`;
+    let dataMessage = `▢ *🎥 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
+
+    await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
+
+    if (buff) {
+      await Void.sendMessage(citel.chat, { video: buff.data, mimetype: 'video/mp4', fileName: ikratos }, { quoted: citel });
+    }
+
+  } catch (error) {
+    console.error('[ERROR]', error);
+    citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+  }
+});
+
+
+//============================================================================================================================================================================================================================================================================
 /*
 let buttonMessage = {
                         video: fs.readFileSync(`./${randomName}`),

@@ -37,7 +37,7 @@ cmd({
     }
 
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`;
-    let buff = await getFile(apiUrl);
+    let buff = await Void.getFile(apiUrl);
     let ikratos = `${data.resultado.title}`;
     let dataMessage = `▢ *🎶 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
 
@@ -92,7 +92,7 @@ cmd({
     }
 
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`;
-    let buff = await getFile(apiUrl);
+    let buff = await Void.getFile(apiUrl);
     let ikratos = `${data.resultado.title}`;
     let dataMessage = `▢ *🎥 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
 

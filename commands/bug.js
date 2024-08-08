@@ -1131,7 +1131,7 @@ const ytdl = require("ytdl-core");
 const yts = require("yt-search");
 const path = require("path");
 
-
+/*
 cmd({
   pattern: "song",
   desc: "Télécharger des chansons",
@@ -1195,7 +1195,7 @@ async (Void, citel, text, { isCreator }) => {
     await citel.reply('An error occurred while processing the command.');
   }
 });
-
+*/
 //------------------------------------------------------------_________________________________________________
 
 const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));

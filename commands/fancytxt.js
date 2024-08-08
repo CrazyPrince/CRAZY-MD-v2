@@ -2,17 +2,17 @@ const { sck1, tiny, fancytext, cmd } = require('../lib/')
 const fetch = require('node-fetch');
 
 cmd({
-  pattern: 'song1',
-  desc: 'Télécharge une chanson à partir de YouTube',
+  pattern: 'song',
+  desc: 'Download a song from YouTube',
   category: 'downloader',
-  use: '<titre>',
+  use: '<title>',
   react: '🎵',
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Le titre de la chanson YouTube est requis.');
+    return citel.reply('The title of the YouTube song is required.');
   }
-
+    citel.reply(⏳Downloadind ${text}...);
   try {
     const apiUrls = [
       `https://api.cafirexos.com/api/ytplay?text=${text}`,
@@ -33,7 +33,7 @@ cmd({
     }
 
     if (!data.resultado || !data.resultado.url) {
-      return citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+      return citel.reply('An error has occurred. Please try again later.');
     }
 
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`;
@@ -43,7 +43,7 @@ cmd({
 𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓨𝓣 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 ╚══════⊰⊱═══════╝
 
-    ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 𝓤𝓹𝓵𝓸𝓪𝓭 :* ${data.resultado.publicDate}\n\n♣ *📻 𝓒𝓱𝓪𝓷𝓷𝓮𝓵 :* ${data.resultado.channel}\n\n♣ *🔗 𝓤𝓡𝓛 :* ${data.resultado.url}
+  ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 𝓤𝓹𝓵𝓸𝓪𝓭 :* ${data.resultado.publicDate}\n\n♣ *📻 𝓒𝓱𝓪𝓷𝓷𝓮𝓵 :* ${data.resultado.channel}\n\n♣ *🔗 𝓤𝓡𝓛 :* ${data.resultado.url}
     
        ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
@@ -73,7 +73,7 @@ let buttonMessaged = {
 
   } catch (error) {
     console.error('[ERROR]', error);
-    citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+    citel.reply('An error has occurred. Please try again later.');
   }
 });
 //============================================================================================================================================================================================================================================================================
@@ -88,7 +88,7 @@ cmd({
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Le titre de la vidéo YouTube est requis.');
+    return citel.reply('The title of the YouTube video is required.');
   }
 
   try {
@@ -111,7 +111,7 @@ cmd({
     }
 
     if (!data.resultado || !data.resultado.url) {
-      return citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+      return citel.reply('The title of the YouTube video is required.');
     }
 
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`;
@@ -121,7 +121,7 @@ cmd({
 𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓨𝓣 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 ╚══════⊰⊱═══════╝
 
-    ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 Publié :* ${data.resultado.publicDate}\n\n♣ *📻 Chaine :* ${data.resultado.channel}\n\n♣ *🔗 URL Vidéo :* ${data.resultado.url}
+  ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 Publié :* ${data.resultado.publicDate}\n\n♣ *📻 Chaine :* ${data.resultado.channel}\n\n♣ *🔗 URL Vidéo :* ${data.resultado.url}
     
        ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
@@ -151,7 +151,7 @@ cmd({
 
   } catch (error) {
     console.error('[ERROR]', error);
-    citel.reply('Une erreur est survenue. Veuillez réessayer plus tard.');
+    citel.reply('An error has occurred. Please try again later.');
   }
 });
 

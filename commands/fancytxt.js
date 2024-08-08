@@ -1,4 +1,4 @@
-
+const { sck1, tiny, fancytext, cmd } = require('../lib/')
 const fetch = require('node-fetch');
 
 cmd({

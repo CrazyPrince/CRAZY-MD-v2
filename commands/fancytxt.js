@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 
 cmd({
-  pattern: 'song',
+  pattern: 'song1',
   desc: 'Télécharge une chanson à partir de YouTube',
   category: 'downloader',
   use: '<titre>',
@@ -55,10 +55,9 @@ cmd({
 });
 //============================================================================================================================================================================================================================================================================
 
-const fetch = require('node-fetch');
 
 cmd({
-  pattern: 'video',
+  pattern: 'video1',
   desc: 'Télécharge une vidéo à partir de YouTube',
   category: 'downloader',
   use: '<titre>',

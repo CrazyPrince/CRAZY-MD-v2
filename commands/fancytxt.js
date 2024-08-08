@@ -39,7 +39,12 @@ cmd({
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp3?url=${data.resultado.url}`;
     let buff = await Void.getFile(apiUrl);
     let ikratos = `${data.resultado.title}`;
-    let dataMessage = `▢ *🎶 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
+    let dataMessage = `╔══════⊰⊱═══════╗
+𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓨𝓣 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+╚══════⊰⊱═══════╝
+
+    ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 𝓤𝓹𝓵𝓸𝓪𝓭 :* ${data.resultado.publicDate}\n\n♣ *📻 𝓒𝓱𝓪𝓷𝓷𝓮𝓵 :* ${data.resultado.channel}\n\n♣ *🔗 𝓤𝓡𝓛 :* ${data.resultado.url}
+    ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
     await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
 
@@ -94,7 +99,12 @@ cmd({
     let apiUrl = `https://api.cafirexos.com/api/v1/ytmp4?url=${data.resultado.url}`;
     let buff = await Void.getFile(apiUrl);
     let ikratos = `${data.resultado.title}`;
-    let dataMessage = `▢ *🎥 Titre :* ${data.resultado.title}\n\n▢ *🎧 Publié :* ${data.resultado.publicDate}\n\n▢ *⏯️ Chaine :* ${data.resultado.channel}\n\n▢ *🔗 URL Vidéo :* ${data.resultado.url}`;
+    let dataMessage = `╔══════⊰⊱═══════╗
+𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓨𝓣 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+╚══════⊰⊱═══════╝
+
+    ♣ *🗿 𝓣𝓲𝓽𝓵𝓮 :* ${data.resultado.title}\n\n♣ *📆 Publié :* ${data.resultado.publicDate}\n\n♣ *📻 Chaine :* ${data.resultado.channel}\n\n♣ *🔗 URL Vidéo :* ${data.resultado.url}
+    ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
 
     await Void.sendMessage(citel.chat, { text: dataMessage }, { quoted: citel });
 

@@ -1,5 +1,60 @@
 
 
+const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));
+/*
+
+cmd({
+  pattern: "scr",
+  desc: "website screenshots",
+  category: "search",
+  use: '<titre>',
+  react: "🌐",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+   if (!text) {
+      return citel.reply(`Invalid input⚠️\nPlease use:\n${prefix}scr <url> \nor\n${prefix}scr -g <text>.`);
+    }
+
+  let url;
+  if (!text.includes('http') && !text.includes('https')) {
+    if (text.includes(' ')) {
+      citel.reply(`Invalid text input with spaces⚠️\nPlease use:\n${prefix}scr  YourText`);
+      return;
+    }
+    url = `https://www.google.com/search?q=${text}&tbm=isch`;
+  } else {
+    url = text;
+    if (!url.match(/^https?:\/\/.+$/)) {
+      url = `https://${url}`;
+    }
+  }
+
+  const apiURL = `https://image.thum.io/get/width/1920/crop/400/fullpage/noanimate/${url}`;
+
+  try {
+    const res = await fetch(apiURL);
+    if (!res.ok) {
+      citel.reply(`API not responding. Please try again later.`);
+      return;
+    }
+
+    const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓒𝓡𝓔𝓔𝓝𝓢𝓗𝓞𝓣𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡\n_Here is the screenshot._`;
+
+    await Void.sendMessage(citel.chat, {
+      image: {
+        url: apiURL,
+      },
+      caption: msg,
+    }, {
+      quoted: citel,
+    });
+  } catch (error) {
+    console.error('[ERROR]', error);
+    citel.reply('An error occurred while processing the command.');
+  }
+});
+*/
+///////////===========================================================================================================================================================================================================================================================================================
 /*
 import fetch from 'node-fetch';
 let data;

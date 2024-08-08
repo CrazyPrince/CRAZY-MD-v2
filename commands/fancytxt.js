@@ -1,6 +1,30 @@
 
 
 const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));
+
+/*
+let buttonMessage = {
+                        video: fs.readFileSync(`./${randomName}`),
+                        jpegThumbnail: log0,
+                        mimetype: 'video/mp4',
+                        fileName: `${titleYt}.mp4`,
+                        caption: ` ⿻ Title : ${titleYt}\n ⿻ File Size : ${fileSizeInMegabytes} MB`,
+                        headerType: 4,
+                        contextInfo: {
+                            externalAdReply: {
+                                title: titleYt,
+                                body: citel.pushName,
+                                thumbnail: log0,
+                                renderLargerThumbnail: true,
+                                mediaType: 2,
+                                mediaUrl: 'https://github.com/SamPandey001/Secktor-Md',
+                                sourceUrl: 'https://github.com/SamPandey001/Secktor-Md'
+                            }
+                        }
+                    }
+                   Void.sendMessage(citel.chat, buttonMessage, { quoted: citel })
+               */
+
 /*
 
 cmd({

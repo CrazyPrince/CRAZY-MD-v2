@@ -13,7 +13,7 @@ cmd({
 },
 async (Void, citel, text, { isCreator }) => {
 
-    citel.reply(⏳Downloading...)
+    citel.reply('⏳Downloading...')
 
     const searchMessage = await citel.reply(`🔍 Recherche des paroles : ${text}`);
     let msg = `╔══════⊰⊱═══════╗

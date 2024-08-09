@@ -454,7 +454,7 @@ async (Void, citel, text, { isCreator }) => {
 });
 */
 //===========================================================================================
-/*
+
 cmd({
   pattern: "gpt",
   desc: "to generate prompt from OpenAI",
@@ -463,26 +463,32 @@ cmd({
   filename: __filename
 },
 
-async (Void, citel, text, { isCreator }) => {
-  const apiURL = `https://api.maher-zubair.tech/ai/chatgpt2?q=${encodeURIComponent(text)}`;
+async (Void, citel, text) => {
+  if (!text) {
+    return citel.reply(`Please provide me a query`);
+  }
+
+  // Liste des mots à vérifier
+  const greetings = ["hi", "hello", "bonjour", "hey", "salut", "hola", "morning", "gn", "gm", "yo", "crazy"];
   
+  // Vérifier si le texte correspond à l'un des mots (en ignorant la casse)
+  if (greetings.includes(text.toLowerCase())) {
+    return citel.reply('Hi, I am CrazyMd. How can I help you today ? My bruh 🙂‍↕️');
+  }
+
   try {
+    const apiURL = `https://api.maher-zubair.tech/ai/chatgpt2?q=${encodeURIComponent(text)}`;
     const response = await axios.get(apiURL);
-    const { url } = response.data;
+    const { result } = response.data;
     console.log(response.data);
 
-    if (url) {
-      const msg = `Hi bruh, am CrazyMd AI powered by OpenAI...\n Please tell me how can I help you`;
-      
-    } else {
-      citel.reply('Image not found.');
-    }
+    await Void.sendMessage(citel.chat, { text: 'ᴄʀᴀᴢʏ ɢᴘᴛ:' + result }, { quoted: citel });
   } catch (error) {
-    console.error('Error when recovering the image:', error);
-    citel.reply('An error occurred while retrieving the image. Please try again later.');
+    console.error('Error:', error);
+    citel.reply('An error occurred. Please try again later.');
   }
 });
-*/
+
 //===========================================================================================
 
 //===========================================================================================

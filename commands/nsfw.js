@@ -547,5 +547,51 @@ async (Void, citel) => {
   }
 });
 //===========================================================================================
+cmd({
+  pattern: "iosnews",
+  desc: "to get daily ios tech news",
+  category: "news",
+  react: "📰",
+  filename: __filename
+},
 
+async (Void, citel) => {
+
+  try {
+    const apiURL = `https://api.maher-zubair.tech/details/ios`;
+    const response = await axios.get(apiURL);
+    const { result } = response.data;
+    console.log(response.data);
+    
+    const titre = result.title;
+    const img = result.images;
+    const body = result.desc;
+    const lien = result.link;
+    
+    await let msg = `╔══════⊰⊱═══════╗
+              𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓝𝓔𝓦𝓢
+╚══════⊰⊱═══════╝
+
+𝓣𝓲𝓽𝓵𝓮 :  ${titre}
+
+𝓛𝓲𝓷𝓴:  ${lien}
+
+______________________________________
+𝓝𝓮𝔀𝓼:  
+${body}
+
+             ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+    await Void.sendMessage(citel.chat, {
+        image: {
+          url: img,
+        },
+        caption: msg,
+      }, {
+        quoted: citel,
+      });
+  } catch (error) {
+    console.error('Error:', error);
+    citel.reply('An error occurred. Please try again later...');
+  }
+});
 //===========================================================================================

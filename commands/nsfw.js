@@ -543,7 +543,7 @@ async (Void, citel) => {
     await Void.sendMessage(citel.chat, { text: result}, { quoted: citel });
   } catch (error) {
     console.error('Error:', error);
-    citel.reply('An error occurred. Please try again later.');
+    citel.reply('An error occurred. Please try again later...');
   }
 });
 //===========================================================================================

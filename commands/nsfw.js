@@ -1,5 +1,7 @@
 
 const { sck1, tiny, fancytext, cmd } = require('../lib/')
+const axios = require('axios')
+
 
 cmd({
   pattern: "yuri",

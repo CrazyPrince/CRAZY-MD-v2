@@ -454,7 +454,35 @@ async (Void, citel, text, { isCreator }) => {
 });
 */
 //===========================================================================================
+/*
+cmd({
+  pattern: "gpt",
+  desc: "to generate prompt from OpenAI",
+  category: "ai",
+  react: "🧠",
+  filename: __filename
+},
 
+async (Void, citel, text, { isCreator }) => {
+  const apiURL = `https://api.maher-zubair.tech/ai/chatgpt2?q=${encodeURIComponent(text)}`;
+  
+  try {
+    const response = await axios.get(apiURL);
+    const { url } = response.data;
+    console.log(response.data);
+
+    if (url) {
+      const msg = `Hi bruh, am CrazyMd AI powered by OpenAI...\n Please tell me how can I help you`;
+      
+    } else {
+      citel.reply('Image not found.');
+    }
+  } catch (error) {
+    console.error('Error when recovering the image:', error);
+    citel.reply('An error occurred while retrieving the image. Please try again later.');
+  }
+});
+*/
 //===========================================================================================
 
 //===========================================================================================

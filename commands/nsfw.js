@@ -1,4 +1,5 @@
 
+const { sck1, tiny, fancytext, cmd } = require('../lib/')
 
 cmd({
   pattern: "yuri",

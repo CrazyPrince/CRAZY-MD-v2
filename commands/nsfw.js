@@ -412,7 +412,9 @@ async (Void, citel, text, { isCreator }) => {
     citel.reply('An error occurred while retrieving the image. Please try again later.');
   }
 });
+/*
 //===========================================================================================
+
 cmd({
   pattern: "xgif",
   desc: "Retrieve and send an NSFW image",
@@ -450,6 +452,7 @@ async (Void, citel, text, { isCreator }) => {
     citel.reply('An error occurred while retrieving the image. Please try again later.');
   }
 });
+*/
 //===========================================================================================
 
 //===========================================================================================

@@ -935,7 +935,7 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 cmd({
-  pattern: "mediafire1",
+  pattern: "mediafire",
   desc: "Télécharger un fichier mediafire",
   category: "downloader",
   use: '<link>',
@@ -991,7 +991,7 @@ async (Void, citel, text, { isCreator }) => {
 
       citel.reply(msg);
 
-      if (sizeInMB > 100) {
+      if (sizeInMB > 250) {
         return citel.reply('The file is too large to be sent (over than 100 MB).');
       } else {
         await Void.sendMessage(citel.chat, {
@@ -1012,8 +1012,8 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 cmd({
-  pattern: "apk1",
-  desc: "Télécharger des apps",
+  pattern: "apk",
+  desc: "To download apk",
   category: "downloader",
   use: '<name>',
   react: "⬇️",
@@ -1068,7 +1068,7 @@ await Void.sendMessage(citel.chat, {
 
       const sizeInMB = convertSizeToMB(sizeStr);
 
-      if (sizeInMB > 100) {
+      if (sizeInMB > 250) {
         return citel.reply('The file is too large to be sent (over than 100 MB).');
       } else {
         await Void.sendMessage(citel.chat, {
@@ -1127,82 +1127,15 @@ async (Void, citel, text, { isCreator }) => {
 });
 
 //------------------------------------------------------------_________________________________________________
-const ytdl = require("ytdl-core");
-const yts = require("yt-search");
-const path = require("path");
 
-/*
-cmd({
-  pattern: "song",
-  desc: "Télécharger des chansons",
-  category: "downloader",
-  use: '<titre>',
-  react: "🎵",
-  filename: __filename
-},
-async (Void, citel, text, { isCreator }) => {
-
-  try {
-    if (!text) {
-      return citel.reply(`Please provide a search query. Usage: ${prefix}song <song name>`);
-    }
-
-    await citel.reply(`🔍 Searching for song: ${text}`);
-
-    const searchResults = await yts(text);
-    if (!searchResults.videos.length) {
-      return await citel.reply(`No music found for your query.`);
-    }
-
-    const music = searchResults.videos[0];
-    const musicUrl = music.url;
-
-    console.info('[DOWNLOADER]', `Downloading music: ${music.title}`);
-
-    const stream = ytdl(musicUrl, { filter: "audioonly" });
-
-    const fileName = `${music.title}.mp3`;
-    const filePath = path.join(__dirname, "cache", fileName);
-
-    const fileStream = fs.createWriteStream(filePath);
-    stream.pipe(fileStream);
-
-    fileStream.on('finish', async () => {
-      const stats = fs.statSync(filePath);
-      if (stats.size > 99999999) { // Environ 100MB
-        fs.unlinkSync(filePath);
-        return await citel.reply(`❌ The file could not be sent because it is larger than 100MB.`);
-      }
-      let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓞𝓝𝓖 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡\n𝓣𝓲𝓽𝓵𝓮: ${music.title}`;
-      await citel.reply(msg);
-      await Void.sendMessage(citel.chat, {
-        audio: {
-          url: fs.createReadStream(filePath)
-        },
-        mimetype: 'audio/mpeg',
-      }, {
-        quoted: citel,
-      });
-    });
-
-    fileStream.on('error', (err) => {
-      console.error('[ERROR]', err);
-      citel.reply('An error occurred while processing the command.');
-    });
-
-  } catch (error) {
-    console.error('[ERROR]', error);
-    await citel.reply('An error occurred while processing the command.');
-  }
-});
-*/
+    
 //------------------------------------------------------------_________________________________________________
 
 const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(text));
 
 
 cmd({
-  pattern: "scr",
+  pattern: "ss",
   desc: "website screenshots",
   category: "search",
   use: '<titre>',
@@ -1254,35 +1187,50 @@ cmd({
 //------------------------------------------------------------_________________________________________________
 
 cmd({
-  pattern: "tiks",
-  desc: "search for tiktok videos",
+  pattern: "twitter",
+  desc: "search for twitter videos",
   category: "downloader",
-  use: '<query>',
-  react: "📱",
+  use: '<link>',
+  react: "✖️",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
         if (text.length === 0) {
-            return citel.reply("Please provide a search query. Usage: .tiks <query>");
+            return citel.reply("Please provide a search query. Usage: .twitter <link>");
         }
-
-        const query = encodeURIComponent(text);
-        const url = `https://apis-samir.onrender.com/tiktok/search/${query}`;
+        const url = `https://api.diego-ofc.store/xdown?url=${encodeURIComponent(text)}`;
 
         try {
-            const response = await fetch(url);
-            const data = await response.json();
+            const response = await axios.get(apiURL);
+            const { url } = response.data.media;
+            const { date } = response.data;
+            const { likes } = response.data;
+            const { replies } = response.data;
+            const { retweets } = response.data;
+            const { authorName } = response.data;
+            const { authorUsername } = response.data;
+            console.log(response.data);
 
-            if (!data.videos || data.videos.length === 0) {
+            if (!data.media || data.media.length === 0) {
                 return citel.reply("No videos found for your query.");
             }
+            let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓦𝓔𝓔𝓣𝓔𝓡 𝓧 𝓓𝓛
+_Here's your twitter video 🎦_
 
-            const randomVideoUrl = data.videos[Math.floor(Math.random() * data.videos.length)];
-            let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓘𝓚𝓣𝓞𝓚 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
-_Here's your TikTok video 📸_`;
+Link : ${text}
+
+Author : ${authorName}
+
+Pseudo : ${authorUsername}
+
+Upload : ${date}
+
+Likes & Replies : [ ${likes} | ${replies} ]
+
+ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
                 
                 await Void.sendMessage(citel.chat, {
                     video: {
-                        url: randomVideoUrl,
+                        url: url,
                     },
                     mimetype: 'video/mp4',
                     caption: msg
@@ -1299,52 +1247,4 @@ _Here's your TikTok video 📸_`;
 
 //------------------------------------------------------------_________________________________________________
 
-cmd({
-  pattern: "weather1",
-  desc: "search for weather data",
-  category: "search",
-  use: '<city>',
-  react: "⛅️",
-  filename: __filename
-}, async (Void, citel, text, { isCreator }) => {
-    if (!text) {
-        citel.reply("🌆 Please provide a valid city name.");
-        return;
-    }
 
-    try {
-        const apiUrl = `https://apis-samir.onrender.com/weather/${encodeURIComponent(text)}`;
-        const response = await axios.get(apiUrl);
-        const weatherData = response.data;
-
-        const msg = `
-🌤️ *𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷 𝓯𝓸𝓻 ${weatherData.city}, ${weatherData.country}:*
-
-🌡️ *𝓣𝓮𝓶𝓹𝓮𝓻𝓪𝓽𝓾𝓻𝓮:* ${weatherData.temperature.celsius}°C (${weatherData.temperature.fahrenheit}°F)
-☁️ *𝓒𝓸𝓷𝓭𝓲𝓽𝓲𝓸𝓷:* ${weatherData.condition.text}
-💧 *𝓗𝓾𝓶𝓲𝓭𝓲𝓽𝔂:* ${weatherData.humidity}%
-🌬️ *𝓦𝓲𝓷𝓭:* ${weatherData.wind.speed_kph} kph (${weatherData.wind.speed_mph} mph) ${weatherData.wind.direction}
-📏 *𝓟𝓻𝓮𝓼𝓼𝓾𝓻𝓮:* ${weatherData.pressure.mb} mb (${weatherData.pressure.in} in)
-🌧️ *𝓟𝓻𝓮𝓬𝓲𝓹𝓲𝓽𝓪𝓽𝓲𝓸𝓷:* ${weatherData.precipitation.mm} mm (${weatherData.precipitation.inches} in)
-☁️ *𝓒𝓵𝓸𝓾𝓭𝓲𝓷𝓮𝓼𝓼:* ${weatherData.cloudiness}%
-👁️ *𝓥𝓲𝓼𝓲𝓫𝓲𝓵𝓲𝓽𝔂:* ${weatherData.visibility.km} km (${weatherData.visibility.miles} miles)
-🌞 *𝓤𝓥 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.uv_index}
-🔥 *𝓕𝓮𝓮𝓵𝓼 𝓛𝓲𝓴𝓮:* ${weatherData.feels_like.celsius}°C (${weatherData.feels_like.fahrenheit}°F)
-🕒 *𝓛𝓸𝓬𝓪𝓵 𝓣𝓲𝓶𝓮:* ${weatherData.localtime}
-
-🌫️ *𝓐𝓲𝓻 𝓠𝓾𝓪𝓵𝓲𝓽𝔂 𝓘𝓷𝓭𝓮𝔁:*
-- *𝓒𝓞:* ${weatherData.air_quality.co}
-- *𝓝𝓞₂:* ${weatherData.air_quality.no2}
-- *𝓞₃:* ${weatherData.air_quality.o3}
-- *𝓢𝓞₂:* ${weatherData.air_quality.so2}
-- *𝓟𝓜2.5:* ${weatherData.air_quality.pm2_5}
-- *𝓟𝓜10:* ${weatherData.air_quality.pm10}
-- *𝓤𝓢 𝓔𝓟𝓐 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.air_quality.us_epa_index}
-- *𝓖𝓑 𝓓𝓔𝓕𝓡𝓐 𝓘𝓷𝓭𝓮𝔁:* ${weatherData.air_quality.gb_defra_index}
-        `.trim();
-        await Void.sendMessage(citel.chat, { text: msg }, { quoted: citel });
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-        citel.reply('⚠️ Sorry, an error occurred while fetching the weather data.');
-    }
-});

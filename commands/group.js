@@ -710,9 +710,7 @@ cmd({
             if (!isAdmins) citel.reply(tlang().admin);
             Void.sendMessage(citel.chat, {
                 text: text ? text : "",
-                mentions: participants.map((a) => a.id),
-            }, {
-                quoted: citel,
+                mentions: participants.map((a) => a.id)
             });
         }
     )

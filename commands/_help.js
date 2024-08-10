@@ -24,7 +24,7 @@ const os = require('os')
 const moment = require("moment-timezone")
 const fs = require("fs")
 const Config = require('../config')
-let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1 } = require("../lib");
+let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1, getBuffer } = require("../lib");
 const long = String.fromCharCode(8206)
 const readmore = long.repeat(4001)
 const Secktor = require('../lib/commands')
@@ -75,8 +75,8 @@ const ranfancy = getRandomStyle();
 
 
                 let total = await sck1.countDocuments()
-                let str = '```\n' + `╭═════〘 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃 〙═════⊷❍\n`
-                str +=`┃✯  ╭────────────────────◆
+                let str = '```' + `\n╭═════〘 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃 〙═════⊷❍\n`
+                str +=`┃✯ ╭────────────────────◆
 ┃✯ │  
 ┃✯ │ Theme: ${Config.LANG}
 ┃✯ │ Prefix: [ ${prefix} ]
@@ -124,9 +124,10 @@ let buttonMessaged = {
       externalAdReply: {
         title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
         body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
-        thumbnail: log0,
+        thumbnail: await getBuffer(log0),
+        renderLargerThumbnail: true,
         mediaType: 4,
-        mediaUrl: '',
+        mediaUrl: 'https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c',
         sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
       },
     },

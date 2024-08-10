@@ -1242,4 +1242,51 @@ Likes & Replies : [ ${likes} | ${replies} ]
 
 //------------------------------------------------------------_________________________________________________
 
+cmd({
+  pattern: "spotify",
+  desc: "Download music from the given spotify link",
+  category: "downloader",
+  use: '<link>',
+  react: "🎶",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+    if (!text) {
+        return citel.reply("Please provide a link. Usage: .spotify <link>");
+    }
+
+    const apiURL = `https://api.diego-ofc.store/spotifydl?url=${encodeURIComponent(text)}`;
+
+    try {
+        const response = await axios.get(apiURL);
+        const { thumbnail, title, artist, duration, preview, url } = response.data.data;
+
+        let infoMsg = `🎧 *Music Details* 🎧
+        
+*Title*: ${title}
+*Artist*: [${artist.name}](${artist.external_urls.spotify})
+*Duration*: ${duration}
+
+*Preview*: [Click Here](${preview})
+`;
+
+        await Void.sendMessage(citel.chat, {
+            image: { url: thumbnail },
+            caption: infoMsg
+        });
+
+        await Void.sendMessage(citel.chat, {
+            audio: {
+                url: url,
+            },
+            mimetype: 'audio/mpeg',
+            ptt: false
+        }, {
+            quoted: citel,
+        });
+
+    } catch (error) {
+        console.error('Error fetching music:', error);
+        citel.reply("An error occurred while downloading the music.");
+    }
+});
 

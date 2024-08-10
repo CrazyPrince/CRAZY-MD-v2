@@ -75,9 +75,8 @@ const ranfancy = getRandomStyle();
 
 
                 let total = await sck1.countDocuments()
-                let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
-                str +=
-                    '```' + `┃✯  ╭────────────────────◆
+                let str = '```\n' + `╭═══〘 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃 〙═══⊷❍\n`
+                str +=`\n┃✯  ╭────────────────────◆
 ┃✯ │  
 ┃✯ │ Theme: ${Config.LANG}
 ┃✯ │ Prefix: [ ${prefix} ]
@@ -147,7 +146,7 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], ranfancy) + ` 〙━━──⊷`
+╭━━〘 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃 〙━━──⊷`
             str += `
 ┃ ⛥╭──────────────      
 ┃ ⛥│ User: ${citel.pushName}

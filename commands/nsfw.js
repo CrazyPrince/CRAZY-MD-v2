@@ -412,6 +412,6 @@ async (Void, citel, text, { isCreator }) => {
     citel.reply('An error occurred while retrieving the image. Please try again later.');
   }
 });
-/*
+
 //===========================================================================================
 

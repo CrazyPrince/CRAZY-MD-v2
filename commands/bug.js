@@ -1330,76 +1330,10 @@ cmd({
 });
 //=====================================================================================================================================================
 
-cmd({
-  pattern: "song1",
-  desc: "Find song from Spotify search and download it",
-  category: "downloader",
-  use: '<query>',
-  react: "🎶",
-  filename: __filename
-}, async (Void, citel, text, { isCreator }) => {
-    if (!text) {
-        return citel.reply("Please provide a search query. Usage: .findanddownload <query>");
-    }
-
-    const searchApiUrl = `https://api.diego-ofc.store/spotifysearch?query=${encodeURIComponent(text)}`;
-    const downloadApiUrl = 'https://api.diego-ofc.store/spotifydl'; // URL de l'API pour le téléchargement
-
-    try {
-        // Étape 1 : Récupérer les données de recherche
-        const searchResponse = await axios.get(searchApiUrl);
-        const searchData = searchResponse.data;
-
-        if (!searchData.status || !searchData.data || searchData.data.length === 0) {
-            return citel.reply("No music data found for your query.");
-        }
-
-        // Étape 2 : Trouver le morceau avec la plus grande popularité
-        const mostPopularSong = searchData.data.reduce((max, item) => {
-            return (parseInt(item.popularity, 10) > parseInt(max.popularity, 10)) ? item : max;
-        });
-
-        if (!mostPopularSong) {
-            return citel.reply("No popular song found.");
-        }
-
-        // Étape 3 : Télécharger le morceau le plus populaire
-        const downloadResponse = await axios.get(`${downloadApiUrl}?url=${encodeURIComponent(mostPopularSong.url)}`);
-        const downloadData = downloadResponse.data;
-
-        if (downloadData.status && downloadData.data && downloadData.data.url) {
-            let infoMsg = `🎵 *Most Popular Song Downloaded* 🎵\n\n`;
-            infoMsg += `*Title:* ${mostPopularSong.title}\n`;
-            infoMsg += `*Duration:* ${mostPopularSong.duration}\n`;
-            infoMsg += `*Popularity:* ${mostPopularSong.popularity}\n`;
-            infoMsg += `*Preview:* ${mostPopularSong.preview}\n`;
-
-            await Void.sendMessage(citel.chat, {
-                image: { url: downloadData.data.thumbnail },
-                caption: infoMsg
-            });
-
-            await Void.sendMessage(citel.chat, {
-                audio: {
-                    url: downloadData.data.url,
-                },
-                mimetype: 'audio/mpeg',
-                ptt: false
-            }, {
-                quoted: citel,
-            });
-        } else {
-            await Void.sendMessage(citel.chat, { text: "Failed to download the most popular song." }, { quoted: citel });
-        }
-    } catch (error) {
-        await Void.sendMessage(citel.chat, { text: "An error occurred during the process." }, { quoted: citel });
-        console.error(error);
-    }
-});
 //==========================================================================================================================
 
 cmd({
-  pattern: "song2",
+  pattern: "song",
   desc: "Find song from Spotify search and download it",
   category: "downloader",
   use: '<query>',

@@ -20,4 +20,156 @@
  * @license       GPL-3.0
  * @link          (https://github.com/CrazyPrince/CRAZY-MD)
  */
-const _0x4e1450=_0x14b4;(function(_0xca671a,_0x1e8b6c){const _0x23c293=_0x14b4,_0x426936=_0xca671a();while(!![]){try{const _0x4bfd4f=-parseInt(_0x23c293(0x22d))/(0x9cb+-0x22*0xba+0xeea)+-parseInt(_0x23c293(0x283))/(0x2461+0x2*0x123b+-0x48d5)+-parseInt(_0x23c293(0x1f2))/(0x2b*0xa+-0x12e2*-0x1+-0x148d)+parseInt(_0x23c293(0x2a7))/(-0x15*0xed+0xc9b+-0x36d*-0x2)+parseInt(_0x23c293(0x24e))/(0xe*-0x47+-0xff3+0x13da)*(-parseInt(_0x23c293(0x24a))/(0xbb3*0x1+0x381+-0xf2e))+parseInt(_0x23c293(0x1fa))/(-0x7ad*-0x3+-0x51e+-0x7*0x28e)+parseInt(_0x23c293(0x26e))/(0x3*-0x40e+0xa7*0x2+-0xa4*-0x11);if(_0x4bfd4f===_0x1e8b6c)break;else _0x426936['push'](_0x426936['shift']());}catch(_0x22fd10){_0x426936['push'](_0x426936['shift']());}}}(_0xbeaf,0x5da55+-0x19448*0x2+0x2483c));const {tlang,botpic,cmd,prefix,runtime,Config,sleep}=require(_0x4e1450(0x2b7)),axios=require(_0x4e1450(0x216)),speed=require(_0x4e1450(0x1ef)+_0x4e1450(0x29e)),fetch=require(_0x4e1450(0x1fb));cmd({'pattern':_0x4e1450(0x2e9),'alias':[_0x4e1450(0x257)],'desc':_0x4e1450(0x22c)+_0x4e1450(0x292),'category':'AI','use':_0x4e1450(0x262)+_0x4e1450(0x1ee),'filename':__filename},async(_0x4bc784,_0x3d5fb1,_0x5be5e1)=>{const _0x1db826=_0x4e1450,_0x14609e={'udYaj':function(_0x2a3431,_0x2fc823){return _0x2a3431<_0x2fc823;},'UAyOh':function(_0x288d86,_0x4568e7,_0xf5bb83){return _0x288d86(_0x4568e7,_0xf5bb83);},'IocWD':_0x1db826(0x2af)+_0x1db826(0x256)+_0x1db826(0x274)+_0x1db826(0x25a)+'ns','RFAhr':_0x1db826(0x2b6),'iRcNS':_0x1db826(0x21c)+_0x1db826(0x271),'PoMCH':_0x1db826(0x2c9)+_0x1db826(0x298),'hfNox':_0x1db826(0x236),'meBay':_0x1db826(0x29b),'iKoug':_0x1db826(0x223),'yCcYm':_0x1db826(0x296)+_0x1db826(0x245),'ddmnC':function(_0x34a81d,_0x42358a){return _0x34a81d===_0x42358a;},'tMNRK':_0x1db826(0x218)+_0x1db826(0x273)+_0x1db826(0x228)+_0x1db826(0x1f5)+_0x1db826(0x23c)};let _0x23bbd4=_0x5be5e1[_0x1db826(0x293)];if(_0x14609e[_0x1db826(0x2ae)](_0x23bbd4,-0xfc*0x11+-0x9f1+0x35*0x81)){let {data:_0x56153}=await axios[_0x1db826(0x2a8)](_0x1db826(0x1ed)+_0x1db826(0x24c)+_0x1db826(0x220)+_0x1db826(0x288)+_0x1db826(0x27c)+_0x1db826(0x207)+_0x1db826(0x27f)+_0x3d5fb1[_0x1db826(0x2c5)][_0x1db826(0x211)]('@')[0xac1+0x15a7+0x2068*-0x1]+_0x1db826(0x2c1)+_0x5be5e1+']');return _0x3d5fb1[_0x1db826(0x226)](_0x56153[_0x1db826(0x240)]);}if(!_0x5be5e1)return _0x3d5fb1[_0x1db826(0x226)](_0x1db826(0x1f7)+'\x20'+_0x3d5fb1[_0x1db826(0x229)]+(_0x1db826(0x2cd)+_0x1db826(0x266)+_0x1db826(0x275)+'?'));const _0x1bfa48=await _0x14609e[_0x1db826(0x22b)](fetch,_0x14609e[_0x1db826(0x225)],{'method':_0x14609e[_0x1db826(0x203)],'headers':{'Content-Type':_0x14609e[_0x1db826(0x2e0)],'Authorization':_0x1db826(0x280)+Config[_0x1db826(0x208)+_0x1db826(0x270)]},'body':JSON[_0x1db826(0x1fd)]({'model':_0x14609e[_0x1db826(0x2ec)],'messages':[{'role':_0x14609e[_0x1db826(0x295)],'content':_0x14609e[_0x1db826(0x267)]},{'role':_0x14609e[_0x1db826(0x29d)],'content':_0x5be5e1}]})}),_0x1936be=await _0x1bfa48[_0x1db826(0x2e6)]();return console[_0x1db826(0x2e1)](_0x14609e[_0x1db826(0x1f9)],_0x1936be),(!_0x1936be[_0x1db826(0x2d1)]||_0x14609e[_0x1db826(0x2ab)](_0x1936be[_0x1db826(0x2d1)][_0x1db826(0x293)],-0x342+0x1d2c+-0x19ea))&&_0x3d5fb1[_0x1db826(0x226)](_0x14609e[_0x1db826(0x233)]),await _0x3d5fb1[_0x1db826(0x226)](_0x1936be[_0x1db826(0x2d1)][0x20a4+0x18c4+-0x3968][_0x1db826(0x28e)][_0x1db826(0x2d9)]);}),cmd({'pattern':_0x4e1450(0x29c),'alias':[_0x4e1450(0x2b4),_0x4e1450(0x1f3)],'desc':_0x4e1450(0x2aa)+_0x4e1450(0x213),'category':'AI','use':_0x4e1450(0x23d)+_0x4e1450(0x2d0)+'.>','filename':__filename},async(_0x5bb30a,_0x28f0c8,_0xfad171,{isCreator:_0x17c7fe})=>{const _0x59dc3a=_0x4e1450,_0x2d67a0={'YmxEU':function(_0x43e1e7,_0x3d7c47){return _0x43e1e7==_0x3d7c47;},'qPblT':_0x59dc3a(0x289)+_0x59dc3a(0x250)+_0x59dc3a(0x2a4)+_0x59dc3a(0x2b9)+_0x59dc3a(0x206)+_0x59dc3a(0x2a1)+_0x59dc3a(0x278)+_0x59dc3a(0x2b0)+_0x59dc3a(0x2ca)+_0x59dc3a(0x24d)+_0x59dc3a(0x217)+_0x59dc3a(0x2d5),'vCoNZ':_0x59dc3a(0x252),'qRMbX':_0x59dc3a(0x2af)+_0x59dc3a(0x256)+_0x59dc3a(0x20d)+_0x59dc3a(0x272)+_0x59dc3a(0x26d),'kGAaz':function(_0x329022,_0x4153aa,_0x4caeae){return _0x329022(_0x4153aa,_0x4caeae);},'IEyiJ':_0x59dc3a(0x2b6),'zginn':_0x59dc3a(0x21c)+_0x59dc3a(0x271),'tDPWS':_0x59dc3a(0x219)+_0x59dc3a(0x2a2),'jWMSE':_0x59dc3a(0x20a),'sOnqF':_0x59dc3a(0x205)+_0x59dc3a(0x247)+_0x59dc3a(0x25e)};if(_0x2d67a0[_0x59dc3a(0x1f4)](Config[_0x59dc3a(0x208)+_0x59dc3a(0x270)],''))return _0x28f0c8[_0x59dc3a(0x226)](_0x2d67a0[_0x59dc3a(0x2db)]);if(!_0xfad171)return _0x28f0c8[_0x59dc3a(0x226)](_0x59dc3a(0x269)+_0x59dc3a(0x20c)+_0x59dc3a(0x21e)+_0x59dc3a(0x2c7)+'*');const _0x33ce73=_0x2d67a0[_0x59dc3a(0x26f)],_0x192963=_0x2d67a0[_0x59dc3a(0x25d)],_0x292125=await _0x2d67a0[_0x59dc3a(0x227)](fetch,_0x192963,{'method':_0x2d67a0[_0x59dc3a(0x259)],'headers':{'Content-Type':_0x2d67a0[_0x59dc3a(0x2b2)],'Authorization':_0x59dc3a(0x280)+Config[_0x59dc3a(0x208)+_0x59dc3a(0x270)]},'body':JSON[_0x59dc3a(0x1fd)]({'model':_0x2d67a0[_0x59dc3a(0x26c)],'prompt':_0xfad171,'size':_0x33ce73,'response_format':_0x2d67a0[_0x59dc3a(0x23a)]})}),_0x3a37d6=await _0x292125[_0x59dc3a(0x2e6)]();let _0x2646f2={'image':{'url':_0x3a37d6[_0x59dc3a(0x2cf)][0x592*-0x7+-0x1*0x1d77+-0xdb1*-0x5][_0x59dc3a(0x20a)]},'caption':_0x2d67a0[_0x59dc3a(0x221)]};_0x5bb30a[_0x59dc3a(0x248)+'e'](_0x28f0c8[_0x59dc3a(0x2e9)],{'image':{'url':_0x3a37d6[_0x59dc3a(0x2cf)][-0x80e*-0x1+0x4d7+0xce5*-0x1][_0x59dc3a(0x20a)]}});});const token=_0x4e1450(0x2cb)+_0x4e1450(0x281)+_0x4e1450(0x2de)+_0x4e1450(0x29a)+'P';function _0x14b4(_0x4c40f3,_0x48b917){const _0x35832f=_0xbeaf();return _0x14b4=function(_0xea0634,_0xaff3c9){_0xea0634=_0xea0634-(-0xb6d+0xf4d+0x1f3*-0x1);let _0x398d42=_0x35832f[_0xea0634];return _0x398d42;},_0x14b4(_0x4c40f3,_0x48b917);}function _0xbeaf(){const _0x154e25=['❳\x20Repo:*\x20g','𝓸𝓻*','rUcuF','d=167991&k','You\x20Dont\x20H','UWXQX','\x20GOKU\x0a9.\x20L','by\x20','title','message','TFeGU','.\x20GENOS\x0a7.','DLRfU','an\x20AI(GPT)','length','pp\x20enjoyab','hfNox','GPT\x20REPONC','NEZUKO\x0a12.','rbo','razyPrince','O3Eb41bA26','You','dalle','iKoug','e-now','4.\x20EDITH\x0a5','ot\x20status','PI\x20KEY\x20fro','a-001','.\x20ADAM\x0a3.\x20','_API_KEY\x20\x0a','toFixed','TiWRZ','1502380iKKVYl','get','UFFY\x0a10.\x20N','Create\x20Ima','ddmnC','𝓪𝓫𝓵𝓮\x20𝓽𝓱𝓮𝓶𝓮','\x20des\x20infor','udYaj','https://ap','nk\x20\x0ahttps:','1.\x20CRAZY\x0a2','zginn','\x20ms\x0a*🚦Upti','dall','l\x20themes','POST','../lib','Hey\x20','Please\x20Cre','❳\x20Forks:*\x20','FMain','setvar\x20THE','.\x20ZEROTWO\x0a','\x20dépôt\x20:','om/repos/','To\x20check\x20b',']&msg=[','pQOTZ','repo','ng\x20Soon)\x0a\x0a','sender','M3c','\x20Reponce\x20?','AYANOKOJI\x0a','gpt-3.5-tu','//platform','ghp_Hs8bEx','iDAXg0dadZ','.\x20How\x20are\x20','i.github.c','data','aut\x20in\x20mud','choices','._𝓡𝓮𝓹𝓵𝔂\x20','footer','VakjS','api-keys','\x20about\x20rep','eager(Comi','GE56jsC8j1','content','𝓼\x20𝓲𝓷\x20𝓢𝓮𝓬𝓴𝓽','qPblT','oard.rende','\x20𝓽𝓱𝓮𝓼𝓮\x20𝓪𝓻𝓮','yUK3bY57-J','theme','iRcNS','log','me:*\x20','\x20bot\x20with\x20','d:*\x20','cupération','json','DWlTk','ription:*\x20','chat','script','/channel/0','PoMCH','http://api','Md>','performanc','\x20stars\x0a*❲❒','\x0a🔰\x20*','1194417HCSmyN','dall-e','YmxEU','se\x20Put\x20New','\x20forks\x0a*❲❒','Hey\x20there!','ᴘᴏᴡᴇʀᴇᴅ\x20ʙʏ','yCcYm','3330852kFbrre','node-fetch','WUuHb','stringify','our\x20WhatsA','*\x20🔰\x0a*🌟Desc','al\x20Stars:*','ZzBlL','.\x20FRIDAY\x0a6','RFAhr','\x0a\x0a*❲❒❳\x20Tot','*---Your\x20D','ate\x20OPEN\x20A','Oy3dfLgmB&','OPENAI_API','https://wh','url','res,\x20build','\x20Query\x20To\x20','om/v1/imag','ME:LUFFY','le.\x0a*⚡Spee','_count','split',':*\x200.0.1\x0a*','ge\x20by\x20AI','To\x20find\x20al','s\x20de\x20la\x20ré','axios','m/account/','*Invalid\x20C','image-alph','Sends\x20info','CrazyPrinc','applicatio','👤Owner:*\x20\x20','Get\x20Dall-E','\x0a*🕸Version','.ai/get?bi','sOnqF','status','user','\x20Own:*\x0ahtt','IocWD','reply','kGAaz','\x20Key,\x20Plea','pushName','general','UAyOh','chat\x20with\x20','208106WPQNin','\x20𝓽𝓱𝓮\x20𝓽𝓱𝓮𝓶𝓮','forks_coun','eploy\x20Your','owner','\x0a*Powered\x20','tMNRK','RTqXb','ithub.comC','system','\x20PARKER\x0a13','\x20ᴄʀᴀᴢʏ-ᴍᴅ²','eMTMp','jWMSE','A\x20WhatsApp','\x20Key*','<an\x20astron','git','𝓼\x20𝓸𝓯\x20𝓒𝓻𝓪𝔃𝔂','cnt','stargazers','ownername','Erreur\x20lor','*𝓐𝓵𝓵\x20𝓪𝓿𝓪𝓲𝓵','E\x20:\x20','ARUTO\x0a11.\x20','ALL-E\x20Resu','sendMessag','/Hyurt8L1o','6HyvPOp','ps://dashb','.brainshop','.openai.co','1224260HWCRLX','(ᴄʟɪᴄᴋ\x20ʜᴇʀ','ave\x20OPENAI','error','256x256','029VaV3Dym','\x20GIDEON\x0a8.','2\x0a*❲❒❳\x20Gro','i.openai.c','gpt','about','IEyiJ','/completio','tfWLw','Bot-Status','qRMbX','lt---*','\x20to\x20make\x20y','mations\x20du','MFLpt','<Hii,Crazy','r.com/regi','uptime','CRAZY-MD-v','you\x20doing\x20','meBay','ster','*Give\x20Me\x20A','5mp\x0a*❲❒❳\x20D','𝓜𝓭\x20𝓤𝓼𝓮𝓻𝓫𝓸𝓽','tDPWS','ions','5853632ELmnBu','vCoNZ','_KEY','n/json','es/generat','hatGPT\x20API','om/v1/chat','these\x20days','QHhAN','ENIlJ','m\x20Given\x20Li','atsapp.com','\x20in\x20NodeJs','up:*\x20https','ey=aozpOoN','ljhmo','rich\x20featu','uid=[','Bearer\x20','69bG2WPSOJ','://chat.wh','811786PYkDlE','14.\x20Eren\x20J'];_0xbeaf=function(){return _0x154e25;};return _0xbeaf();}async function getRepoStarsAndForks(_0x1aa749,_0x3b78e4){const _0x288d78=_0x4e1450,_0x4b536e={'RTqXb':_0x288d78(0x243)+_0x288d78(0x215)+_0x288d78(0x2e5)+_0x288d78(0x2ad)+_0x288d78(0x260)+_0x288d78(0x2be)},_0x55b296=_0x288d78(0x2af)+_0x288d78(0x2ce)+_0x288d78(0x2bf)+_0x1aa749+'/'+_0x3b78e4,_0x489d04={'Authorization':_0x288d78(0x280)+token};try{const _0x2dd323=await axios[_0x288d78(0x2a8)](_0x55b296,{'headers':_0x489d04}),_0x4250e7=_0x2dd323[_0x288d78(0x2cf)];return{'stars':_0x4250e7[_0x288d78(0x241)+_0x288d78(0x210)],'forks':_0x4250e7[_0x288d78(0x22f)+'t']};}catch(_0x2cfdb4){return console[_0x288d78(0x251)](_0x4b536e[_0x288d78(0x234)],_0x2cfdb4[_0x288d78(0x28e)]),{'stars':0x0,'forks':0x0};}}cmd({'pattern':_0x4e1450(0x2c3),'alias':[_0x4e1450(0x23e),'sc',_0x4e1450(0x2ea)],'desc':_0x4e1450(0x21a)+_0x4e1450(0x2d6)+'o.','category':_0x4e1450(0x22a),'filename':__filename},async(_0x36c242,_0x3f2e91)=>{const _0x5a89ea=_0x4e1450,_0x144bde={'ENIlJ':_0x5a89ea(0x21b)+'e','ljhmo':_0x5a89ea(0x265)+'2','TFeGU':function(_0x90b3c5,_0x2deee8,_0x1f969d){return _0x90b3c5(_0x2deee8,_0x1f969d);},'DLRfU':function(_0x27aa96){return _0x27aa96();},'TiWRZ':_0x5a89ea(0x1f8)+_0x5a89ea(0x238)+'³⁷','pQOTZ':_0x5a89ea(0x24f)+'ᴇ)'},_0x5c8a8b=_0x144bde[_0x5a89ea(0x277)],_0x38773d=_0x144bde[_0x5a89ea(0x27d)],{stars:_0x1fa0b1,forks:_0x2ac9a9}=await _0x144bde[_0x5a89ea(0x28f)](getRepoStarsAndForks,_0x144bde[_0x5a89ea(0x277)],_0x144bde[_0x5a89ea(0x27d)]);let _0x2d5d43=_0x5a89ea(0x2b8)+_0x3f2e91[_0x5a89ea(0x229)]+(_0x5a89ea(0x204)+_0x5a89ea(0x200)+'\x20')+_0x1fa0b1+(_0x5a89ea(0x1f0)+_0x5a89ea(0x2ba))+_0x2ac9a9+(_0x5a89ea(0x1f6)+_0x5a89ea(0x285)+_0x5a89ea(0x235)+_0x5a89ea(0x299)+_0x5a89ea(0x265)+_0x5a89ea(0x255)+_0x5a89ea(0x27b)+_0x5a89ea(0x282)+_0x5a89ea(0x279)+_0x5a89ea(0x249)+_0x5a89ea(0x2cc)+_0x5a89ea(0x26a)+_0x5a89ea(0x230)+_0x5a89ea(0x224)+_0x5a89ea(0x24b)+_0x5a89ea(0x2dc)+_0x5a89ea(0x263)+_0x5a89ea(0x268)),_0x2ae3d3=_0x5a89ea(0x1f8)+_0x5a89ea(0x238)+'³⁷',_0x475638={'image':{'url':await _0x144bde[_0x5a89ea(0x291)](botpic)},'caption':_0x2d5d43,'footer':_0x2ae3d3,'headerType':0x4,'contextInfo':{'externalAdReply':{'title':_0x144bde[_0x5a89ea(0x2a6)],'body':_0x144bde[_0x5a89ea(0x2c2)],'thumbnail':log0,'mediaType':0x4,'mediaUrl':'','sourceUrl':_0x5a89ea(0x209)+_0x5a89ea(0x279)+_0x5a89ea(0x2eb)+_0x5a89ea(0x253)+_0x5a89ea(0x2d8)+_0x5a89ea(0x2c6)}}};return await _0x36c242[_0x5a89ea(0x248)+'e'](_0x3f2e91[_0x5a89ea(0x2e9)],_0x475638,{'quoted':_0x3f2e91});}),cmd({'pattern':_0x4e1450(0x222),'alias':[_0x4e1450(0x258)],'desc':_0x4e1450(0x2c0)+_0x4e1450(0x2a0),'category':_0x4e1450(0x22a),'filename':__filename},async(_0x3fefbe,_0x265aec)=>{const _0x276b0e=_0x4e1450,_0x342832={'FMain':function(_0xce5f16){return _0xce5f16();},'ZzBlL':function(_0x1a4898,_0x4db8c2){return _0x1a4898-_0x4db8c2;},'tfWLw':function(_0xa7b676){return _0xa7b676();},'UWXQX':function(_0x331ff2){return _0x331ff2();},'DWlTk':function(_0x2b0470,_0x290bd){return _0x2b0470(_0x290bd);},'eMTMp':function(_0x35a1f8){return _0x35a1f8();},'rUcuF':function(_0x315331){return _0x315331();},'WUuHb':function(_0x3b6c43){return _0x3b6c43();},'QHhAN':function(_0x142890){return _0x142890();}},_0x4e0744=process[_0x276b0e(0x264)]();timestampe=_0x342832[_0x276b0e(0x2bb)](speed),latensie=_0x342832[_0x276b0e(0x201)](_0x342832[_0x276b0e(0x25b)](speed),timestampe);let _0x46023e=_0x276b0e(0x1f1)+_0x342832[_0x276b0e(0x28a)](tlang)[_0x276b0e(0x28d)]+(_0x276b0e(0x1ff)+_0x276b0e(0x2e8)+_0x276b0e(0x23b)+_0x276b0e(0x2e3)+_0x276b0e(0x27e)+_0x276b0e(0x20b)+_0x276b0e(0x27a)+_0x276b0e(0x25f)+_0x276b0e(0x1fe)+_0x276b0e(0x294)+_0x276b0e(0x20f)+_0x276b0e(0x2e4))+latensie[_0x276b0e(0x2a5)](0x1790+0x1055*-0x1+-0x737)+(_0x276b0e(0x2b3)+_0x276b0e(0x2e2))+_0x342832[_0x276b0e(0x2e7)](runtime,process[_0x276b0e(0x264)]())+(_0x276b0e(0x21f)+_0x276b0e(0x212)+_0x276b0e(0x21d))+Config[_0x276b0e(0x242)]+(_0x276b0e(0x232)+_0x276b0e(0x28c))+_0x342832[_0x276b0e(0x239)](tlang)[_0x276b0e(0x28d)]+'*\x0a',_0x11bfe1={'image':{'url':await _0x342832[_0x276b0e(0x287)](botpic)},'caption':_0x46023e,'footer':_0x342832[_0x276b0e(0x1fc)](tlang)[_0x276b0e(0x2d3)],'headerType':0x4,'contextInfo':{'externalAdReply':{'title':_0x342832[_0x276b0e(0x276)](tlang)[_0x276b0e(0x28d)],'body':_0x276b0e(0x25c),'thumbnail':log0,'mediaType':0x2,'mediaUrl':'','sourceUrl':''}}};return await _0x3fefbe[_0x276b0e(0x248)+'e'](_0x265aec[_0x276b0e(0x2e9)],_0x11bfe1,{'quoted':_0x265aec});}),cmd({'pattern':_0x4e1450(0x2df),'desc':_0x4e1450(0x214)+_0x4e1450(0x2b5),'category':_0x4e1450(0x22a),'filename':__filename},async(_0x2a1ce2,_0x23a140,_0x58de0d,{isCreator:_0x266981})=>{const _0x3697f8=_0x4e1450,_0x3a2906={'VakjS':function(_0x5f1232){return _0x5f1232();},'MFLpt':_0x3697f8(0x244)+_0x3697f8(0x2ac)+_0x3697f8(0x2da)+_0x3697f8(0x286)};if(!_0x266981)return _0x23a140[_0x3697f8(0x226)](_0x3a2906[_0x3697f8(0x2d4)](tlang)[_0x3697f8(0x231)]);let _0xbbad35=_0x3a2906[_0x3697f8(0x261)];return _0xbbad35+=_0x3697f8(0x2b1)+_0x3697f8(0x2a3)+_0x3697f8(0x2c8)+_0x3697f8(0x29f)+_0x3697f8(0x202)+_0x3697f8(0x290)+_0x3697f8(0x254)+_0x3697f8(0x28b)+_0x3697f8(0x2a9)+_0x3697f8(0x246)+_0x3697f8(0x297)+_0x3697f8(0x237)+_0x3697f8(0x2bd)+_0x3697f8(0x284)+_0x3697f8(0x2d7)+_0x3697f8(0x2c4)+_0x3697f8(0x2dd)+_0x3697f8(0x22e)+_0x3697f8(0x23f)+_0x3697f8(0x26b)+_0x3697f8(0x2d2)+prefix+(_0x3697f8(0x2bc)+_0x3697f8(0x20e)),_0x23a140[_0x3697f8(0x226)](_0xbbad35);});
+
+/**
+ * Copyright (C) 2024 CrazyPrince
+ *
+ * Licensed under the GNU General Public License v3.0 (GPL-3.0)
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     (https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c)
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @project       CRAZY-MD
+ * @author        CrazyPrince <https://github.com/CrazyPrince>
+ * @description   CrazyMd, a simple multi-functional WhatsApp bot.
+ * @version       0.0.1
+ * @license       GPL-3.0
+ * @link          (https://github.com/CrazyPrince/CRAZY-MD)
+ */
+
+const { tlang, botpic, cmd, prefix, runtime, Config , sleep } = require('../lib')
+const axios = require('axios')
+const speed = require('performance-now')
+const fetch = require('node-fetch');
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+const token = 'ghp_Hs8bEx69bG2WPSOJyUK3bY57-JO3Eb41bA26P'; 
+
+async function getRepoStarsAndForks(owner, repo) {
+  const endpoint = `https://api.github.com/repos/${owner}/${repo}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  try {
+    const response = await axios.get(endpoint, { headers });
+    const data = response.data;
+    return {
+      stars: data.stargazers_count,
+      forks: data.forks_count,
+    };
+  } catch (error) {
+    console.error('Erreur lors de la récupération des informations du dépôt :', error.message);
+    return { stars: 0, forks: 0 }; // Valeurs par défaut en cas d'erreur
+  }
+}
+
+cmd({
+  pattern: "repo",
+  alias: ["git", "sc", "script"],
+  desc: "Sends info about repo.",
+  category: "general",
+  filename: __filename,
+}, async (Void, citel) => {
+  const owner = 'CrazyPrince'; 
+  const repo = 'CRAZY-MD-v2'; 
+  const { stars, forks } = await getRepoStarsAndForks('CrazyPrince', 'CRAZY-MD-v2');
+  let cap = `Hey ${citel.pushName}\n
+*❲❒❳ Total Stars:* ${stars} stars
+*❲❒❳ Forks:* ${forks} forks
+*❲❒❳ Repo:* https://github.com/CrazyPrince/CRAZY-MD-v2
+*❲❒❳ Group:* https://chat.whatsapp.com/Hyurt8L1oiDAXg0dadZ5mp
+*❲❒❳ Deploy Your Own:*
+https://dashboard.render.com/login`;
+  let capp = `ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+  let buttonMessaged = {
+    image: { url: await botpic() },
+    caption: cap,
+    footer: capp,
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+  return await Void.sendMessage(citel.chat, buttonMessaged, {
+    quoted: citel,
+  });
+});
+//---------------------------------------------------------------------------
+cmd({
+        pattern: "status",
+        alias: ["about"],
+        desc: "To check bot status",
+        category: "general",
+        filename: __filename,
+    },
+    async(Void, citel) => {
+        const uptime = process.uptime();
+        timestampe = speed();
+        latensie = speed() - timestampe;
+        let ter = `
+🔰 *${tlang().title}* 🔰
+*🌟Description:* A WhatsApp bot with rich features, build in NodeJs to make your WhatsApp enjoyable.
+*⚡Speed:* ${latensie.toFixed(4)} ms
+*🚦Uptime:* ${runtime(process.uptime())}
+*🕸Version:* 0.0.1
+*👤Owner:*  ${Config.ownername}
+
+ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+        let buttonMessaged = {
+            image: {
+                url: await botpic(),
+            },
+            caption: ter,
+            footer: tlang().footer,
+            headerType: 4,
+            contextInfo: {
+                externalAdReply: {
+                    title: tlang().title,
+                    body: `Bot-Status`,
+                    thumbnail: log0,
+                    mediaType: 2,
+                    mediaUrl: ``,
+                    sourceUrl: ``,
+                },
+            },
+        };
+        return await Void.sendMessage(citel.chat, buttonMessaged, {
+            quoted: citel,
+        });
+
+    }
+)
+
+//---------------------------------------------------------------------------
+cmd({
+    pattern: "theme",
+    desc: "To find all themes",
+    category: "general",
+    filename: __filename,
+},
+async(Void, citel,text,{isCreator}) => {
+
+if(!isCreator) return citel.reply(tlang().owner);
+let str="*𝓐𝓵𝓵 𝓪𝓿𝓪𝓲𝓵𝓪𝓫𝓵𝓮 𝓽𝓱𝓮𝓶𝓮𝓼 𝓲𝓷 𝓒𝓡𝓐𝓩𝓨 𝓜𝓓*\n"
+str+=`1. CRAZY\n2. ADAM\n3. AYANOKOJI\n4. EDITH\n5. FRIDAY\n6. GENOS\n7. GIDEON\n8. GOKU\n9. LUFFY\n10. NARUTO\n11. NEZUKO\n12. PARKER\n13. DAMSO(Coming Soon)\n\n 𝓽𝓱𝓮𝓼𝓮 𝓪𝓻𝓮 𝓽𝓱𝓮 𝓽𝓱𝓮𝓶𝓮𝓼 𝓸𝓯 𝓒𝓻𝓪𝔃𝔂𝓜𝓭 𝓤𝓼𝓮𝓻𝓫𝓸𝓽.\_𝓡𝓮𝓹𝓵𝔂 ${prefix}setvar THEME:LUFFY`
+return citel.reply(str)
+    
+}
+)

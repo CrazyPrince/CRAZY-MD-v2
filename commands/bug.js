@@ -1260,13 +1260,14 @@ cmd({
         const response = await axios.get(apiURL);
         const { thumbnail, title, artist, duration, preview, url } = response.data.data;
 
-        let infoMsg = `🎧 *Music Details* 🎧
+        let infoMsg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓟𝓞𝓣𝓘𝓕𝓨 𝓓𝓛
         
-*Title*: ${title}
-*Artist*: [${artist.name}](${artist.external_urls.spotify})
+*Title*: *${title}*
+*Artist*: *${artist.name}*
+${artist.external_urls.spotify}
 *Duration*: ${duration}
 
-*Preview*: [Click Here](${preview})
+*Preview*: ${preview}
 `;
 
         await Void.sendMessage(citel.chat, {
@@ -1287,6 +1288,44 @@ cmd({
     } catch (error) {
         console.error('Error fetching music:', error);
         citel.reply("An error occurred while downloading the music.");
+    }
+});
+//=========================================================================================
+
+cmd({
+  pattern: "spotifys",
+  desc: "List all music data from spotify query research",
+  category: "downloader",
+  react: "🎧",
+  filename: __filename
+}, async (Void, citel, text, { isCreator }) => {
+    if (!text) {
+        return citel.reply("Please provide a link. Usage: .spotifys <query>");
+    }
+
+    const apiUrl = `https://api.diego-ofc.store/spotifysearch?query=${encodeURIComponent(text)}`;
+    try {
+        const response = await axios.get(apiUrl);
+        const data = response.data;
+
+        if (data.status && data.data.length > 0) {
+            let message = `🎵 *Liste des morceaux disponibles :* 🎵\n\n`;
+
+            data.data.forEach((item, index) => {
+                message += `*${index + 1}.* 🎧 *Titre :* ${item.title}\n`;
+                message += `⏱️ *Durée :* ${item.duration}\n`;
+                message += `🔥 *Popularité :* ${item.popularity}\n`;
+                message += `🔗 *URL Spotify :* ${item.url}\n`;
+                message += `🎤 *Preview :* [Écouter](${item.preview})\n\n`;
+            });
+
+            await Void.sendMessage(citel.chat, { text: message }, { quoted: citel });
+        } else {
+            await Void.sendMessage(citel.chat, { text: "Aucune donnée trouvée dans l'API." }, { quoted: citel });
+        }
+    } catch (error) {
+        await Void.sendMessage(citel.chat, { text: "Une erreur s'est produite lors de la récupération des données de l'API." }, { quoted: citel });
+        console.error(error);
     }
 });
 

@@ -1194,26 +1194,22 @@ cmd({
   react: "✖️",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
-        if (text.length === 0) {
-            return citel.reply("Please provide a search query. Usage: .twitter <link>");
+    if (text.length === 0) {
+        return citel.reply("Please provide a search query. Usage: .twitter <link>");
+    }
+    
+    const apiURL = `https://api.diego-ofc.store/xdown?url=${encodeURIComponent(text)}`;
+
+    try {
+        const response = await axios.get(apiURL);
+        const { media, date, likes, replies, retweets, authorName, authorUsername } = response.data;
+
+        if (!media || media.length === 0) {
+            return citel.reply("No videos found for your query.");
         }
-        const url = `https://api.diego-ofc.store/xdown?url=${encodeURIComponent(text)}`;
 
-        try {
-            const response = await axios.get(apiURL);
-            const { url } = response.data.media;
-            const { date } = response.data;
-            const { likes } = response.data;
-            const { replies } = response.data;
-            const { retweets } = response.data;
-            const { authorName } = response.data;
-            const { authorUsername } = response.data;
-            console.log(response.data);
-
-            if (!data.media || data.media.length === 0) {
-                return citel.reply("No videos found for your query.");
-            }
-            let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓦𝓔𝓔𝓣𝓔𝓡 𝓧 𝓓𝓛
+        const videoUrl = media[0].url;
+        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓦𝓔𝓔𝓣𝓔𝓡 𝓧 𝓓𝓛
 _Here's your twitter video 🎦_
 
 Link : ${text}
@@ -1228,22 +1224,21 @@ Likes & Replies : [ ${likes} | ${replies} ]
 
 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
                 
-                await Void.sendMessage(citel.chat, {
-                    video: {
-                        url: url,
-                    },
-                    mimetype: 'video/mp4',
-                    caption: msg
-                }, {
-                    quoted: citel,
-                });
-            
-        } catch (error) {
-            console.error('Error fetching TikTok videos:', error);
-            citel.reply("An error occurred while searching for TikTok videos.");
-        }
+        await Void.sendMessage(citel.chat, {
+            video: {
+                url: videoUrl,
+            },
+            mimetype: 'video/mp4',
+            caption: msg
+        }, {
+            quoted: citel,
+        });
+    
+    } catch (error) {
+        console.error('Error fetching Twitter videos:', error);
+        citel.reply("An error occurred while searching for Twitter videos.");
     }
-);
+});
 
 //------------------------------------------------------------_________________________________________________
 

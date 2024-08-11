@@ -1050,6 +1050,7 @@ cmd({
             use: '',
         },
         async(Void, citel, text,{isCreator}) => {
+            if (!citel.isGroup) return citel.reply(tlang().group);
             if (!isCreator) return citel.reply(tlang().owner)
             // Envoyer un message d'adieu avant de quitter le groupe
             await Void.sendMessage(citel.chat, { text: `bye bye🏃‍➡️` }, { quoted: citel });
@@ -1098,7 +1099,7 @@ cmd({
 cmd({
             pattern: "botpp",
             desc: "to logs bot pic",
-            category: "owner",
+            category: "user",
             react: "🖼️",
             filename: __filename,
             use: '<name>',
@@ -1157,7 +1158,7 @@ cmd({
 cmd({
             pattern: "newgp",
             desc: "to create a new group",
-            category: "group",
+            category: "owner",
             react: "🧑‍🧑‍🧒‍🧒",
             filename: __filename,
             use: '<name>',
@@ -1210,9 +1211,9 @@ cmd({
             const groupAdmins = await getAdmin(Void, citel)
             const isAdmins = citel.isGroup ? groupAdmins.includes(citel.sender) : false;
             if (!isAdmins) return citel.reply(tlang().admin);
-            if (!text) return citel.reply('add a group name, like this ${prefix}newgp My new group name.')
+            if (!text) return citel.reply('add a group name, like this .newgp My new group name.')
             await Void.groupUpdateDescription(citel.chat, text)
-            return citel.reply(`*Group description set to: ${text}*`)
+            return citel.reply(`*Group description set to:\n\n ${text}*`)
         }
     )
 

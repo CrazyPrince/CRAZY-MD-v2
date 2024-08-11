@@ -9,16 +9,16 @@ const fetch = (text) => import('node-fetch').then(({ default: fetch }) => fetch(
 //=========================================================================================================
 cmd({
   pattern: "fb",
-  desc: "Télécharger une vidéo Facebook",
+  desc: "Download a Facebook video",
   category: "downloader",
   use: 'fb <link>',
-  react: "⬇️",
+  react: "🎦",
   filename: __filename
 },
 
 async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
+    return citel.reply('Please provide a link.');
   }
 
   const apiURL = `https://api.maher-zubair.tech/download/alldownload?url=${encodeURIComponent(text)}`;
@@ -31,10 +31,12 @@ async (Void, citel, text, { isCreator }) => {
     if (result && result.medias && result.medias.length > 0) {
       const videoUrl = result.medias[0].url;
       const title = result.title;
-
+      let msg = `𝓕𝓐𝓒𝓔𝓑𝓞𝓞𝓚 𝓥𝓘𝓓𝓔𝓞 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
+      
+      𝓣𝓲𝓽𝓵𝓮 : *${title}*`;
        let buttonMessaged = {
     video: { url: videoUrl },
-    caption: `Title : ${title}`,
+    caption: msg,
     footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
     headerType: 4,
     contextInfo: {
@@ -49,7 +51,6 @@ async (Void, citel, text, { isCreator }) => {
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-      await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });
     } else {
       citel.reply('Aucune vidéo trouvée.');
     }
@@ -62,7 +63,7 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 cmd({
   pattern: "gdrive",
-  desc: "Télécharger un fichier google drive",
+  desc: "Download a google drive file",
   category: "downloader",
   use: '<link>',
   react: "⬇️",
@@ -71,7 +72,7 @@ cmd({
 
 async (Void, citel, text, { isCreator }) => {
   if (!text) {
-    return citel.reply('Veuillez fournir un lien.');
+    return citel.reply('Please provide a link.');
   }
 
   const apiURL = `https://api.maher-zubair.tech/download/gdrive?url=${encodeURIComponent(text)}`;
@@ -100,8 +101,8 @@ async (Void, citel, text, { isCreator }) => {
       citel.reply('Fichier non trouvé.');
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération du média :', error);
-    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+    console.error('Error when retrieving the media :', error);
+    citel.reply('An error occurred while retrieving the media. Please try again later.');
   }
 });
 
@@ -126,9 +127,10 @@ async (Void, citel, text, { isCreator }) => {
 
   try {
     const response = await axios.get(apiURL);
-    const { result } = response.data;
+    const { url } = response.data;
     console.log(response.data);
-    const lien = 'result.' + text;
+    const lienn = 'url.' + text;
+    const lien = lienn;
     let msg = `𝓒𝓡𝓐𝓩𝓨_𝓜𝓓 𝓦𝓐 𝓜𝓞𝓓𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡
 
 𝓝𝓪𝓶𝓮: ${text},
@@ -158,7 +160,7 @@ async (Void, citel, text, { isCreator }) => {
 //---------------------------------------------------------------------------
 cmd({
   pattern: "mediafire",
-  desc: "Télécharger un fichier mediafire",
+  desc: "Download a mediafire file",
   category: "downloader",
   use: '<link>',
   react: "⬇️",
@@ -266,7 +268,7 @@ async (Void, citel, text, { isCreator }) => {
 𝓢𝓲𝔃𝓮:    [${sizeStr}],
 𝓛𝓪𝓼𝓽𝓤𝓹𝓭𝓪𝓽𝓮: ${last}`;
 await Void.sendMessage(citel.chat, { 
-    image: icon,
+    image: img,
     caption: msg
 },{ quoted: citel });
       // Fonction de conversion de la taille en MB
@@ -291,21 +293,21 @@ await Void.sendMessage(citel.chat, {
       const sizeInMB = convertSizeToMB(sizeStr);
 
       if (sizeInMB > 250) {
-        return citel.reply('The file is too large to be sent (over than 100 MB).');
+        return citel.reply('The file is too large to be sent (over than 250 MB).');
       } else {
         await Void.sendMessage(citel.chat, {
           document: { url: lien },
           mimetype: type,
-          title: nom,
-          fileName: nom
+          title: nom + '.apk',
+          fileName: nom + '.apk'
         });
       }
     } else {
-      citel.reply('Fichier non trouvé.');
+      citel.reply('File not found.');
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération du média :', error);
-    citel.reply('Une erreur est survenue lors de la récupération du média. Veuillez réessayer plus tard.');
+    console.error('Error when retrieving the media:', error);
+    citel.reply('An error occurred while retrieving the media. Please try again later.');
   }
 });
 
@@ -322,7 +324,7 @@ cmd({
 async (Void, citel, text, { isCreator }) => {
 
     if (!text) {
-        return citel.reply(`Veuillez fournir le nom d'une chanson. Utilisation : ${prefix}lyrics [nom_chanson]`);
+        return citel.reply(`Please provide the name of a song. Use : ${prefix}lyrics [song name]`);
     }
 
     const searchMessage = await citel.reply(`🔍 Recherche des paroles : ${text}`);
@@ -330,7 +332,8 @@ async (Void, citel, text, { isCreator }) => {
     try {
         const response = await axios.get(`https://samirxpikachuio.onrender.com/lyrics?query=${encodeURIComponent(text)}`);
         const { title, artist, lyrics, image } = response.data;
-        let msg = `Paroles : ${lyrics}\n\nNom de la chanson : ${title}\n\nAuteur : ${artist}`;
+        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓖𝓔𝓝𝓘𝓤𝓢 𝓜𝓘𝓒 𝓛𝓨𝓡𝓘𝓒𝓢\n
+        𝓛𝔂𝓻𝓲𝓬𝓼 : ${lyrics}\n\n𝓝𝓪𝓶𝓮 𝓸𝓯 𝓽𝓱𝓮 𝓼𝓸𝓷𝓰 : ${title}\n\n𝓐𝓾𝓽𝓱𝓸𝓻 : ${artist}`;
         const img = image;
 
        let buttonMessaged = {
@@ -350,18 +353,9 @@ async (Void, citel, text, { isCreator }) => {
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-      
-        await Void.sendMessage(citel.chat, {
-            image: {
-                url: img,
-            },
-            caption: msg,
-        }, {
-            quoted: citel,
-        });
     } catch (error) {
         console.error('[ERREUR]', error);
-        Void.sendMessage(citel.chat, 'Une erreur s\'est produite lors de la récupération des paroles.');
+        Void.sendMessage(citel.chat, 'An error occurred while retrieving the lyrics.');
     }
 
     await Void.deleteMessage(citel.chat, searchMessage.key);
@@ -428,16 +422,6 @@ cmd({
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-
-    
-    await Void.sendMessage(citel.chat, {
-      image: {
-        url: apiURL,
-      },
-      caption: msg,
-    }, {
-      quoted: citel,
-    });
   } catch (error) {
     console.error('[ERROR]', error);
     citel.reply('An error occurred while processing the command.');
@@ -468,22 +452,20 @@ cmd({
         }
 
         const videoUrl = media[0].url;
-        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓦𝓔𝓔𝓣𝓔𝓡 𝓧 𝓓𝓛
-_Here's your twitter video 🎦_
+        let msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓣𝓦𝓔𝓔𝓣𝓔𝓡 𝓧 𝓓𝓛\n
+_Here's your twitter x video 🎦_
 
-Link : ${text}
+𝓛𝓲𝓷𝓴 : ${text}
 
-Author : ${authorName}
+𝓐𝓾𝓽𝓱𝓸𝓻 : *${authorName}*
 
-Pseudo : ${authorUsername}
+𝓟𝓼𝓮𝓾𝓭𝓸 : *${authorUsername}*
 
-Upload : ${date}
+𝓤𝓹𝓵𝓸𝓪𝓭 : *${date}*
 
-Likes & Replies : [ ${likes} | ${replies} ]
+𝓛𝓲𝓴𝓮𝓼 & 𝓡𝓮𝓹𝓵𝓲𝓮𝓼 : *[ ${likes} | ${replies} ]*
 
 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
-
-
 
        let buttonMessaged = {
     video: { url: videoUrl },
@@ -502,18 +484,6 @@ Likes & Replies : [ ${likes} | ${replies} ]
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-
-      
-        await Void.sendMessage(citel.chat, {
-            video: {
-                url: videoUrl,
-            },
-            mimetype: 'video/mp4',
-            caption: msg
-        }, {
-            quoted: citel,
-        });
-    
     } catch (error) {
         console.error('Error fetching Twitter videos:', error);
         citel.reply("An error occurred while searching for Twitter videos.");
@@ -542,15 +512,13 @@ cmd({
 
         let infoMsg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓟𝓞𝓣𝓘𝓕𝓨 𝓓𝓛
         
-*Title*: *${title}*
-*Artist*: *${artist.name}*
+*𝓣𝓲𝓽𝓵𝓮*: *${title}*
+*𝓐𝓻𝓽𝓲𝓼𝓽*: *${artist.name}*
 ${artist.external_urls.spotify}
-*Duration*: ${duration}
+*𝓓𝓾𝓻𝓪𝓽𝓲𝓸𝓷*: ${duration}
 
-*Preview*: ${preview}
+*𝓟𝓻𝓮𝓿𝓲𝓮𝔀*: ${preview}
 `;
-
-
        let buttonMessaged = {
     image: { url: thumbnail },
     caption: infoMsg,
@@ -568,13 +536,6 @@ ${artist.external_urls.spotify}
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-
-      
-        await Void.sendMessage(citel.chat, {
-            image: { url: thumbnail },
-            caption: infoMsg
-        });
-
         await Void.sendMessage(citel.chat, {
             audio: {
                 url: url,
@@ -596,7 +557,7 @@ cmd({
   pattern: "spotifys",
   desc: "List all music data from spotify query research",
   category: "downloader",
-  react: "🎧",
+  react: "🔍",
   filename: __filename
 }, async (Void, citel, text, { isCreator }) => {
     if (!text) {
@@ -609,17 +570,15 @@ cmd({
         const data = response.data;
 
         if (data.status && data.data.length > 0) {
-            let message = `🎵 *Liste des morceaux disponibles :* 🎵\n\n`;
+            let message = `🎵 𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓟𝓞𝓣𝓘𝓕𝓨 𝓢𝓞𝓝𝓖 🎵\n\n`;
 
             data.data.forEach((item, index) => {
-                message += `*${index + 1}.* 🎧 *Titre :* ${item.title}\n`;
-                message += `⏱️ *Durée :* ${item.duration}\n`;
-                message += `🔥 *Popularité :* ${item.popularity}\n`;
-                message += `🔗 *URL Spotify :* ${item.url}\n`;
-                message += `🎤 *Preview :* [Écouter](${item.preview})\n\n`;
+                message += `- ${index + 1}• 🗿 𝓣𝓲𝓽𝓵𝓮 : *${item.title}*\n`;
+                message += `⏱️ 𝓓𝓾𝓻𝓪𝓽𝓲𝓸𝓷 : [ ${item.duration} ]\n`;
+                message += `🔥 𝓟𝓸𝓹𝓾𝓵𝓪𝓻𝓲𝓽𝔂 : ${item.popularity}\n`;
+                message += `🔗 𝓤𝓡𝓛 𝓢𝓹𝓸𝓽𝓲𝓯𝔂 : ${item.url}\n`;
+                message += `🎤 𝓟𝓻𝓮𝓿𝓲𝓮𝔀 : ${item.preview}\n\n`;
             });
-
-
            let buttonMessaged = {
     image: { url: 'https://telegra.ph/file/4aaac205eff63dae2b7f7.jpg' },
     caption: message,
@@ -637,14 +596,11 @@ cmd({
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-
-          
-            await Void.sendMessage(citel.chat, { text: message }, { quoted: citel });
         } else {
-            await Void.sendMessage(citel.chat, { text: "Aucune donnée trouvée dans l'API." }, { quoted: citel });
+            await Void.sendMessage(citel.chat, { text: "No data found in the API." }, { quoted: citel });
         }
     } catch (error) {
-        await Void.sendMessage(citel.chat, { text: "Une erreur s'est produite lors de la récupération des données de l'API." }, { quoted: citel });
+        await Void.sendMessage(citel.chat, { text: "An error occurred while retrieving data from the API." }, { quoted: citel });
         console.error(error);
     }
 });
@@ -668,7 +624,6 @@ cmd({
     const downloadApiUrl = 'https://api.diego-ofc.store/spotifydl'; // URL de l'API pour le téléchargement
 
     try {
-        // Étape 1 : Récupérer les données de recherche
         const searchResponse = await axios.get(searchApiUrl);
         const searchData = searchResponse.data;
 
@@ -676,25 +631,21 @@ cmd({
             return citel.reply("No music data found for your query.");
         }
 
-        // Étape 2 : Sélectionner le premier élément
         const firstSong = searchData.data[0];
 
         if (!firstSong) {
             return citel.reply("No song found.");
         }
 
-        // Étape 3 : Télécharger le morceau
         const downloadResponse = await axios.get(`${downloadApiUrl}?url=${encodeURIComponent(firstSong.url)}`);
         const downloadData = downloadResponse.data;
 
         if (downloadData.status && downloadData.data && downloadData.data.url) {
-            let infoMsg = `🎵 *Song Downloaded* 🎵\n\n`;
-            infoMsg += `*Title:* ${firstSong.title}\n`;
-            infoMsg += `*Duration:* ${firstSong.duration}\n`;
-            infoMsg += `*Popularity:* ${firstSong.popularity}\n`;
-            infoMsg += `*Preview:* ${firstSong.preview}\n`;
-
-
+            let infoMsg = `🎵 𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓟𝓞𝓣𝓘𝓕𝓨 𝓢𝓞𝓝𝓖 𝓓𝓛\n\n`;
+            infoMsg += `*𝓣𝓲𝓽𝓵𝓮:* *${firstSong.title}*\n`;
+            infoMsg += `*𝓓𝓾𝓻𝓪𝓽𝓲𝓸𝓷:* *${firstSong.duration}*\n`;
+            infoMsg += `*𝓟𝓸𝓹𝓾𝓵𝓪𝓻𝓲𝓽𝔂:* *${firstSong.popularity}*\n`;
+            infoMsg += `*𝓟𝓻𝓮𝓿𝓲𝓮𝔀:* *${firstSong.preview}*\n`;
 
            let buttonMessaged = {
     image: { url: downloadData.data.thumbnail },
@@ -713,12 +664,6 @@ cmd({
     },
   };
     await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
-
-          
-            await Void.sendMessage(citel.chat, {
-                image: { url: downloadData.data.thumbnail },
-                caption: infoMsg
-            });
 
             await Void.sendMessage(citel.chat, {
                 audio: {
@@ -865,7 +810,6 @@ ______________________________________
 ${body}
 
              ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
-
 
      let buttonMessaged = {
     image: { url: img },

@@ -32,6 +32,23 @@ async (Void, citel, text, { isCreator }) => {
       const videoUrl = result.medias[0].url;
       const title = result.title;
 
+       let buttonMessaged = {
+    video: { url: videoUrl },
+    caption: `Title : ${title}`,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
       await Void.sendMessage(citel.chat, { video: { url: videoUrl }, caption: `Titre : ${title}` }, { quoted: citel });
     } else {
       citel.reply('Aucune vidéo trouvée.');
@@ -315,6 +332,25 @@ async (Void, citel, text, { isCreator }) => {
         const { title, artist, lyrics, image } = response.data;
         let msg = `Paroles : ${lyrics}\n\nNom de la chanson : ${title}\n\nAuteur : ${artist}`;
         const img = image;
+
+       let buttonMessaged = {
+    image: { url: img },
+    caption: msg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+      
         await Void.sendMessage(citel.chat, {
             image: {
                 url: img,
@@ -373,6 +409,27 @@ cmd({
 
     const msg = `𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓢𝓒𝓡𝓔𝓔𝓝𝓢𝓗𝓞𝓣𝓢 𝓓𝓞𝓦𝓝𝓛𝓞𝓐𝓓𝓔𝓡\n_Here is the screenshot._`;
 
+
+
+     let buttonMessaged = {
+    image: { url: apiURL },
+    caption: msg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+    
     await Void.sendMessage(citel.chat, {
       image: {
         url: apiURL,
@@ -425,7 +482,28 @@ Upload : ${date}
 Likes & Replies : [ ${likes} | ${replies} ]
 
 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
-                
+
+
+
+       let buttonMessaged = {
+    video: { url: videoUrl },
+    caption: msg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+      
         await Void.sendMessage(citel.chat, {
             video: {
                 url: videoUrl,
@@ -472,6 +550,26 @@ ${artist.external_urls.spotify}
 *Preview*: ${preview}
 `;
 
+
+       let buttonMessaged = {
+    image: { url: thumbnail },
+    caption: infoMsg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+      
         await Void.sendMessage(citel.chat, {
             image: { url: thumbnail },
             caption: infoMsg
@@ -521,6 +619,26 @@ cmd({
                 message += `🎤 *Preview :* [Écouter](${item.preview})\n\n`;
             });
 
+
+           let buttonMessaged = {
+    image: { url: 'https://telegra.ph/file/4aaac205eff63dae2b7f7.jpg' },
+    caption: message,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+          
             await Void.sendMessage(citel.chat, { text: message }, { quoted: citel });
         } else {
             await Void.sendMessage(citel.chat, { text: "Aucune donnée trouvée dans l'API." }, { quoted: citel });
@@ -576,6 +694,27 @@ cmd({
             infoMsg += `*Popularity:* ${firstSong.popularity}\n`;
             infoMsg += `*Preview:* ${firstSong.preview}\n`;
 
+
+
+           let buttonMessaged = {
+    image: { url: downloadData.data.thumbnail },
+    caption: infoMsg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+          
             await Void.sendMessage(citel.chat, {
                 image: { url: downloadData.data.thumbnail },
                 caption: infoMsg
@@ -726,6 +865,27 @@ ______________________________________
 ${body}
 
              ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`;
+
+
+     let buttonMessaged = {
+    image: { url: img },
+    caption: msg,
+    footer: 'Mᴀᴅᴇ ᴡɪᴛʜ 💜',
+    headerType: 4,
+    contextInfo: {
+      externalAdReply: {
+        title: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷",
+        body: "(ᴄʟɪᴄᴋ ʜᴇʀᴇ)",
+        thumbnail: log0,
+        mediaType: 4,
+        mediaUrl: '',
+        sourceUrl: `https://whatsapp.com/channel/0029VaV3DymGE56jsC8j1M3c`,
+      },
+    },
+  };
+    await Void.sendMessage(citel.chat, buttonMessaged, { quoted: citel });
+
+    
     await Void.sendMessage(citel.chat, {
         image: {
           url: img,

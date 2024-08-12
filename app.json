@@ -1,7 +1,7 @@
 {
   "name": "Crazy-Md",
   "description": "A Whatsapp md bot built in NodeJs to make experience better",
-  "logo": "https://telegra.ph/file/637fb2c9c6fadb5c39c62.jpg",
+  "logo": "https://telegra.ph/file/984e15c49561a5dd9d112.jpg'",
   "keywords": ["nodejs", "bot", "whatsapp bot", "crazy", "Crazy-Bot", "CrazyPrince","CrazyMD","theme bot","multi device","baileys","Crazy_Prince"],
   "success_url": "/",
   "stack": "container",
@@ -47,12 +47,12 @@
   "LEVEL_UP_MESSAGE": {
     "description": "Fill the value true if you want bot send Level up message in chat.",
      "required" :false,
-     "value": "true"
+     "value": "false"
     },
       "READ_MESSAGE": {
     "description": "Fill the value true if you want bot to read all messages.",
      "required" :false,
-     "value": "true"
+     "value": "false"
     },
    "DISABLE_PM": {
     "description": "Disable bot in pm",
@@ -84,7 +84,7 @@
   },
     "WORKTYPE": {
   "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
-         "value": "public"
+         "value": "private"
   },
       "AUTO_REACTION": {
     "description": "Reacts emoji to all commands.",

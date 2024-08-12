@@ -1,7 +1,7 @@
 {
   "name": "Crazy-Md",
   "description": "A Whatsapp md bot built in NodeJs to make experience better",
-  "logo": "https://telegra.ph/file/984e15c49561a5dd9d112.jpg'",
+  "logo": "https://telegra.ph/file/984e15c49561a5dd9d112.jpg",
   "keywords": ["nodejs", "bot", "whatsapp bot", "crazy", "Crazy-Bot", "CrazyPrince","CrazyMD","theme bot","multi device","baileys","Crazy_Prince"],
   "success_url": "/",
   "stack": "container",

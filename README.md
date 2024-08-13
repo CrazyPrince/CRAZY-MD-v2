@@ -34,12 +34,13 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
 #### First You Must...
-
-1. Fork the repo
+1. Put star⭐️ on my repo 🥺
+<br>
+2. Fork the repo
     <br>
 <a href="https://github.com/CrazyPrince/CRAZY-MD-v2/fork"><img title="CRAZY-MD" src="https://img.shields.io/badge/FORK_CRAZY-MD-h?color=blue&style=for-the-badge&logo=stackshare&logoColor=green&labelColor=purple&color=blue"></a>
 
-2. Scan or pair to get session ID
+3. Scan or pair to get session ID (only Qr code give good session now)
     <br>
 <a href='https://pair-qr-crazy-md1-uxqx.onrender.com' target="_blank"><img alt='Get SESSION_ID' src='https://img.shields.io/badge/Get-Session_ID-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=green&color=purple'/></a>
 
@@ -112,8 +113,10 @@
 [![tg](https://img.shields.io/badge/CrazyMdChat-0A66C2?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/crazymdChat)
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 </br>
-https://github.com/Kgtech-cmr/KERM_MD-V2
-This project is submitted to the [LICENCE CC BY-NC-SA 4.0](https://github.com/A-d-i-t-h-y-a-n/hermit-md/wiki/DATABASE_URL) And it stipulates that anyone who partially or totally using the code of this project without the authorization of the Author should mention the Author in the Credits as a thank you otherwise it is taken as plagiarism and may be subject to legal proceedings... A good greeting
+[💩KERM BOT v2💩](https://github.com/Kgtech-cmr/KERM_MD-V2) 🤬Help me by reporting this developer because he is a code thief who is only waiting for the plugin updates of each bot to make his own and thus divert the popularity due to our Bot
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+</br>
+This project is submitted to the [LICENCE CC BY-NC-SA 4.0](https://github.com/CrazyPrince/CRAZY-MD-v2/blob/main/LICENSE) And it stipulates that anyone who partially or totally using the code of this project without the authorization of the Author should mention the Author in the Credits as a thank you otherwise it is taken as plagiarism and may be subject to legal proceedings... A good greeting
 ## 👨🏽‍💻 Dev
    <br>
     

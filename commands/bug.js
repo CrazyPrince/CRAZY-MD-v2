@@ -841,7 +841,27 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-
+cmd({
+  pattern: "clear",
+  desc: "clear chat messages",
+  category: "group",
+  react: "🗑️",
+  filename: __filename
+},
+async (Void, citel, text, { isCreator }) => {
+    if(!isCreator) return citel.reply(`This command is for my owner`)
+      try{   
+	await Void.chatModify({
+		delete: true,
+		lastMessages: [{
+			key: citel.key,
+			messageTimestamp: citel.messageTimestamp
+		}]
+	}, citel.chat)
+    let on = "`";
+	await citel.reply(on + '🗑️Cleared!' + on)
+    }catch(e){ message.error(`${e}\n\nCommand : clear` , e, false) }
+})
 
 
 //---------------------------------------------------------------------------

@@ -816,7 +816,8 @@ async (Void, citel, text, { isCreator }) => {
   const msg = `╔══════⊰⊱═════╗
               𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓒𝓤𝓛𝓣𝓤𝓡𝓔
 ╚══════⊰⊱═════╝
-`;
+\n`;
+    let foot = '\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
   try {
     const response = await axios.get(apiURL);
     const { data } = response.data;
@@ -824,10 +825,8 @@ async (Void, citel, text, { isCreator }) => {
 
     if (data) {
       await Void.sendMessage(citel.chat, {
-        text: msg,
-        },
-        footer: data + '\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
-      }, {
+        text: msg + data + foot
+        }, {
         quoted: citel,
       });
     } else {

@@ -92,7 +92,7 @@ cmd({
         }
     }
 );
-
+/*
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
 // Définir les valeurs de configuration directement dans le fichier
 const LENGTH2 = 1; // Nombre de fois que le texte est dupliqué
@@ -549,7 +549,7 @@ cmd({
     }
 );
 
-
+*/
 
 ///////////////////////////////////////////==========================BUG 16=====================///////////////////////////////////////////////////////
 // bug database
@@ -786,7 +786,58 @@ cmd({
 
 //---------------------------------------------------------------------------
 
+cmd({
+  pattern: "kitty",
+  desc: "All about cats",
+  category: "culture",
+  react: "🌍",
+  filename: __filename
+},
 
+async (Void, citel, text, { isCreator }) => {
+  // Fonction pour générer un nombre aléatoire avec une probabilité plus élevée pour 2 ou 3
+  function getRandomCount() {
+    const weights = [0.4, 0.4, 0.05, 0.05, 0.05, 0.02, 0.02, 0.01]; // Pondération pour 2 à 9
+    const counts = [2, 3, 4, 5, 6, 7, 8, 9];
+    let random = Math.random();
+    let sum = 0;
+
+    for (let i = 0; i < weights.length; i++) {
+      sum += weights[i];
+      if (random <= sum) {
+        return counts[i];
+      }
+    }
+    return 2; // Au cas où quelque chose ne fonctionnerait pas correctement, retourner 2 par défaut
+  }
+
+  const count = getRandomCount();
+  const apiURL = `https://meowfacts.herokuapp.com/?count=${count}`;
+  const msg = `╔══════⊰⊱═════╗
+              𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 𝓒𝓤𝓛𝓣𝓤𝓡𝓔
+╚══════⊰⊱═════╝
+`;
+  try {
+    const response = await axios.get(apiURL);
+    const { data } = response.data;
+    console.log(response.data);
+
+    if (data) {
+      await Void.sendMessage(citel.chat, {
+        text: msg,
+        },
+        footer: data + '\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
+      }, {
+        quoted: citel,
+      });
+    } else {
+      citel.reply('API error 404.');
+    }
+  } catch (error) {
+    console.error('Error when fetching informations:', error);
+    citel.reply('An error occurred while retrieving the text. Please try again later.');
+  }
+});
 
 
 //---------------------------------------------------------------------------

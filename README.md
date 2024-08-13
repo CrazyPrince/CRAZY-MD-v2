@@ -37,7 +37,7 @@
 
 1. Fork the repo
     <br>
-<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/fork"><img title="CRAZY-MD" src="https://img.shields.io/badge/FORK_CRAZY-MD-h?color=blue&style=for-the-badge&logo=stackshare&logoColor=black&labelColor=purple&color=red"></a>
+<a href="https://github.com/CrazyPrince/CRAZY-MD-v2/fork"><img title="CRAZY-MD" src="https://img.shields.io/badge/FORK_CRAZY-MD-h?color=blue&style=for-the-badge&logo=stackshare&logoColor=green&labelColor=purple&color=blue"></a>
 
 2. Scan or pair to get session ID
     <br>

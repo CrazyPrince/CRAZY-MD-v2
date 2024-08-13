@@ -112,10 +112,12 @@
 [![tg](https://img.shields.io/badge/CrazyMdChat-0A66C2?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/crazymdChat)
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 </br>
+https://github.com/Kgtech-cmr/KERM_MD-V2
+This project is submitted to the [LICENCE CC BY-NC-SA 4.0](https://github.com/A-d-i-t-h-y-a-n/hermit-md/wiki/DATABASE_URL) And it stipulates that anyone who partially or totally using the code of this project without the authorization of the Author should mention the Author in the Credits as a thank you otherwise it is taken as plagiarism and may be subject to legal proceedings... A good greeting
 ## 👨🏽‍💻 Dev
    <br>
     
 <img src="https://avatars.githubusercontent.com/u/86961470?s=400&u=ff8e0ed7361e9f7a80b241aaa85fd4a600023421?v=3&s=144" alt="Crazy Prince" width="100" height="100">
 <br>
     
-[Crazy Prince](https://github.com/CrazyPrince)
+[Crazy Prince](https://github.com/CrazyPrince) •All rigths reserved 2024•

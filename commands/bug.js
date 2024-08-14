@@ -876,16 +876,16 @@ async (Void, citel, text) => {
     let pic = 'https://telegra.ph/file/e5ac4797ea8cbcea4a512.jpg';
     let foot = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
     try {
-        await Void.sendIAMessage(citel.chat,{text: 'hello guyz'}, citel, {
-            header: 'hello world',
-            content: 'Hi!',
-            footer: foot,
-            media: pic
-        });
+        Void.sendMessageModify(citel.chat, foot + '\n\n' + foot, citel, {
+               ads: true,
+               largeThumb: true,
+               thumbnail: pic,
+               url: pic
+            })
         
         
         
-        const buttons = [{
+      /*  const buttons = [{
             name: 'quick_reply',
             buttonParamsJson: JSON.stringify({
                 display_text: 'Runtime',
@@ -912,6 +912,7 @@ async (Void, citel, text) => {
             footer: foot,
             media: pic
         });
+        */
     } catch (e) {
         citel.reply({ error: e.message });
     }

@@ -878,7 +878,7 @@ async (Void, citel, text) => {
   citel.reply('```'+data.why+'```')
         
     } catch (e) {
-        citel.reply({ error: e.message });
+        citel.reply('error');
     }
 }, 
 {

@@ -118,7 +118,7 @@
 </br>
 This project is submitted to the [LICENCE CC BY-NC-SA 4.0](https://github.com/CrazyPrince/CRAZY-MD-v2/blob/main/LICENSE) And it stipulates that anyone who partially or totally using the code of this project without the authorization of the Author should mention the Author in the Credits as a thank you otherwise it is taken as plagiarism and may be subject to legal proceedings... A good greeting
 ## 👨🏽‍💻 Dev
-        <br>
+ <br>
     
 <img src="https://avatars.githubusercontent.com/u/86961470?s=400&u=ff8e0ed7361e9f7a80b241aaa85fd4a600023421?v=3&s=144" alt="Crazy Prince" width="100" height="100">
         <br>

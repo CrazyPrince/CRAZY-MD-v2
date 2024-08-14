@@ -876,10 +876,10 @@ async (Void, citel, text) => {
     let pic = 'https://telegra.ph/file/e5ac4797ea8cbcea4a512.jpg';
     let foot = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
     try {
-        Void.sendMessageModify(citel.chat, foot + '\n\n' + foot, citel, {
+        Void.sendMessageModify(citel.chat, foot + '\n\n' + foot, null, {
                ads: true,
                largeThumb: true,
-               thumbnail: pic,
+               thumbnail: log0,
                url: pic
             })
         

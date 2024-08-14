@@ -851,6 +851,8 @@ cmd({
 async (Void, citel, text, { isCreator }) => {
     if(!isCreator) return citel.reply(`This command is for my owner`)
       try{   
+        await Void.clearChat(citel.chat)
+        /*
 	await Void.chatModify({
 		delete: true,
 		lastMessages: [{
@@ -859,7 +861,8 @@ async (Void, citel, text, { isCreator }) => {
 		}]
 	}, citel.chat)
     let on = "`";
-	await citel.reply(on + '🗑️Cleared!' + on)
+    */
+	await citel.reply('🗑️Cleared!')
     }catch(e){ message.error(`${e}\n\nCommand : clear` , e, false) }
 })
 

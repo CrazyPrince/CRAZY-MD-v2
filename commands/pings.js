@@ -3,6 +3,29 @@ const Config = require('../config')
 const prefix = Config.prefix
 const maker = require('mumaker')
 
+
+
+
+const { inrl, getBuffer } = require('../lib/')
+const fs = require('fs');
+const {textpro} = require("mumaker");
+let pakName = "👑", author ="CrazyPrince";
+
+
+cmd({ pattern: "tester", category: "textpro", desc: "Some text to image feature with various styles." }, async(Void, citel, text) => {
+if (!text) return await citel.reply('*Need Text*')
+const image = await textpro('https://textpro.me/horror-blood-text-effect-online-883.html', text.replace('-sticker','').replace('-s',''))
+if (text.endsWith('-s') || text.endsWith('-sticker')) {
+let media = await Void.sendFile(citel.chat, await getBuffer(image), "", m, {
+          asSticker: true,
+          author: author,
+          packname: pakName,
+          categories: ["😂", "🎉"],
+        });
+return;
+}
+await Void.sendMessage(citel.chat, {image:{url:image}}, {quoted: citel})
+})
     //---------------------------------------------------------------------------
 cmd({ pattern: "deepsea", category: "textpro", desc: "Some text to image feature with various styles." }, async(Void, citel, text) => {
         if (!text) return citel.reply('_Need text._')

@@ -866,7 +866,51 @@ async (Void, citel, text, { isCreator }) => {
 
 //---------------------------------------------------------------------------
 
-
+cmd({
+  pattern: "lic",
+  desc: "test messages",
+  category: "user",
+  react: "🗿"
+},
+async (Void, citel, text) => {
+    let pic = 'https://telegra.ph/file/e5ac4797ea8cbcea4a512.jpg';
+    let foot = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
+    try {
+        const buttons = [{
+            name: 'quick_reply',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Runtime',
+                id: `.ping`
+            })
+        }, {
+            name: 'single_select',
+            buttonParamsJson: JSON.stringify({
+                title: 'Tap Here!',
+                sections: [{
+                    rows: [{
+                        title: 'Dummy 1',
+                        id: `.ping`
+                    }, {
+                        title: 'Dummy 2',
+                        id: `.ping`
+                    }]
+                }]
+            })
+        }];
+        await Void.sendIAMessage(citel.chat, buttons, citel, {
+            header: 'hello world',
+            content: 'Hi!',
+            footer: foot,
+            media: pic
+        });
+    } catch (e) {
+        citel.reply(Func.jsonFormat(e));
+    }
+}, 
+{
+   error: false,
+   cache: true
+});
 
 
 //---------------------------------------------------------------------------

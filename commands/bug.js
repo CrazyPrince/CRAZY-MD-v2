@@ -904,7 +904,7 @@ async (Void, citel, text) => {
             media: pic
         });
     } catch (e) {
-        citel.reply(error: err(e));
+        citel.reply({ error: e.message });
     }
 }, 
 {

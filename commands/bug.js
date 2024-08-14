@@ -876,6 +876,15 @@ async (Void, citel, text) => {
     let pic = 'https://telegra.ph/file/e5ac4797ea8cbcea4a512.jpg';
     let foot = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
     try {
+        await Void.sendIAMessage(citel.chat,{text: 'hello guyz'}, citel, {
+            header: 'hello world',
+            content: 'Hi!',
+            footer: foot,
+            media: pic
+        });
+        
+        
+        
         const buttons = [{
             name: 'quick_reply',
             buttonParamsJson: JSON.stringify({

@@ -1,4 +1,4 @@
-const { tlang,cmd } = require('../lib')
+const { tlang, cmd, getBuffer} = require('../lib')
 const Config = require('../config')
 const prefix = Config.prefix
 const maker = require('mumaker')
@@ -6,7 +6,7 @@ const maker = require('mumaker')
 
 
 
-const { inrl, getBuffer } = require('../lib/')
+
 const fs = require('fs');
 const {textpro} = require("mumaker");
 let pakName = "👑", author ="CrazyPrince";

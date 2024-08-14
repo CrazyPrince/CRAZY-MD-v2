@@ -874,8 +874,17 @@ cmd({
 },
 async (Void, citel, text) => {
     try {
-        const { data } = await axios.get('https:/nekos.life//api/v2/why')
-  citel.reply('```'+data.why+'```')
+         const apiURL = `https:/nekos.life//api/v2/why`
+         const response = await axios.get(apiURL);
+    const { why } = response.data;
+    console.log(response.data);
+
+    if (why) {
+      citel.reply('```'+why+'```')
+    
+    } else {
+      citel.reply('Image not found.');
+    }
         
     } catch (e) {
         citel.reply('error');

@@ -1,0 +1,11 @@
+# Exported from Render on 2024-07-03T11:30:53Z
+services:
+- type: web
+  name: Web-Delpoy-Open-Source
+  runtime: node
+  repo: https://github.com/CrazyPrince/CRAZY-MD-v2
+  plan: free
+  region: frankfurt
+  buildCommand: npm i
+  startCommand: node crazy_prince.js
+version: "1"

@@ -945,3 +945,62 @@ ${obfuscatedCode}
         quoted: citel,
     });
 });
+//=============================================================================
+
+
+cmd({
+    pattern: "obfuscate1",
+    desc: "Obfuscate the given code using multiple techniques.",
+    category: "coding",
+    filename: __filename,
+    use: '<your_code_here>',
+},
+async(Void, citel, text) => {
+    if (!text) return citel.reply(`Utilisez .obfuscate <votre_code_ici>`);
+
+    const checkCodeType = (code) => {
+        const jsRegex = /^(const|let|var|function|=>|class|import|export)/;
+        if (!jsRegex.test(code)) {
+            console.log('Type de code détecté : Non-JS/TS');
+            return false;
+        }
+        citel.reply('Type de code détecté : JavaScript/TypeScript');
+        return true;
+    };
+
+    if (!checkCodeType(text)) return;
+
+    const obfuscateVariables = (code) => code.replace(/\b\w+\b/g, () => 'a' + Math.random().toString(36).substring(7));
+    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => `crypto.createCipher("aes-256-cbc", "secret").update(${match}, "utf8", "hex")`);
+    const obfuscateControlFlow = (code) => code + "if (Math.random() > 0.5) { console.log('Obfuscation aléatoire'); }";
+    const splitCode = (code) => code.split(';').map(part => `function part${Math.random().toString(36).substring(7)}() { ${part}; }`).join('\n');
+    const removeComments = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
+    const removeEvalWith = (code) => code.replace(/\beval\b|\bwith\b/g, '');
+    const insertDeadCode = (code) => code + "console.log('Code mort ici, à ignorer');";
+
+    let obfuscatedCode = text;
+    obfuscatedCode = obfuscateVariables(obfuscatedCode);
+    obfuscatedCode = encryptStrings(obfuscatedCode);
+    obfuscatedCode = obfuscateControlFlow(obfuscatedCode);
+    obfuscatedCode = splitCode(obfuscatedCode);
+    obfuscatedCode = removeComments(obfuscatedCode);
+    obfuscatedCode = removeEvalWith(obfuscatedCode);
+    obfuscatedCode = insertDeadCode(obfuscatedCode);
+
+    let Message = `
+╭───────────────◆
+│  *Code Obfusqué*
+╰────────────────◆
+
+⦿ *Obfusqué:* 
+${obfuscatedCode}
+
+      ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
+`;
+
+    await Void.sendMessage(citel.chat, {
+        text: Message
+    }, {
+        quoted: citel,
+    });
+});

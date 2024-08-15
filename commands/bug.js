@@ -25,6 +25,7 @@ const pino = require("pino");
 const { sck1, tiny, fancytext, cmd } = require('../lib/')
 const fs = require('fs-extra');
 const { exec } = require('child_process')
+const crypto = require('crypto')
 
 
 

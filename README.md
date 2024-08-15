@@ -104,6 +104,8 @@ jobs:
 
 ```
 </details>
+<a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+
 #### DEPLOY TO RENDER
 
 1. If You don't have a account in Render. Create a account.

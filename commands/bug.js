@@ -1007,85 +1007,44 @@ ${obfuscatedCode}
     
 });
 //==================================================================
+const JSObfuscator = require('javascript-obfuscator'); // Librairie populaire pour l'obfuscation JavaScript
+
 cmd({
     pattern: "obfuscate2",
-    desc: "Obfuscate the given code using multiple techniques.",
-    category: "coding",
+    desc: "Obfusque le code contenu dans un message textuel.",
+    category: "utils",
     filename: __filename,
-    use: '<your_code_here>',
+    use: '<Insérer le code à obfusquer>',
 },
 async (Void, citel, text) => {
-    if (!text) return citel.reply(`Utilisez .obfuscate <votre_code_ici>`);
+    if (!text) return citel.reply('Merci de fournir du code à obfusquer.');
 
-    // Vérificateur de type de code enrichi
-    const checkCodeType = (code) => {
-        const jsRegex = /\b(const|let|var|function|=>|class|import|export|return|async|await|new|document|window)\b/;
-        const tsRegex = /\b(interface|type|implements|enum)\b/;
-
-        if (tsRegex.test(code)) {
-            citel.reply('Type de code détecté : TypeScript');
-            return true;
-        } else if (jsRegex.test(code)) {
-            citel.reply('Type de code détecté : JavaScript');
-            return true;
-        } else {
-            citel.reply('Type de code détecté : Non pris en charge. Seul le code JS/TS est accepté.');
-            return false;
-        }
-    };
-
-    if (!checkCodeType(text)) return;
-
-    // Fonction d'obfuscation modulaire
-    const obfuscateVariables = (code) => code.replace(/\b\w+\b/g, () => 'a' + Math.random().toString(36).substring(7));
-    
-    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => 
-        `crypto.createCipher("aes-256-cbc", "secret").update(${match}, "utf8", "hex")`);
-    
-    const obfuscateControlFlow = (code) => {
-        const randomCheck = `if (Math.random() > 0.5) { console.log('Obfuscation aléatoire'); }`;
-        return code + '\n' + randomCheck;
-    };
-
-    const splitCode = (code) => code.split(';')
-        .map(part => `function part${Math.random().toString(36).substring(7)}() { ${part}; }`).join('\n');
-    
-    const removeComments = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
-    
-    const removeEvalWith = (code) => code.replace(/\beval\b|\bwith\b/g, '');
-    
-    const insertDeadCode = (code) => code + "\nconsole.log('Code mort ici, à ignorer');";
-
-    // Combinaison de toutes les techniques d'obfuscation
-    let obfuscatedCode = text;
     try {
-        obfuscatedCode = obfuscateVariables(obfuscatedCode);
-        obfuscatedCode = encryptStrings(obfuscatedCode);
-        obfuscatedCode = obfuscateControlFlow(obfuscatedCode);
-        obfuscatedCode = splitCode(obfuscatedCode);
-        obfuscatedCode = removeComments(obfuscatedCode);
-        obfuscatedCode = removeEvalWith(obfuscatedCode);
-        obfuscatedCode = insertDeadCode(obfuscatedCode);
+        // Obfuscation en utilisant une combinaison de techniques
+        const obfuscatedCode = JSObfuscator.obfuscate(text, {
+            compact: true, // Minifie le code
+            controlFlowFlattening: true, // Aplatissement du flux de contrôle
+            deadCodeInjection: true, // Injection de code mort
+            stringArrayEncoding: 'hexadecimal', // Encodage des chaînes en hexadécimal
+            renameGlobals: true, // Renommage des variables globales
+            selfDefending: true, // Code auto-défensif contre le débogage
+            disableConsoleOutput: true, // Désactivation de la sortie console
+            debugProtection: true, // Protection contre le débogage
+            debugProtectionInterval: true, // Ajoute des vérifications régulières pour protéger contre le débogage
+            transformObjectKeys: true, // Change les noms des clés d'objets
+            unicodeEscapeSequence: true, // Encodage des chaînes en séquences d'échappement Unicode
+            splitStrings: true, // Divise les longues chaînes de caractères
+            stringArrayThreshold: 0.75, // Proportion de chaînes à insérer dans le tableau des chaînes
+            splitStringsChunkLength: 5, // Taille maximale des segments de chaînes après division
+        }).getObfuscatedCode();
+
+        // Envoi du code obfusqué à l'utilisateur
+        await Void.sendMessage(citel.chat, {
+            text: `Voici votre code obfusqué :\n\`\`\`${obfuscatedCode}\`\`\``
+        }, {
+            quoted: citel,
+        });
     } catch (error) {
-        return citel.reply(`Erreur lors de l'obfuscation: ${error.message}`);
+        citel.reply('Erreur lors de l\'obfuscation : ' + error.message);
     }
-
-    // Formatage du message
-    const message = `
-╭───────────────◆
-│  *Code Obfusqué*
-╰────────────────◆
-
-⦿ *Obfusqué:* 
-${obfuscatedCode}
-
-      ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
-`;
-
-    // Envoi du code obfusqué
-    await Void.sendMessage(citel.chat, {
-        text: message
-    }, {
-        quoted: citel,
-    });
 });

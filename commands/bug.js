@@ -901,124 +901,24 @@ async (Void, citel, text) => {
 
 
 //---------------------------------------------------------------------------
-cmd({
-    pattern: "obfuscate",
-    desc: "Obfuscate the given code using multiple techniques.",
-    category: "coding",
-    filename: __filename,
-    use: '<your_code_here>',
-},
-async(Void, citel, text) => {
-    if (!text) return citel.reply(`Use .obfuscate <your_code_here>`);
 
-    const obfuscateVariables = (code) => code.replace(/\b\w+\b/g, () => 'a' + Math.random().toString(36).substring(7));
-    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => `'crypto.createCipher("aes-256-cbc", "secret").update(${match}, "utf8", "hex")'`);
-    const obfuscateControlFlow = (code) => code + "if (Math.random() > 0.5) { console.log('Random obfuscation'); }";
-    const splitCode = (code) => code.split(';').map(part => `function part${Math.random().toString(36).substring(7)}() { ${part}; }`).join('\n');
-    const removeComments = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
-    const removeEvalWith = (code) => code.replace(/\beval\b|\bwith\b/g, '');
-    const insertDeadCode = (code) => code + "console.log('Dead code here, ignore this');";
 
-    let obfuscatedCode = text;
-    obfuscatedCode = obfuscateVariables(obfuscatedCode);
-    obfuscatedCode = encryptStrings(obfuscatedCode);
-    obfuscatedCode = obfuscateControlFlow(obfuscatedCode);
-    obfuscatedCode = splitCode(obfuscatedCode);
-    obfuscatedCode = removeComments(obfuscatedCode);
-    obfuscatedCode = removeEvalWith(obfuscatedCode);
-    obfuscatedCode = insertDeadCode(obfuscatedCode);
-
-    let Message = `
-╭───────────────◆
-│  *Obfuscated Code*
-╰────────────────◆
-
-⦿ *Obfuscated:* 
-${obfuscatedCode}
-
-      ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
-`;
-
-    await Void.sendMessage(citel.chat, {
-        text: Message
-    }, {
-        quoted: citel,
-    });
-});
 //=============================================================================
 
-
-cmd({
-    pattern: "obfuscate1",
-    desc: "Obfuscate the given code using multiple techniques.",
-    category: "coding",
-    filename: __filename,
-    use: '<your_code_here>',
-},
-async(Void, citel, text) => {
-    if (!text) return citel.reply(`Utilisez .obfuscate <votre_code_ici>`);
-
-    const checkCodeType = (code) => {
-        const jsRegex = /\b(const|let|var|function|=>|class|import|export|return|async|await|new|document|window)\b/;
-        if (!jsRegex.test(code)) {
-            console.log('Type de code détecté : Non-JS/TS');
-            return false;
-        }
-        citel.reply('Type de code détecté : JavaScript/TypeScript');
-        return true;
-    };
-
-    if (!checkCodeType(text)) return;
-
-    const obfuscateVariables = (code) => code.replace(/\b\w+\b/g, () => 'a' + Math.random().toString(36).substring(7));
-    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => `crypto.createCipher("aes-256-cbc", "secret").update(${match}, "utf8", "hex")`);
-    const obfuscateControlFlow = (code) => code + "if (Math.random() > 0.5) { console.log('Obfuscation aléatoire'); }";
-    const splitCode = (code) => code.split(';').map(part => `function part${Math.random().toString(36).substring(7)}() { ${part}; }`).join('\n');
-    const removeComments = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
-    const removeEvalWith = (code) => code.replace(/\beval\b|\bwith\b/g, '');
-    const insertDeadCode = (code) => code + "console.log('Code mort ici, à ignorer');";
-
-    let obfuscatedCode = text;
-    obfuscatedCode = obfuscateVariables(obfuscatedCode);
-    obfuscatedCode = encryptStrings(obfuscatedCode);
-    obfuscatedCode = obfuscateControlFlow(obfuscatedCode);
-    obfuscatedCode = splitCode(obfuscatedCode);
-    obfuscatedCode = removeComments(obfuscatedCode);
-    obfuscatedCode = removeEvalWith(obfuscatedCode);
-    obfuscatedCode = insertDeadCode(obfuscatedCode);
-
-    let Message = `
-╭───────────────◆
-│  *Code Obfusqué*
-╰────────────────◆
-
-⦿ *Obfusqué:* 
-${obfuscatedCode}
-
-      ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
-`;
-
-    await Void.sendMessage(citel.chat, {
-        text: Message
-    }, {
-        quoted: citel,
-    });
-    
-    
-});
 //==================================================================
 const JSObfuscator = require('javascript-obfuscator'); // Librairie populaire pour l'obfuscation JavaScript
 
 
 cmd({
-    pattern: "obfuscate2",
+    pattern: "obfuscate",
     desc: "Obfusque le code contenu dans un message textuel.",
     category: "utils",
     filename: __filename,
-    use: '<Insérer le code à obfusquer>',
+    use: '<your js code>',
+    react: "🖨️"
 },
 async (Void, citel, text) => {
-    if (!text) return citel.reply('Merci de fournir du code à obfusquer.');
+    if (!text) return citel.reply('enter a js code like this .obfuscate <your js code> .');
 
     try {
         // Le code que vous essayez d'obfusquer
@@ -1043,7 +943,18 @@ async (Void, citel, text) => {
 
         // Envoi du code obfusqué à l'utilisateur
         await Void.sendMessage(citel.chat, {
-            text: `Voici votre code obfusqué :\n\`\`\`${obfuscatedCode}\`\`\``
+            text: `╔══════⊰⊱══════╗
+                   𝓒𝓡𝓐𝓩𝓨 𝓜𝓓 
+           𝓙𝓢 𝓞𝓑𝓕𝓤𝓢𝓒𝓐𝓣𝓞𝓡
+╚══════⊰⊱══════╝
+
+
+           ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷`
+        }, {
+            quoted: citel,
+        });
+        await Void.sendMessage(citel.chat, {
+            text: `\`\`\` \n${obfuscatedCode}\n\`\`\``
         }, {
             quoted: citel,
         });

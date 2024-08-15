@@ -948,11 +948,13 @@ async(Void, citel, text) => {
 
 ⦿ *Obfuscated:* 
 ${obfuscatedCode}
+
+
+      ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
 `;
-        let footer = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
 
     await Void.sendMessage(citel.chat, {
-        text: '${Message}\n\n${footer}'
+        text: Message
         }, {
         quoted: citel,
       });

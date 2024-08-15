@@ -941,18 +941,19 @@ async(Void, citel, text) => {
     obfuscatedCode = removeEvalWith(obfuscatedCode);
     obfuscatedCode = insertDeadCode(obfuscatedCode);
 
-    let buttonMessage = {
-        caption: `
+    let Message = `
 ╭───────────────◆
 │  *Obfuscated Code*
 ╰────────────────◆
 
 ⦿ *Obfuscated:* 
 ${obfuscatedCode}
-`,
-        footer: 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷',
-        headerType: 1,
-    };
+`;
+        let footer = 'ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷';
 
-    return Void.sendMessage(citel.chat, buttonMessage, { quoted: citel });
+    await Void.sendMessage(citel.chat, {
+        text: '${Message}\n\n${footer}'
+        }, {
+        quoted: citel,
+      });
 });

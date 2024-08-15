@@ -1009,7 +1009,6 @@ ${obfuscatedCode}
 //==================================================================
 const JSObfuscator = require('javascript-obfuscator'); // Librairie populaire pour l'obfuscation JavaScript
 
-const JSObfuscator = require('javascript-obfuscator');
 
 cmd({
     pattern: "obfuscate2",

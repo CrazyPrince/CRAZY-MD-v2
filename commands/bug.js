@@ -904,35 +904,21 @@ async (Void, citel, text) => {
 cmd({
     pattern: "obfuscate",
     desc: "Obfuscate the given code using multiple techniques.",
-    category: "utility",
+    category: "coding",
     filename: __filename,
     use: '<your_code_here>',
 },
 async(Void, citel, text) => {
     if (!text) return citel.reply(`Use .obfuscate <your_code_here>`);
 
-    // Obfuscation des variables
     const obfuscateVariables = (code) => code.replace(/\b\w+\b/g, () => 'a' + Math.random().toString(36).substring(7));
-
-    // Chiffrement des chaînes
-    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => `crypto.createCipher('aes-256-cbc', 'secret').update(${match}, 'utf8', 'hex')`);
-
-    // Obfuscation du flux de contrôle
-    const obfuscateControlFlow = (code) => code + "\nif (Math.random() > 0.5) { console.log('Random obfuscation'); }";
-
-    // Partage du code
+    const encryptStrings = (code) => code.replace(/(["'`])(?:(?=(\\?))\2.)*?\1/g, (match) => `'crypto.createCipher("aes-256-cbc", "secret").update(${match}, "utf8", "hex")'`);
+    const obfuscateControlFlow = (code) => code + "if (Math.random() > 0.5) { console.log('Random obfuscation'); }";
     const splitCode = (code) => code.split(';').map(part => `function part${Math.random().toString(36).substring(7)}() { ${part}; }`).join('\n');
-
-    // Suppression des commentaires
     const removeComments = (code) => code.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '');
-
-    // Suppression de eval et with
     const removeEvalWith = (code) => code.replace(/\beval\b|\bwith\b/g, '');
+    const insertDeadCode = (code) => code + "console.log('Dead code here, ignore this');";
 
-    // Insertion de code mort
-    const insertDeadCode = (code) => code + "\nconsole.log('Dead code here, ignore this');";
-
-    // Appliquer toutes les techniques d'obfuscation
     let obfuscatedCode = text;
     obfuscatedCode = obfuscateVariables(obfuscatedCode);
     obfuscatedCode = encryptStrings(obfuscatedCode);
@@ -950,13 +936,12 @@ async(Void, citel, text) => {
 ⦿ *Obfuscated:* 
 ${obfuscatedCode}
 
-
       ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʀᴀᴢʏ-ᴍᴅ²³⁷
 `;
 
     await Void.sendMessage(citel.chat, {
         text: Message
-        }, {
+    }, {
         quoted: citel,
-      });
+    });
 });

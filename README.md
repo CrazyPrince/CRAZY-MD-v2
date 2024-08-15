@@ -63,6 +63,47 @@
 ```
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
+<details close>
+<summary>DEPLOY TO GITHUB WORKFLOWS</summary>
+
+**Create new file [`.github/workflows/deploye.yml`] After created, copy this and paste it there.**
+```yml
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: npm start
+
+```
+</details>
 #### DEPLOY TO RENDER
 
 1. If You don't have a account in Render. Create a account.

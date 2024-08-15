@@ -1009,6 +1009,8 @@ ${obfuscatedCode}
 //==================================================================
 const JSObfuscator = require('javascript-obfuscator'); // Librairie populaire pour l'obfuscation JavaScript
 
+const JSObfuscator = require('javascript-obfuscator');
+
 cmd({
     pattern: "obfuscate2",
     desc: "Obfusque le code contenu dans un message textuel.",
@@ -1020,17 +1022,19 @@ async (Void, citel, text) => {
     if (!text) return citel.reply('Merci de fournir du code à obfusquer.');
 
     try {
+        // Le code que vous essayez d'obfusquer
+        const codeToObfuscate = text;
+
         // Obfuscation en utilisant une combinaison de techniques
-        const obfuscatedCode = JSObfuscator.obfuscate(text, {
+        const obfuscatedCode = JSObfuscator.obfuscate(codeToObfuscate, {
             compact: true, // Minifie le code
             controlFlowFlattening: true, // Aplatissement du flux de contrôle
             deadCodeInjection: true, // Injection de code mort
-            stringArrayEncoding: 'hexadecimal', // Encodage des chaînes en hexadécimal
+            stringArrayEncoding: ['base64'], // Encodage des chaînes en base64
             renameGlobals: true, // Renommage des variables globales
             selfDefending: true, // Code auto-défensif contre le débogage
             disableConsoleOutput: true, // Désactivation de la sortie console
             debugProtection: true, // Protection contre le débogage
-            debugProtectionInterval: true, // Ajoute des vérifications régulières pour protéger contre le débogage
             transformObjectKeys: true, // Change les noms des clés d'objets
             unicodeEscapeSequence: true, // Encodage des chaînes en séquences d'échappement Unicode
             splitStrings: true, // Divise les longues chaînes de caractères

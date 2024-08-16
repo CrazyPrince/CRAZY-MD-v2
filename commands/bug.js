@@ -864,12 +864,13 @@ async (Void, citel, text, { isCreator }) => {
 	}, citel.chat)
     let on = "`";
     */
-/*    await Void.chatModify(
-  { clear: { messages: [{ id: 'ATWYHDNNWU81732J', fromMe: true, timestamp: "1654823909" }] } }, 
-  citel.chat, 
-  []
-  )
-*/
+const lastMsgInChat = await getLastMessageInChat(citel.chat) // implement this on your end
+await Void.chatModify({
+  delete: false,
+  lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
+},
+citel.chat)
+
 	await citel.reply('🗑️Cleared!')
     }catch(e){ message.error(`${e}\n\nCommand : clear` , e, false) }
 })

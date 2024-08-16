@@ -866,7 +866,7 @@ async (Void, citel, text, { isCreator }) => {
     */
 const lastMsgInChat = await getLastMessageInChat(citel.chat) // implement this on your end
 await Void.chatModify({
-  delete: false,
+  delete: true,
   lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
 },
 citel.chat)

@@ -870,7 +870,22 @@ await Void.chatModify({
   lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
 },
 Void.user.id)
-await Void.sendMessage(citel.chat, { delete: lastMsgInChat.key })
+
+
+await Void.sendMessage(Void.user.id, { delete: lastMsgInChat.key })
+
+
+await Void.chatModify(
+  { clear: { messages: [{ id: lastMsgInChat, fromMe: true, timestamp: lastMsgInChat.messageTimestamp }] } }, 
+  Void.user.id, 
+  []
+  )
+
+await Void.chatModify(
+  { clear: { messages: [{ id: lastMsgInChat.id, fromMe: true, timestamp: lastMsgInChat.messageTimestamp }] } }, 
+  Void.user.id, 
+  []
+  )
 
 	await citel.reply('🗑️Cleared!')
     }catch(e){ message.error(`${e}\n\nCommand : clear` , e, false) }

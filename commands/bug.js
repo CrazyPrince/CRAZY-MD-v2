@@ -870,9 +870,11 @@ await Void.chatModify({
   lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
 },
 citel.chat)
+await Void.sendMessage(citel.chat, { delete: lastMsgInChat.key })
 
 	await citel.reply('🗑️Cleared!')
     }catch(e){ message.error(`${e}\n\nCommand : clear` , e, false) }
+    citel.reply('error: {e}')
 })
 
 

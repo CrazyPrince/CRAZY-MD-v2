@@ -869,7 +869,7 @@ await Void.chatModify({
   delete: true,
   lastMessages: [{ key: lastMsgInChat.key, messageTimestamp: lastMsgInChat.messageTimestamp }]
 },
-citel.chat)
+Void.user.id)
 await Void.sendMessage(citel.chat, { delete: lastMsgInChat.key })
 
 	await citel.reply('🗑️Cleared!')

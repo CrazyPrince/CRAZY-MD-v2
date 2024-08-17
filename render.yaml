@@ -1,7 +1,7 @@
 # Exported from Render on 2024-07-03T11:30:53Z
 services:
 - type: web
-  name: Web-Delpoy-Open-Source
+  name: CRAZY-MD-v2
   runtime: node
   repo: https://github.com/CrazyPrince/CRAZY-MD-v2
   plan: free

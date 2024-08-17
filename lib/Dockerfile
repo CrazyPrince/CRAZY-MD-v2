@@ -8,7 +8,8 @@ RUN apt-get update && \
   npm install -g pm2 && \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
+RUN git clone https://github.com/CrazyPrince/CRAZY-MD-v2  /root/CrazyMd
+WORKDIR /root/CrazyMd/
 
 COPY package.json .
 RUN npm install --legacy-peer-deps

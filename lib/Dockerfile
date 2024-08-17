@@ -18,6 +18,6 @@ RUN npm install -g npm@10.2.4
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
 CMD ["pm2-runtime", "start", "lib/lib/client.js", "--deep-monitoring", "--name", "crazy", "--max-memory-restart", "490M"]

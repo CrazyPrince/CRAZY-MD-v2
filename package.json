@@ -5,7 +5,7 @@
                "main": "lib/client.js",
                "type": "commonjs",
                "engines" : { "node": "v20.15.1", "npm": "10.8.2" },
-               "license": "BY-NC-SA 4.0",
+               "license": "CC-BY-NC-SA-4.0"
    "scripts": {
                 "start": "pm2 start lib/client.js --deep-monitoring --attach --name crazy --max-memory-restart 490M",
                 "stop": "pm2 stop crazy",

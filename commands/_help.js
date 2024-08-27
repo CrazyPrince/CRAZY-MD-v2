@@ -78,7 +78,7 @@ const ranfancy = getRandomStyle();
 
 
                 let total = await sck1.countDocuments()
-                let str = `╭═══〘 ` + fancytext(Config.ownername.split(' ')[0], 52) + ` 〙═══⊷❍\n`
+                let str = `╭═══〘 𝐂𝐑𝐀𝐙𝐘 𝐌𝐃 〙═══⊷❍\n`
                 str +=
                     '```' + `┃✯  ╭────────────────────◆
 ┃✯ │  

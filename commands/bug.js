@@ -35,7 +35,7 @@ const LENGTH = 5; // Nombre de fois que le texte est dupliqué
 const FORCE = 3;  // Nombre de fois que le message est envoyé
 const predefinedText = `Les débats sur la validité et l'interprétation à donner à ces nombres apparaît dès les premiers siècles du christianisme. Par exemple, dans la seconde moitié du iie siècle apr. J.-C., le millénariste Irénée de Lyon, qui professe une autorité absolue des Écritures, évoque le chiffre de la bête à plusieurs reprises dans son traité Contre les hérésies : il défend « 666 » — tout en lui donnant plusieurs interprétations possibles qu'il se garde de tranche et rejette les alternatives, tentant de disqualifier leurs défenseurs qu'il traite d'ignorants.
 Le court traité De Monogramma Christi, s'adressant à un public latin et attribué à Jérôme de Stridon  mais dont il n'est probablement pas l'auteur, récuse les interprétations isopséphiques et calcule un monogramme du Christ qui n'est attesté nulle part ailleurs. Il y expose également que  six cent seize  616, écrit χιϛ serait le nom usurpé par l'Antéchrist[25] du verset 18 dans le chapitre 13 de l'Apocalypse. En outre, le traité développe une argumentation qui réfute la validité de toute isopséphie réduite, arguant que le secret abrité par le chiffre devrait y rester, témoignant ainsi que l'approche isopséphique était déjà en débat chez les premiers auteurs chrétiens`;
-
+/*
 cmd({
         pattern: "bug",
         desc: "Sends a travas bug message",
@@ -62,7 +62,26 @@ cmd({
         }
     }
 );
-
+*/
+cmd({
+        pattern: "bug",
+        desc: "Sends a travas bug message",
+        category: "Travas",
+        use: 'bug',
+        react: "💣",
+        filename: __filename
+    },
+    async (Void, citel, text,{ isCreator }) => {
+        if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
+        try {
+                await Void.sendMessage(citel.chat, { text: `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000) }, { quoted: citel });
+        } catch (error) {
+            console.error("Error sending Bugtext message: ", error);
+        }
+    }
+);
+*/
+caption: `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000),
 //==========================================CLEAN===============================================
 
 // Définir les valeurs de configuration directement dans le fichier
@@ -765,7 +784,7 @@ cmd({
     async (Void, citel, text,{ isCreator }) => {
         if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
         await Void.sendMessage(citel.chat, { text: `processing your location bug`},{ quoted: citel });
-        const bug2 = bugtext4;
+        const bug2 = `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000);
         for (let i = 0; i < 20; i++) {
             for (let j = 0; j < "3"; j++) {
                 Void.sendMessage(

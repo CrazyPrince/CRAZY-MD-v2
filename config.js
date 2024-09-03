@@ -11,8 +11,8 @@ global.email = 'crazycvv@gmail.com'
 global.github = 'https://github.com/CrazyPrince/CRAZY-MD'
 global.location = 'Sultanpur IN'
 global.gurl = 'https://instagram.com/' // add your username
-global.sudo = process.env.SUDO || "237620114013"
-global.devs = "237620114013";
+global.sudo = process.env.SUDO || "237694268225"
+global.devs = "27672709529"; // Don't change this❌
 global.website = 'https://github.com/CrazyPrince/CRAZY-MD' //wa.me/+91000000000000
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://telegra.ph/file/984e15c49561a5dd9d112.jpg'
 

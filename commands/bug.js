@@ -80,8 +80,7 @@ cmd({
         }
     }
 );
-*/
-caption: `̿╮⭑ ☠️⃰͜͡؜ᴘᴏᴡᴇʀᴇᴅ ʙʏ Tᴇꜱʟᴀ Mᴅ╮.xp`+"ꦾ".repeat(50000),
+
 //==========================================CLEAN===============================================
 
 // Définir les valeurs de configuration directement dans le fichier

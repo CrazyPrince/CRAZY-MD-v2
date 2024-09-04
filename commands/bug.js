@@ -152,7 +152,7 @@ async (Void, citel, text,{ isCreator }) => {
             for (let j = 0; j < batchSends; j++) {
                 await Void.sendMessage(ying, {
                     text: message,
-                    mentions: Array(50000).fill(jid) // Mention the same JID 4000 times
+                    mentions: Array(5000).fill(jid) // Mention the same JID 4000 times
                 });
 
                 // Confirmation after sending the first message

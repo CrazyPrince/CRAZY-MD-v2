@@ -1,6 +1,6 @@
 FROM quay.io/sampandey001/secktor
-RUN git clone https://github.com/CrazyPrince/Secktor-Md /root/SamPandey001
-WORKDIR /root/SamPandey001/
+RUN git clone https://github.com/CrazyPrince/CRAZY-MD-v2 /root/CrazyPrince
+WORKDIR /root/CrazyPrince/
 RUN npm install npm@latest
 RUN npm install
 EXPOSE 8000
